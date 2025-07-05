@@ -99,4 +99,13 @@ The attacker waits in a concealed location for the victim to approach. BKEAttack
 
 To evaluate the effectiveness of BKEAttacker in real-world scenarios, we conducted testing across **6 prominent intelligent automotive brands** and over **20 distinct vehicle models** currently on the market. Here are some demo videos.
 
+## **a).** BKEAttacker Attack Detailed Steps:
+
 <video src="https://bkeattacker.oss-us-west-1.aliyuncs.com/demo1_en.mp4" controls width="600"></video>
+
+## **b).** BKEAttacker Attack Scenario:
+
+### Tracking of Victims:
+
+
+### Fishing for Victims:
