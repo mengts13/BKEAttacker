@@ -1,0 +1,46 @@
+grpc:
+  server:
+    host: "10.42.0.1"
+    port: 40002
+  client:
+    host: "10.42.0.1"
+    port: 40001
+Bd_addr: "4A:54:25:A3:2B:BC"
+
+mtu: 256
+
+broadcast_num: 2
+
+gatt_services:
+  # Generic Attribute Service
+  - service_uuid: "00001801-0000-1000-8000-00805f9b34fb"
+    characteristics:
+      # Service Changed
+      - char_uuid: "00002a05-0000-1000-8000-00805f9b34fb"
+        properties: ["indicate"]
+        permissions: ["read"]
+        value: ""
+        descriptors:
+          - desc_uuid: "00002902-0000-1000-8000-00805f9b34fb"
+            permissions: ["read", "write"]
+
+  # Unknown Service
+  - service_uuid: "0000fcd1-0000-1000-8000-00805f9b34fb"
+    characteristics:
+      # Unknown Characteristic 1
+      - char_uuid: "0000fff1-0000-1000-8000-00805f9b34fb"
+        properties: ["write", "write_no_response"]
+        permissions: ["write"]
+        value: ""
+
+      # Unknown Characteristic 2
+      - char_uuid: "0000fff2-0000-1000-8000-00805f9b34fb"
+        properties: ["notify", "indicate"]
+        permissions: ["read"]
+        value: ""
+        descriptors:
+          - desc_uuid: "00002902-0000-1000-8000-00805f9b34fb"
+            permissions: ["read", "write"]
+
+mqtt:
+  brokerUrl: "tcp://10.98.36.211:40001"
