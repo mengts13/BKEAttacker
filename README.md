@@ -100,10 +100,12 @@ The attacker waits in a concealed location for the victim to approach. BKEAttack
 To evaluate the effectiveness of BKEAttacker in real-world scenarios, we conducted testing across **6 prominent intelligent automotive brands** and over **20 distinct vehicle models** currently on the market. Here are some demo videos.
 
 ## **a).** BKEAttacker Attack Detailed Steps:
+BKEAttacker is an adaptive automated attack methodology targeting BLE-based Passive Keyless Entry (PKES) systems. Unlike prior works, BKEAttacker eliminates the need for reverse engineering hardware/software components by employing a sandboxing mechanism to construct behavioral mappings of PKES operations. This enables the extraction of protocol specifications from target systems and facilitates the automated generation of tailored attack strategies.
 
 <video src="https://bkeattacker.oss-us-west-1.aliyuncs.com/BKEAttacker-detail-en.mp4" controls width="600"></video>
 
 ## **B).** BKEAttacker Attack Scenario:
+Compared to previous BLE Man-in-the-Middle attacks at the physical or link layer, BKEAttacker achieves extended attack range and environmental adaptability. This enables covert key extraction from victim PKES systems in stealthy scenarios, allowing attacks against target vehicles.
 
 ### Tracking of Victims:
 
@@ -112,6 +114,7 @@ To evaluate the effectiveness of BKEAttacker in real-world scenarios, we conduct
 <video src="http://bkeattacker.oss-us-west-1.aliyuncs.com/BKEAttacker-scene2-lure-en.mp4" controls width="600"></video>
 
 ## **C).** Unauthorized Controlling The PKES System of A Well-known Vehicle Brand:
+BKEAttacker's sandboxing mechanism can effortlessly extract protocol specifications from target vehicles' PKES systems. When facing PKES systems with design flaws, attackers can further develop novel attack methodologies based on BKEAttacker's analysis results.
 
 <video src="http://bkeattacker.oss-us-west-1.aliyuncs.com/BKEAttacker-none-mitm-en.mp4" controls width="600"></video>
 BKEAttacker: Assisting PKES Attack Design Through TheProtocol Details
