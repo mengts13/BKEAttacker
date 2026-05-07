@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Impersonate Owner - Broadcast Scan & Sync</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Roboto', 'Microsoft YaHei', sans-serif;
+        }
+        :root {
+            --primary-blue: #1A3F7A;
+            --secondary-blue: #0d2a57;
+            --text-dark: #1e293b;
+            --text-gray: #64748b;
+            --border-color: #d1dae6;
+            --card-bg: #ffffff;
+            --shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+            --card-radius: 16px;
+            --spacing: 24px;
+        }
+        body {
+            background: #f8fafc;
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding: 16px;
+            min-height: 100vh;
+        }
+        /* Top status information */
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 16px var(--spacing) 12px;
+            background: var(--card-bg);
+            border-radius: var(--card-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 16px;
+        }
+        .title-container {
+            max-width: 230px;
+        }
+        .page-title {
+            font-size: 1.38rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            line-height: 1.25;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .role-description {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            font-weight: 500;
+            margin-top: 4px;
+            padding-left: 2px;
+        }
+        .avatar-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+        .avatar-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .latency-indicator {
+            margin-top: 4px;
+            font-size: 0.75rem;
+            color: #38a169;
+            font-weight: 500;
+        }
+
+        /* Step indicator - number style, horizontal line vertically centered */
+        .steps-container {
+            position: relative;
+            padding: 0 var(--spacing) 16px;
+            background: var(--card-bg);
+            border-radius: var(--card-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 16px;
+        }
+        .progress-bar {
+            position: absolute;
+            top: 19px; /* 28px high circle, center line = 14px */
+            left: var(--spacing);
+            right: var(--spacing);
+            height: 2px;
+            background-color: var(--border-color);
+            z-index: 1;
+        }
+        .progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 33.3%;
+            background-color: var(--primary-blue);
+        }
+        .step-wrapper {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            z-index: 2;
+            padding-top: 6px; /* Fine-tune top spacing to avoid text sticking to the edge */
+        }
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 33.33%;
+        }
+        .step-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+            border: 2px solid var(--border-color);
+            background-color: #f1f5f9;
+            color: var(--text-gray);
+        }
+        .step.active .step-icon {
+            background-color: var(--primary-blue);
+            color: white;
+            border-color: var(--primary-blue);
+        }
+        .step-label {
+            font-size: 0.76rem;
+            font-weight: 500;
+            color: var(--text-gray);
+            text-align: center;
+            line-height: 1.2;
+        }
+        .step.active .step-label {
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        /* Scan Mode */
+        .scan-mode-container {
+            background: var(--card-bg);
+            border-radius: var(--card-radius);
+            box-shadow: var(--shadow);
+            padding: 16px var(--spacing);
+            margin-bottom: 24px;
+        }
+        .section-header {
+            font-size: 1rem;
+            color: var(--text-dark);
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .mode-options {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        .mode-option {
+            flex: 1;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 8px 4px;
+        }
+        .mode-option.selected {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border-color: var(--primary-blue);
+            color: white;
+        }
+        .scan-input {
+            width: 100%;
+            padding: 12px 16px;
+            font-size: 0.88rem;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            background-color: #fff;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+        }
+        .scan-input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+        }
+        .scan-btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* Data Area */
+        .data-container {
+            background: var(--card-bg);
+            border-radius: var(--card-radius);
+            box-shadow: var(--shadow);
+            padding: 16px var(--spacing);
+            margin-bottom: 16px;
+            flex: 1;
+        }
+        .data-title {
+            font-size: 1rem;
+            color: var(--text-dark);
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .data-box {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 12px;
+            max-height: 240px;
+            overflow-y: auto;
+        }
+        .data-line {
+            display: flex;
+            padding: 6px 0;
+            border-bottom: 1px dashed var(--border-color);
+        }
+        .data-label {
+            flex: 0 0 100px;
+            color: var(--text-gray);
+            font-weight: 500;
+        }
+        .data-value {
+            flex: 1;
+            color: var(--text-dark);
+            font-family: monospace;
+            font-size: 0.88rem;
+        }
+
+        /* Action Buttons */
+        .action-container {
+            background: var(--card-bg);
+            border-radius: var(--card-radius);
+            box-shadow: var(--shadow);
+            padding: 16px var(--spacing);
+        }
+        .action-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background .2s ease;
+        }
+        /* Sync in progress -> green */
+        .action-btn.syncing {
+            background: linear-gradient(135deg, #38a169, #2f855a);
+        }
+
+        /* (Newly added)
+           Add a :disabled state for the action-btn button
+        */
+        .action-btn:disabled {
+            /* Use a neutral gray as the background,
+              var(--border-color) is defined as #d1dae6 in your CSS variables
+            */
+            background: var(--border-color);
+            color: #f1f5f9;      /* Pair with a lighter text color */
+            cursor: not-allowed; /* Show a "forbidden" icon on mouse hover */
+            opacity: 0.8;        /* Make it look more "invalid" */
+        }
+
+        /* (New) Add styles for the broadcast packet list */
+        .packet-list-container {
+            font-size: 0.8rem;      /* Smaller font size */
+            line-height: 1.5;       /* A bit more comfortable line height */
+            max-height: 120px;      /* Limit max height, scroll if there are too many packets */
+            overflow-y: auto;       /* Enable vertical scrolling */
+            background: #f1f5f9;    /* Add a light background */
+            border-radius: 8px;
+            padding: 8px 10px;
+            margin-top: 4px;
+        }
+        .packet-item {
+            display: flex;
+            margin-bottom: 4px;
+            font-family: monospace; /* Monospaced font */
+        }
+        .packet-index {
+            flex: 0 0 25px; /* Fixed width 25px */
+            font-weight: bold;
+            color: var(--primary-blue);
+        }
+        .packet-data {
+            word-break: break-all; /* Automatic line break */
+            color: var(--text-dark);
+        }
+        /* (New) Scrollbar beautification (optional) */
+        .packet-list-container::-webkit-scrollbar {
+            width: 5px;
+        }
+        .packet-list-container::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+
+        /* Scrollbar optimization */
+        .data-box::-webkit-scrollbar {
+            width: 6px;
+        }
+        .data-box::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+        .data-box::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-blue);
+        }
+
+        /* Responsive */
+        @media (max-width: 400px) {
+            .mode-option {
+                font-size: 0.8rem;
+                padding: 6px 2px;
+            }
+            .page-title {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Page Header -->
+<div class="page-header">
+    <div class="title-container">
+        <div class="page-title">Impersonate Owner</div>
+        <div class="role-description">(Approach the victim vehicle)</div>
+    </div>
+    <div class="avatar-container">
+        <button class="avatar-btn" id="userAvatar">U</button>
+        <div class="latency-indicator" id="latencyIndicator">Latency: --ms</div>
+    </div>
+</div>
+
+<!-- Step Indicator (Number Style) -->
+<div class="steps-container">
+    <div class="progress-bar">
+        <div class="progress"></div>
+    </div>
+    <div class="step-wrapper">
+        <div class="step active">
+            <div class="step-icon">1</div>
+            <div class="step-label">Broadcast Scan</div>
+        </div>
+        <div class="step">
+            <div class="step-icon">2</div>
+            <div class="step-label">Select Broadcast to Sync</div>
+        </div>
+        <div class="step">
+            <div class="step-icon">3</div>
+            <div class="step-label">Syncing Data</div>
+        </div>
+    </div>
+</div>
+
+<!-- Scan mode -->
+<div class="scan-mode-container">
+    <div class="section-header">Broadcast Scan Mode</div>
+    <div class="mode-options">
+        <div class="mode-option selected" id="mode-manual">Manual Scan</div>
+        <div class="mode-option" id="mode-mac">Scan by MAC</div>
+        <div class="mode-option" id="mode-name">Scan by Name</div>
+    </div>
+    <input type="text" class="scan-input" id="scan-input" placeholder="Manual scan requires no input">
+    <button class="scan-btn" id="start-scan-btn">
+        Start Scan
+    </button>
+</div>
+<!-- Action Buttons -->
+<div class="action-container">
+    <button class="action-btn" id="sync-btn">
+        Broadcast Sync
+    </button>
+</div>
+<!-- Selected Data -->
+<div class="data-container">
+    <div class="data-title">Selected Data for Sync</div>
+    <div class="data-box" id="dataBox">
+        <div class="data-line">
+            <div class="data-label">Device Name:</div>
+            <div class="data-value">Victim_Car_Lock</div>
+        </div>
+        <div class="data-line">
+            <div class="data-label">MAC Address:</div>
+            <div class="data-value">11:22:33:44:55:66</div>
+        </div>
+        <div class="data-line">
+            <div class="data-label">Broadcasts:</div>
+            <div class="data-value">24</div>
+        </div>
+        <div class="data-line">
+            <div class="data-label">RSSI:</div>
+            <div class="data-value">-65 dBm</div>
+        </div>
+        <div class="data-line">
+            <div class="data-label">Interval:</div>
+            <div class="data-value">100ms</div>
+        </div>
+        <div class="data-line">
+            <div class="data-label">Manufacturer:</div>
+            <div class="data-value">AutoTech (0x004C)</div>
+        </div>
+        <div class="data-line">
+            <div class="data-label">Discovered At:</div>
+            <div class="data-value">14:25:36</div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    // --- Get all elements ---
+    const steps = document.querySelectorAll('.step');
+    const progress = document.querySelector('.progress');
+    const syncBtn = document.getElementById('sync-btn');
+    const startScanBtn = document.getElementById('start-scan-btn');
+    const dataBox = document.getElementById('dataBox');
+    const manualMode = document.getElementById('mode-manual');
+    const macMode = document.getElementById('mode-mac');
+    const nameMode = document.getElementById('mode-name');
+    const scanInput = document.getElementById('scan-input');
+    let currentMode = 'manual';
+
+    function formatPackedPackets(packets) {
+        console.log('p3: formatPackedPackets called with:', packets);
+        if (!packets || packets.length === 0) {
+            return '<div class="packet-list-container" style="text-align: center; color: var(--text-gray);">(No data)</div>';
+        }
+
+        let html = '<div class="packet-list-container">';
+        packets.forEach((pair, index) => {
+            html += `
+                <div class="packet-item" style="border-top: ${index > 0 ? '1px dashed #cbd5e1' : 'none'}; padding-top: ${index > 0 ? '5px' : '0'};">
+                    <span class="packet-index">${index + 1}:</span>
+                    <span class="packet-data">
+                        <div><strong style="color:var(--text-gray);">adv_data:</strong> ${pair.adv_data || '(empty)'}</div>
+
+                        ${pair.adv_resp ? `<div><strong style="color:var(--text-gray);">adv_resp:</strong> ${pair.adv_resp}</div>` : ''}
+                    </span>
+                </div>
+            `;
+        });
+        html += '</div>';
+        return html;
+    }
+
+    function populateDataBox(device) {
+        console.log('p3: populateDataBox called with:', device);
+        if (!device) {
+            // (Unified placeholder)
+            dataBox.innerHTML = `
+                <div class="data-line"> <div class="data-label">Device name:</div> <div class="data-value" style="font-weight:bold;">(Not selected)</div> </div>
+                <div class="data-line"> <div class="data-label">MACaddress:</div> <div class="data-value">...</div> </div>
+                <div class="data-line"> <div class="data-label">RSSIvalue:</div> <div class="data-value">...</div> </div>
+                <div class="data-line"> <div class="data-label">Number of broadcasts:</div> <div class="data-value" style="font-weight:bold; color:var(--primary-blue);">...</div> </div>
+                <div class="data-line"> <div class="data-label">Broadcast content:</div> <div class="data-value"> <div class="packet-list-container" style="text-align: center; color: var(--text-gray);">(No data)</div> </div> </div>
+            `;
+            dataBox.style.opacity = '0.3';
+            syncBtn.disabled = true;
+            return;
+        }
+
+        // (Populate data - ensure formatPackedPackets is called)
+        dataBox.innerHTML = `
+            <div class="data-line"> <div class="data-label">Device name:</div> <div class="data-value" style="font-weight:bold;">${device.name || 'N/A'}</div> </div>
+            <div class="data-line"> <div class="data-label">MACaddress:</div> <div class="data-value">${device.address || 'N/A'}</div> </div>
+            <div class="data-line"> <div class="data-label">RSSIvalue:</div> <div class="data-value">${device.rssi || 'N/A'} dBm</div> </div>
+            <div class="data-line"> <div class="data-label">Number of broadcasts:</div> <div class="data-value" style="font-weight:bold; color:var(--primary-blue);">${device.broadcastCount || 0}</div> </div>
+            <div class="data-line"> <div class="data-label">Broadcast content:</div> <div class="data-value"> ${formatPackedPackets(device.packedPackets)} </div> </div>
+        `;
+        dataBox.style.opacity = '1';
+        syncBtn.disabled = false;
+    }
+
+    function setStep(n) {
+        if (!steps || steps.length < 3) return;
+        steps[0].classList.toggle('active', n >= 1);
+        steps[1].classList.toggle('active', n >= 2);
+        steps[2].classList.toggle('active', n >= 3);
+        if (progress) {
+            progress.style.width = ((n - 1) / 2 * 100) + '%';
+        }
+        startScanBtn.disabled = (n === 3);
+        // The button turns green during synchronization, and returns to its original color upon completion or fallback
+        if (typeof syncBtn !== 'undefined' && syncBtn) {
+            if (n === 3) syncBtn.classList.add('syncing');
+            else syncBtn.classList.remove('syncing');
+        }
+    }
+
+    (function onPageLoad() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const fromP4 = urlParams.get('from') === 'p4';
+        let selectedDevice = null;
+        let deviceDataString = null; // (New) Save the original string
+
+        try {
+            deviceDataString = localStorage.getItem('selectedDeviceForP3'); // (New) First get the string
+            console.log('p3: Retrieved raw data from localStorage:', deviceDataString);
+            if (deviceDataString) {
+                selectedDevice = JSON.parse(deviceDataString);
+                console.log('p3: Parsed device from localStorage:', selectedDevice);
+                localStorage.removeItem('selectedDeviceForP3'); // Delete after reading
+            }
+        } catch (e) {
+            console.error('Failed to parse device from localStorage', e);
+            selectedDevice = null;
+            deviceDataString = null; // Clear the string if parsing fails
+        }
+
+        if (selectedDevice) {
+            populateDataBox(selectedDevice); // Populate UI
+            setStep(2);
+
+           if (typeof Android !== 'undefined' && typeof Android.cacheDeviceDataForSync === 'function') {
+                try {
+                    // Build {"broadcastPackets": [...]} JSON string
+                    const packetsJsonString = JSON.stringify({ broadcastPackets: selectedDevice.packedPackets || [] });
+                    Android.cacheDeviceDataForSync(selectedDevice.address, packetsJsonString); // Send to Java
+                } catch (e) {
+                     console.error("Error creating/sending cache data to Java", e);
+                }
+            } else {
+                console.error("Android bridge 'cacheDeviceDataForSync' not found!");
+            }
+
+        } else {
+            populateDataBox(null); // Fill placeholders
+            setStep(1);
+            // Clear Java cache if no device selected
+            if (typeof Android !== 'undefined' && typeof Android.cacheDeviceDataForSync === 'function') {
+                 Android.cacheDeviceDataForSync(null, null);
+            }
+        }
+    })();
+
+
+    manualMode.addEventListener('click', () => {
+        manualMode.classList.add('selected');
+        macMode.classList.remove('selected');
+        nameMode.classList.remove('selected');
+        scanInput.placeholder = 'No input needed for manual scan';
+        currentMode = 'manual';
+    });
+    macMode.addEventListener('click', () => {
+        macMode.classList.add('selected');
+        manualMode.classList.remove('selected');
+        nameMode.classList.remove('selected');
+        scanInput.placeholder = 'Enter target MAC address';
+        currentMode = 'mac';
+    });
+    nameMode.addEventListener('click', () => {
+        nameMode.classList.add('selected');
+        manualMode.classList.remove('selected');
+        macMode.classList.remove('selected');
+        scanInput.placeholder = 'Enter target device name';
+        currentMode = 'name';
+    });
+
+    const latencyElement = document.getElementById('latencyIndicator');
+    function updateLatency() {
+        const latency = Math.floor(Math.random() * 30) + 15;
+        latencyElement.textContent = `Latency: ${latency}ms`;
+    }
+    setInterval(updateLatency, 3000);
+    updateLatency();
+
+    // 1. "Start Scan" button
+    startScanBtn.addEventListener('click', function() {
+        if (typeof Android === 'undefined' || typeof Android.startScan === 'undefined') {
+            alert('Error: Failed to connect to Android native code (startScan).');
+            return;
+        }
+        const query = scanInput.value;
+        if ((currentMode === 'mac' || currentMode === 'name') && !query) {
+             alert('Please enter a search term in ' + currentMode + ' mode');
+             return;
+        }
+        startScanBtn.textContent = 'Scanning...';
+        startScanBtn.disabled = true;
+
+        setTimeout(() => {
+            startScanBtn.textContent = 'Start Scan';
+            if (steps[2].classList.contains('active') === false) {
+                 startScanBtn.disabled = false;
+            }
+        }, 5500);
+
+        Android.startScan(currentMode, query);
+    });
+
+    // 2. "Broadcast Sync" button
+    syncBtn.addEventListener('click', function() {
+        if (typeof Android === 'undefined' || typeof Android.startBroadcastSync === 'undefined') {
+            alert('Error: Failed to connect to Android native code (startBroadcastSync).');
+            return;
+        }
+        setStep(3);
+        Android.startBroadcastSync();
+    });
+
+    // 3. Avatar click
+    document.getElementById('userAvatar').addEventListener('click', function() {
+        location.href = 'p7.html';
+    });
+
+    // --- (unchanged) Functions called by Java ---
+    function navigateToP4() {
+        location.href = 'p4.html';
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+        <title>Pretend to be the car owner attack panel</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Segoe UI', 'Roboto', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+                transition: all 0.25s ease;
+            }
+            :root {
+                --primary-blue: #1A3F7A;
+                --secondary-blue: #2c5282;
+                --soft-blue: #d4e4ff;
+                --text-dark: #2d3748;
+                --text-light: #718096;
+                --text-gray: #a0aec0;
+                --green: #38a169;
+                --border-color: #e2e8f0;
+                --shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+                --card-radius: 14px;
+                --spacing: 20px;
+            }
+            body {
+                background: white;
+                color: var(--text-dark);
+                line-height: 1.6;
+                padding: 16px;
+                min-height: 100vh;
+            }
+            /* top title bar */
+            .header {
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+                min-height: 64px;
+                background: white;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+                padding: 15px var(--spacing) 0;
+                border-radius: var(--card-radius);
+                margin-bottom: 16px;
+            }
+            .title-info {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 8px;
+            }
+            .user-title {
+                font-size: 1.4rem;
+                font-weight: 700;
+                color: var(--text-dark);
+                margin-bottom: 4px;
+            }
+            .user-location {
+                font-size: 0.85rem;
+                color: var(--text-gray);
+            }
+            .avatar-delay-container {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                margin-bottom: 8px;
+            }
+            .avatar-btn {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background: var(--soft-blue);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                color: var(--primary-blue);
+                font-size: 1.2rem;
+                position: relative;
+                overflow: hidden;
+                border: 2px solid var(--border-color);
+            }
+            .delay-indicator {
+                background-color: rgba(56, 161, 105, 0.1);
+                color: var(--green);
+                font-size: 0.75rem;
+                font-weight: 600;
+                padding: 2px 8px;
+                border-radius: 12px;
+                margin-top: 5px;
+            }
+            /* status step bar */
+            .status-container {
+                padding: 20px var(--spacing) 15px;
+                background: white;
+                border-radius: var(--card-radius);
+                margin-bottom: 16px;
+                box-shadow: var(--shadow);
+            }
+            .process-steps {
+                display: flex;
+                justify-content: space-between;
+                position: relative;
+                margin-top: 10px;
+            }
+            .process-steps::before {
+                content: "";
+                position: absolute;
+                top: 15px;
+                left: 10%;
+                right: 10%;
+                height: 2px;
+                background-color: var(--border-color);
+                z-index: 1;
+            }
+            .step {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: relative;
+                z-index: 2;
+                flex: 1;
+                max-width: 33.333%;
+            }
+            .step-icon {
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                background: var(--soft-blue);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 10px;
+                border: 2px solid transparent;
+                font-size: 0.9rem;
+                font-weight: bold;
+            }
+            .step.active .step-icon {
+                background: var(--primary-blue);
+                color: white;
+                border-color: var(--secondary-blue);
+                box-shadow: 0 4px 8px rgba(26, 63, 122, 0.2);
+            }
+            .step.inactive .step-icon {
+                background: #f1f5f9;
+                color: var(--text-light);
+            }
+            .step-title {
+                font-size: 0.85rem;
+                font-weight: 600;
+                text-align: center;
+                line-height: 1.3;
+                color: var(--text-light);
+            }
+            .step.active .step-title {
+                color: var(--primary-blue);
+            }
+            /* attack button */
+            .attack-controls {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 16px;
+            }
+            .attack-btn {
+                padding: 14px 45px;
+                background: linear-gradient(to right, #d9534f, #c9302c);
+                color: white;
+                border: none;
+                border-radius: 30px;
+                font-size: 1.05rem;
+                font-weight: 700;
+                cursor: pointer;
+                box-shadow: 0 4px 12px rgba(217, 83, 79, 0.3);
+                display: flex;
+                align-items: center;
+                transition: all 0.3s;
+            }
+            .attack-btn.running {
+                background: linear-gradient(to right, #38a169, #2d8b57);
+                box-shadow: 0 4px 12px rgba(56, 161, 105, 0.3);
+            }
+            .attack-icon {
+                margin-right: 10px;
+                font-size: 1rem;
+            }
+            /* log area */
+            .log-container {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+            }
+            .log-title {
+                font-size: 1.1rem;
+                font-weight: 600;
+                color: var(--primary-blue);
+                margin-bottom: 15px;
+                display: flex;
+                align-items: center;
+                padding: 0 5px;
+                justify-content: space-between;
+            }
+            .log-title .title-left{ display:flex; align-items:center; }
+            .clear-log-btn{ margin-left:8px; padding:4px 10px; font-size:12px; border:1px solid var(--border-color); background:#fff; color: var(--text-dark); border-radius:8px; cursor:pointer; }
+            .clear-log-btn:hover{ background:#f1f5f9; }
+            .log-icon {
+                margin-right: 10px;
+                color: var(--primary-blue);
+            }
+            .log-content {
+                flex: 1;
+                background: white;
+                border-radius: var(--card-radius);
+                box-shadow: var(--shadow);
+                padding: 15px;
+                overflow-y: auto;
+                border: 1px solid var(--border-color);
+                user-select: none;
+                max-height: 450px;
+            }
+            .log-item {
+                display: flex;
+                align-items: flex-start;
+                padding: 12px 16px;
+                margin-bottom: 8px;
+                border-radius: 12px;
+                background-color: #f8fafc;
+                font-size: 0.85rem;
+                line-height: 1.5;
+                word-break: break-word;
+                animation: fadeIn 0.3s;
+            }
+            .log-item.info { background-color: #f8fafc; color: var(--text-dark); }
+            .log-item.success { background-color: #ebfbee; color: var(--green); }
+            .log-item.warning { background-color: #fff7ed; color: #d69e2e; }
+            .log-item.error { background-color: #fee2e2; color: #d9534f; }
+            .log-item .timestamp {
+                color: var(--text-light);
+                font-size: 0.75rem;
+                min-width: 85px;
+                font-weight: 500;
+                margin-right: 10px;
+                flex-shrink: 0;
+            }
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(5px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            /* scroll bar */
+            .log-content::-webkit-scrollbar {
+                width: 8px;
+            }
+            .log-content::-webkit-scrollbar-track {
+                background: #f1f1f1;
+                border-radius: 10px;
+            }
+            .log-content::-webkit-scrollbar-thumb {
+                background: #b8c2cc;
+                border-radius: 10px;
+            }
+            .log-content::-webkit-scrollbar-thumb:hover {
+                background: var(--primary-blue);
+            }
+            /* Responsive */
+            @media (max-width: 400px) {
+                .attack-btn {
+                    padding: 12px 35px;
+                    font-size: 1rem;
+                }
+                .step-title {
+                    font-size: 0.8rem;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- top title bar -->
+        <div class="header">
+            <div class="title-info">
+                <div class="user-title">Pretend to be the car owner</div>
+                <div class="user-location">（Near the victim's car）</div>
+            </div>
+            <div class="avatar-delay-container">
+                <div class="avatar-btn" id="userAvatar">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+                <div class="delay-indicator" id="delayIndicator">--ms</div>
+            </div>
+        </div>
+
+        <!-- status step bar -->
+        <div class="status-container">
+            <div class="process-steps">
+                <div class="step active">
+                    <div class="step-icon">1</div>
+                    <div class="step-title">Connected vehicles</div>
+                </div>
+                <div class="step inactive">
+                    <div class="step-icon">2</div>
+                    <div class="step-title">service discovery</div>
+                </div>
+                <div class="step inactive">
+                    <div class="step-icon">3</div>
+                    <div class="step-title">Send unlock command</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- attack button -->
+        <div class="attack-controls">
+            <button class="attack-btn" id="attackButton">
+                <i class="fas fa-play-circle attack-icon"></i>
+                start attacking
+            </button>
+        </div>
+
+        <!-- log area -->
+        <div class="log-container">
+            <div class="log-title">
+                <span class="title-left">
+                    <i class="fas fa-terminal log-icon"></i>
+                    <span>➤ Attack log</span>
+                </span>
+                <button id="clearLogBtn" class="clear-log-btn">Clear</button>
+            </div>
+            <div class="log-content" id="logContent">
+                <!-- Log dynamic insertion -->
+            </div>
+        </div>
+
+        <script>
+            const attackButton = document.getElementById('attackButton');
+            const logContent = document.getElementById('logContent');
+            const delayIndicator = document.getElementById('delayIndicator');
+
+            let isAttacking = false;
+            let logLines = [
+                {type: 'info', time: '11:45:32', msg: 'Fake UserAttack system starts'},
+                {type: 'success', time: '11:45:35', msg: 'BLECommunication module initialization completed'},
+                {type: 'info', time: '11:45:38', msg: 'Start scanning vehicle devices...'},
+                {type: 'info', time: '11:45:42', msg: 'Bluetooth signal detected: BMW X5 (MAC: AA:BB:CC:00:11:22)'},
+                {type: 'success', time: '11:45:45', msg: 'Target vehicle positioning: Distance approx.5rice'},
+                {type: 'warning', time: '11:45:48', msg: 'warn: Vehicle safety system detected to be running'},
+                {type: 'info', time: '11:45:50', msg: 'Ready to establish connection...'},
+            ];
+
+            function generateRandomDelay() {
+                return Math.floor(Math.random() * 30) + 15;
+            }
+
+            // For backend call：Append log（string）
+            window.appendLog = function(message){
+                try{ addLogEntry('info', String(message)); }catch(e){ /* ignore */ }
+            };
+            // Clear current page log
+            window.clearLogs = function(){
+                try{ logLines = []; updateLogDisplay(); }catch(e){ /* ignore */ }
+            };
+
+            function updateLogDisplay() {
+                let logHtml = '';
+                logLines.forEach(line => {
+                    logHtml += `
+                        <div class="log-item ${line.type}">
+                            <span class="timestamp">[${line.time}]</span>
+                            ${line.msg}
+                        </div>
+                    `;
+                });
+                logContent.innerHTML = logHtml;
+                logContent.scrollTop = logContent.scrollHeight;
+            }
+
+            function addLogEntry(type, msg) {
+                const now = new Date();
+                const timeString = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
+                logLines.push({type, time: timeString, msg});
+                if (logLines.length > 50) logLines = logLines.slice(-50);
+                updateLogDisplay();
+            }
+
+            function simulateAttack() {
+                if (!isAttacking) return;
+                // Delayed display is injected by native，The front end will no longer be rewritten
+                const steps = [
+                    {delay: 2000, msg: "Connecting to target vehicle...", stepChange: true},
+                    {delay: 1800, msg: "Vehicle connection successful (MAC: AA:BB:CC:00:11:22)"},
+                    {delay: 2200, msg: "Initiate a service discovery request...", stepChange: true},
+                    {delay: 2500, msg: "Discover vehicle unlocking services (UUID: 0x180D)"},
+                    {delay: 2000, msg: "Discover vehicle status services (UUID: 0x1811)"},
+                    {delay: 1800, msg: "The target service is cached, Ready to send instructions", stepChange: true},
+                    {delay: 1500, msg: "Decrypt security protocols...", stepChange: false},
+                    {delay: 2000, msg: "Build unlock instructions (code: 0xA5 0x8F)"},
+                    {delay: 2200, msg: "Send unlock command...", stepChange: false},
+                    {delay: 1800, msg: "vehicle response: 200 OK", stepChange: true},
+                    {delay: 1500, msg: "Attack successful! Vehicle is unlocked"}
+                ];
+                let stepIndex = 0;
+                let stepCounter = 0;
+                function processStep() {
+                    if (stepIndex >= steps.length) return;
+                    const step = steps[stepIndex];
+                    setTimeout(() => {
+                        addLogEntry('info', step.msg);
+                        if (step.stepChange) {
+                            const stepsEl = document.querySelectorAll('.step');
+                            stepsEl[stepCounter].classList.add('inactive');
+                            stepsEl[stepCounter + 1].classList.add('active');
+                            stepsEl[stepCounter + 1].classList.remove('inactive');
+                            stepCounter++;
+                        }
+                        stepIndex++;
+                        if (stepIndex < steps.length) processStep();
+                        else {
+                            setTimeout(() => {
+                                attackButton.classList.remove('running');
+                                attackButton.innerHTML = '<i class="fas fa-redo-alt attack-icon"></i>re-attack';
+                            }, 1000);
+                        }
+                    }, step.delay);
+                }
+                processStep();
+            }
+
+            attackButton.addEventListener('click', function() {
+                if (isAttacking) {
+                    isAttacking = false;
+                    this.classList.remove('running');
+                    this.innerHTML = '<i class="fas fa-play-circle attack-icon"></i>start attacking';
+                    addLogEntry('warning', 'The attack has been stopped manually');
+                } else {
+                    isAttacking = true;
+                    this.classList.add('running');
+                    this.innerHTML = '<i class="fas fa-stop-circle attack-icon"></i>stop attack';
+                    addLogEntry('info', 'Initiate vehicle unlock attack...');
+                    // Reset steps
+                    document.querySelectorAll('.step').forEach((step, index) => {
+                        step.className = index === 0 ? 'step active' : 'step inactive';
+                    });
+                    setTimeout(() => {
+                        addLogEntry('success', 'Attack initialization completed');
+                        simulateAttack();
+                    }, 1500);
+                }
+            });
+
+            document.getElementById('clearLogBtn').addEventListener('click', function(){ window.clearLogs(); });
+
+            document.getElementById('userAvatar').addEventListener('click', function() {
+                addLogEntry('info', 'user profile');
+            });
+
+            updateLogDisplay();
+
+            setInterval(() => {
+                if (isAttacking) {
+                    // Delayed display is injected by native，The front end will no longer be rewritten
+                }
+            }, 3000);
+
+            setInterval(() => {
+                if (!isAttacking && logLines.length < 15) {
+                    const now = new Date();
+                    const timeString = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
+                    const msgs = [
+                        `Device activity detection - Scanning...`,
+                        `vehicle signal: -${Math.floor(Math.random()*30)+50}dBm`,
+                        `Bluetooth adapter status: normal`,
+                        `encryption protocol: AES-128`,
+                        `free memory: ${Math.floor(Math.random()*256)+128}MB`
+                    ];
+                    const newEntry = {
+                        type: 'info',
+                        time: timeString,
+                        msg: msgs[Math.floor(Math.random()*msgs.length)]
+                    };
+                    logLines.push(newEntry);
+                    updateLogDisplay();
+                }
+            }, 5000);
+        </script>
+    </body>
+</html>

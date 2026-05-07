@@ -1,0 +1,341 @@
+     ____
+    / _  |   Frida 16.5.7 - A world-class dynamic instrumentation toolkit
+   | (_| |
+    > _  |   Commands:
+   /_/ |_|       help      -> Displays the help system
+   . . . .       object?   -> Display information about 'object'
+   . . . .       exit/quit -> Exit
+   . . . .
+   . . . .   More info at https://frida.re/docs/home/
+   . . . .
+   . . . .   Connected to 127.0.0.1:12346 (id=socket@127.0.0.1:12346)
+Attaching...
+[*] Loading Bluetooth protocol stack synthesis Hook script...
+[+] base address: 0x7a198e6000
+[*] allHookLoaded successfully！
+[Remote::com.android.bluetooth ]-> [MTU Configuration] connectID: 0x8, currentMTU: 256
+[MTU Configuration] return value: 0
+
+[GATTC write operation]
+connect ID: 0x8 (8)
+type: GATT_WRITE (2)
+data structure:
+{
+    connectID: 0x8,
+    handle: 0xb,
+    offset: 0x0,
+    length: 2,
+    Authentication request: 0x0,
+    data: [01 00]
+}
+[security check] Parameter address: 0x7a1a191138
+GATT Security Cls: 0x7a1a191138
+[security check] return value: 1
+[security check] return value: reject
+[GATTC write operation] return value: 0x0
+
+[Bluetooth GATT notify]
+aisle ID: 0x4, opcode: 0x1b, total length: 106 bytes
+data block #1
+handle: 0x000a
+Data length: 104 bytes
+Data content: 00 00 00 00 00 00 00 00 00 68 00 00 02 C1 00 58 81 41 04 FF 30 F3 55 50 83 A3 32 EB 46 FF 38 FA F7 EA 61 36 61 14 94 23 C6 A2 C7 BB E8 AE 75 1C 2B 7E 84 3A E4 15 7C 04 3B 4E D5 0A EC 81 DC 20 5D 3A 4A 79 99 49 D7 6B 9B 81 BD 26 FD 19 E7 AA 9D AB 03 82 01 01 83 10 00 2F 00 00 00 00 00 00 00 00 00 00 00 08 A7 90
+
+[GATTC write operation]
+connect ID: 0x8 (8)
+type: GATT_WRITE (2)
+data structure:
+{
+    connectID: 0x8,
+    handle: 0x8,
+    offset: 0x0,
+    length: 121,
+    Authentication request: 0x0,
+    data: [00 00 02 00 00 01 00 00 00 79 00 00 02 00 00 c1 00 67 84 41 04 6a cb 46 5a 9b 3d 92 a4 36 e5 85 0f 00 d0 39 5a ab ca 75 96 7a 72 c5 4c 4b 7d a4 da 68 1a 43 de 40 0e 4e 71 73 2c 65 78 5e 0d c0 82 77 b8 14 a6 da 6b 0c 2b e2 b6 9d 92 54 cc 2e e2 95 c3 d8 21 89 10 c0 01 00 2f 30 a7 90 25 05 20 17 02 26 c5 db f9 85 10 14 91 2d b6 e2 02 3b d3 08 69 86 1e 2d b4 74 7d]
+}
+[security check] Parameter address: 0x7a1a191138
+GATT Security Cls: 0x7a1a191138
+[security check] return value: 1
+[security check] return value: reject
+[GATTC write operation] return value: 0x0
+
+[Bluetooth GATT notify]
+aisle ID: 0x4, opcode: 0x1b, total length: 58 bytes
+data block #1
+handle: 0x000a
+Data length: 56 bytes
+Data content: 00 00 00 00 00 01 00 01 00 38 C0 00 02 C2 00 20 F4 31 A3 03 A8 D2 00 95 2A 78 24 39 E4 31 C6 3A BC 8D 64 65 83 CC FE AA BB DD 6E 4F 0A 77 26 43 BD E8 0D 3E 0D CF 53 AB
+
+[GATTC write operation]
+connect ID: 0x8 (8)
+type: GATT_WRITE (2)
+data structure:
+{
+    connectID: 0x8,
+    handle: 0x8,
+    offset: 0x0,
+    length: 26,
+    Authentication request: 0x0,
+    data: [00 00 02 00 00 02 00 01 00 1a c0 00 02 00 00 c2 00 00 a0 f9 bc 66 2b af 6d a6]
+}
+[security check] Parameter address: 0x7a1a191138
+GATT Security Cls: 0x7a1a191138
+[security check] return value: 1
+[security check] return value: reject
+[GATTC write operation] return value: 0x0
+
+[Bluetooth GATT notify]
+aisle ID: 0x4, opcode: 0x1b, total length: 20 bytes
+data block #1
+handle: 0x000a
+Data length: 18 bytes
+Data content: 00 00 01 00 00 02 00 02 00 12 00 00 02 06 00 02 00 00
+
+[Bluetooth GATT notify]
+aisle ID: 0x4, opcode: 0x1b, total length: 42 bytes
+data block #1
+handle: 0x000a
+Data length: 40 bytes
+Data content: 00 00 00 00 00 02 00 03 00 28 C0 00 03 02 00 10 2C 8F 47 E7 42 93 9D F3 12 10 AF 4D F5 52 45 1A 44 3D 26 43 17 00 72 22
+
+[GATTC write operation]
+connect ID: 0x8 (8)
+type: GATT_WRITE (2)
+data structure:
+{
+    connectID: 0x8,
+    handle: 0x8,
+    offset: 0x0,
+    length: 72,
+    Authentication request: 0x0,
+    data: [00 00 00 00 00 03 00 02 00 48 c0 00 05 04 00 30 1f 8d 07 09 68 d6 e1 4f e4 7d cd 84 50 47 83 ee 36 9d 02 92 63 11 26 eb e2 9d c3 3d c4 80 b3 77 a6 32 6f d8 12 17 14 22 55 87 98 38 e8 ce 2b a4 e0 2a 04 cc 98 c3 9f 6a]
+}
+[security check] Parameter address: 0x7a1a191138
+GATT Security Cls: 0x7a1a191138
+[security check] return value: 1
+[security check] return value: reject
+[GATTC write operation] return value: 0x0
+
+[Bluetooth GATT notify]
+aisle ID: 0x4, opcode: 0x1b, total length: 90 bytes
+data block #1
+handle: 0x000a
+Data length: 88 bytes
+Data content: 00 00 00 00 00 02 00 04 00 58 C0 00 04 01 00 40 61 0B C4 6B A1 B1 21 BC 0D 12 68 48 AE 27 D7 EF 38 54 78 E8 77 66 96 05 A5 2C 8D 9E FC A1 9F 6B E0 45 E2 62 98 81 63 89 9D 6F 41 7D 5C FC C2 DF B1 94 A1 6A 38 82 3F 64 B9 B7 DA E6 A3 17 D3 D0 49 A5 3F 8D 25 53 D6 0A
+
+[Bluetooth GATT notify]
+aisle ID: 0x4, opcode: 0x1b, total length: 23 bytes
+data block #1
+handle: 0x000a
+Data length: 21 bytes
+Data content: 00 00 00 00 00 02 00 05 00 15 00 00 04 00 00 05 04 00 02 00 00
+
+[Bluetooth GATT notify]
+aisle ID: 0x4, opcode: 0x1b, total length: 23 bytes
+data block #1
+handle: 0x000a
+Data length: 21 bytes
+Data content: 00 00 00 00 00 02 00 06 00 15 00 00 04 00 00 05 04 00 02 00 05
+
+[Bluetooth GATT notify]
+aisle ID: 0x4, opcode: 0x1b, total length: 44 bytes
+data block #1
+handle: 0x000a
+Data length: 42 bytes
+Data content: 00 00 02 00 00 03 00 07 00 2A C0 00 05 00 00 04 00 10 2A CA AC 49 08 8F 37 6F 03 3A 1D 2C 84 74 BA 00 99 79 29 2E 6B 11 BE 3F
+
+[GATTC write operation]
+connect ID: 0x8 (8)
+type: GATT_WRITE (2)
+data structure:
+{
+    connectID: 0x8,
+    handle: 0x8,
+    offset: 0x0,
+    length: 40,
+    Authentication request: 0x0,
+    data: [00 00 00 00 00 04 00 02 00 28 c0 00 03 01 00 10 7a a8 99 83 37 74 2f c2 d6 70 8a e4 15 e4 2c d7 58 65 91 a1 d3 85 a4 56]
+}
+[security check] Parameter address: 0x7a1a191138
+GATT Security Cls: 0x7a1a191138
+[security check] return value: 1
+[security check] return value: reject
+[GATTC write operation] return value: 0x0
+
+[GATTC write operation]
+connect ID: 0x8 (8)
+type: GATT_WRITE (2)
+data structure:
+{
+    connectID: 0x8,
+    handle: 0x8,
+    offset: 0x0,
+    length: 26,
+    Authentication request: 0x0,
+    data: [00 00 02 00 00 05 00 04 00 1a c0 00 04 00 00 01 00 00 92 bd fa d5 77 7a ce 94]
+}
+[security check] Parameter address: 0x7a1a191138
+GATT Security Cls: 0x7a1a191138
+[security check] return value: 1
+[security check] return value: reject
+[GATTC write operation] return value: 0x0
+
+[Bluetooth GATT notify]
+aisle ID: 0x4, opcode: 0x1b, total length: 44 bytes
+data block #1
+handle: 0x000a
+Data length: 42 bytes
+Data content: 00 00 02 00 00 04 00 08 00 2A C0 00 03 00 00 01 00 10 8E 76 49 62 2C 2D B3 61 0A AA 3D 7B A6 11 DC 40 27 A6 9E 15 85 A4 7C 56
+
+[Bluetooth GATT notify]
+aisle ID: 0x4, opcode: 0x1b, total length: 90 bytes
+data block #1
+handle: 0x000a
+Data length: 88 bytes
+Data content: 00 00 00 00 00 04 00 09 00 58 C0 00 04 01 00 40 61 0B C4 6B A1 B1 21 BC 0D 12 68 48 AE 27 D7 EF 38 54 78 E8 77 66 96 05 A5 2C 8D 9E FC A1 9F 6B E0 45 E2 62 98 81 63 89 9D 6F 41 7D 5C FC C2 DF 5D C7 5F 6F 28 6E 24 5F 39 66 15 29 8D 2D AA 3C 55 99 3F C2 8D 97 61 2C
+
+[GATTC write operation]
+connect ID: 0x8 (8)
+type: GATT_WRITE (2)
+data structure:
+{
+    connectID: 0x8,
+    handle: 0x8,
+    offset: 0x0,
+    length: 18,
+    Authentication request: 0x0,
+    data: [00 00 02 00 00 06 00 05 00 12 00 00 04 00 00 00 00 00]
+}
+[security check] Parameter address: 0x7a1a191138
+GATT Security Cls: 0x7a1a191138
+[security check] return value: 1
+[security check] return value: reject
+[GATTC write operation] return value: 0x0
+
+[Bluetooth GATT notify]
+aisle ID: 0x4, opcode: 0x1b, total length: 23 bytes
+data block #1
+handle: 0x000a
+Data length: 21 bytes
+Data content: 00 00 00 00 00 05 00 0A 00 15 00 00 04 00 00 05 04 00 02 00 04
+
+[GATTC write operation]
+connect ID: 0x8 (8)
+type: GATT_WRITE (2)
+data structure:
+{
+    connectID: 0x8,
+    handle: 0x8,
+    offset: 0x0,
+    length: 18,
+    Authentication request: 0x0,
+    data: [00 00 02 00 00 07 00 06 00 12 00 00 04 00 00 00 00 00]
+}
+[security check] Parameter address: 0x7a1a191138
+GATT Security Cls: 0x7a1a191138
+[security check] return value: 1
+[security check] return value: reject
+[GATTC write operation] return value: 0x0
+
+[GATTC write operation]
+connect ID: 0x8 (8)
+type: GATT_WRITE (2)
+data structure:
+{
+    connectID: 0x8,
+    handle: 0x8,
+    offset: 0x0,
+    length: 26,
+    Authentication request: 0x0,
+    data: [00 00 02 00 00 08 00 09 00 1a c0 00 04 00 00 01 00 00 cc f8 9f f7 98 86 e8 b2]
+}
+[security check] Parameter address: 0x7a1a191138
+GATT Security Cls: 0x7a1a191138
+[security check] return value: 1
+[security check] return value: reject
+[GATTC write operation] return value: 0x0
+
+[GATTC write operation]
+connect ID: 0x8 (8)
+type: GATT_WRITE (2)
+data structure:
+{
+    connectID: 0x8,
+    handle: 0x8,
+    offset: 0x0,
+    length: 40,
+    Authentication request: 0x0,
+    data: [00 00 00 00 00 09 00 09 00 28 c0 00 03 01 00 10 ed 94 5e 4a f8 0e e1 80 22 79 39 65 4c 26 b6 57 de a3 90 e2 5c 49 3a 6b]
+}
+[security check] Parameter address: 0x7a1a191138
+GATT Security Cls: 0x7a1a191138
+[security check] return value: 1
+[security check] return value: reject
+[GATTC write operation] return value: 0x0
+
+[GATTC write operation]
+connect ID: 0x8 (8)
+type: GATT_WRITE (2)
+data structure:
+{
+    connectID: 0x8,
+    handle: 0x8,
+    offset: 0x0,
+    length: 40,
+    Authentication request: 0x0,
+    data: [00 00 00 00 00 0a 00 09 00 28 c0 00 03 01 00 10 34 8d 00 c8 87 57 33 57 a2 87 a5 7c a8 61 6a 0f 42 d4 c4 ce 1f 60 b8 4d]
+}
+[security check] Parameter address: 0x7a1a191138
+GATT Security Cls: 0x7a1a191138
+[security check] return value: 1
+[security check] return value: reject
+[GATTC write operation] return value: 0x0
+
+[Bluetooth GATT notify]
+aisle ID: 0x4, opcode: 0x1b, total length: 44 bytes
+data block #1
+handle: 0x000a
+Data length: 42 bytes
+Data content: 00 00 02 00 00 09 00 0B 00 2A C0 00 03 00 00 01 00 10 40 21 6E AC 10 00 B1 A9 84 CA A2 A0 AA 4D D9 94 6F 97 B8 48 7D 86 1B B0
+
+[Bluetooth GATT notify]
+aisle ID: 0x4, opcode: 0x1b, total length: 90 bytes
+data block #1
+handle: 0x000a
+Data length: 88 bytes
+Data content: 00 00 00 00 00 09 00 0C 00 58 C0 00 04 01 00 40 61 0B C4 6B A1 B1 21 BC 0D 12 68 48 AE 27 D7 EF 38 54 78 E8 77 66 96 05 A5 2C 8D 9E FC A1 9F 6B E0 45 E2 62 98 81 63 89 9D 6F 41 7D 5C FC C2 DF 7B 69 A8 5D 70 5B 2A E5 7A A5 A7 A8 49 F1 D9 92 66 71 A4 3C 68 4C F3 07
+
+[Bluetooth GATT notify]
+aisle ID: 0x4, opcode: 0x1b, total length: 44 bytes
+data block #1
+handle: 0x000a
+Data length: 42 bytes
+Data content: 00 00 02 00 00 0A 00 0D 00 2A C0 00 03 00 00 01 00 10 5B CF 41 26 A6 C9 3E 4F 2D A1 CC BD C0 48 95 E6 28 4F 10 6B F8 83 B1 DD
+
+[Bluetooth GATT notify]
+aisle ID: 0x4, opcode: 0x1b, total length: 90 bytes
+data block #1
+handle: 0x000a
+Data length: 88 bytes
+Data content: 00 00 00 00 00 0A 00 0E 00 58 C0 00 04 01 00 40 61 0B C4 6B A1 B1 21 BC 0D 12 68 48 AE 27 D7 EF 38 54 78 E8 77 66 96 05 A5 2C 8D 9E FC A1 9F 6B E0 45 E2 62 98 81 63 89 9D 6F 41 7D 5C FC C2 DF 2C F9 5A F3 55 CA 84 99 47 E3 43 F1 29 18 BC 2A 86 00 9F E5 0C 59 50 ED
+
+[GATTC write operation]
+connect ID: 0x8 (8)
+type: GATT_WRITE (2)
+data structure:
+{
+    connectID: 0x8,
+    handle: 0x8,
+    offset: 0x0,
+    length: 18,
+    Authentication request: 0x0,
+    data: [00 00 02 00 00 0b 00 0a 00 12 00 00 04 00 00 00 00 00]
+}
+[security check] Parameter address: 0x7a1a191138
+GATT Security Cls: 0x7a1a191138
+[security check] return value: 1
+[security check] return value: reject
+[GATTC write operation] return value: 0x0
+Connection terminated
+
+Thank you for using Frida!

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+        <title>Account Settings</title>
+        <!-- Keep Font Awesome for avatar camera only -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Segoe UI', 'Roboto', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+                transition: all 0.25s ease; /* Simplified Bezier curve */
+            }
+            :root {
+                --primary-blue: #1A3F7A;
+                --soft-blue: #d4e4ff;
+                --text-white: #FFFFFF;
+                --text-dark: #2d3748;
+                --text-light: #718096;
+                --text-gray: #a0aec0;
+                --border-color: #e2e8f0;
+                --error-color: #e53e3e;
+                --hover-color: #f7f9fc;
+                --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+                --active-shadow: 0 4px 16px rgba(26, 63, 122, 0.15);
+                --card-radius: 14px;
+                --avatar-size: 90px;
+                --spacing: 20px;
+                --padding: 16px;
+            }
+            body {
+                background: white; /* Changed to pure white background */
+                color: var(--text-dark);
+                line-height: 1.6;
+                padding: 16px;
+                min-height: 100vh;
+            }
+            /* Header */
+            .header {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 64px;
+                background: white;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+                padding: 0 var(--spacing);
+                border-radius: var(--card-radius);
+                margin-bottom: 20px;
+                position: relative;
+            }
+            .header::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: var(--spacing);
+                right: var(--spacing);
+                height: 1px;
+                background-color: var(--border-color);
+            }
+            .title {
+                font-size: 1.35rem;
+                font-weight: 700;
+                color: var(--primary-blue);
+                letter-spacing: 0.5px;
+            }
+            /* Avatar Area */
+            .avatar-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-bottom: 25px;
+                background: white;
+                border-radius: var(--card-radius);
+                padding: 20px;
+                box-shadow: var(--shadow);
+                margin-bottom: 20px;
+            }
+            .avatar-wrapper { position: relative; width: var(--avatar-size); height: var(--avatar-size); margin-bottom: 12px; }
+            .avatar { width: 100%; height: 100%; border-radius: 50%; overflow: hidden; position: relative; cursor: pointer; border: 2px solid var(--primary-blue); background: linear-gradient(120deg, #ebf4ff, #c3dafe); display: flex; align-items: center; justify-content: center; font-size: 2.2rem; color: var(--primary-blue); }
+            .avatar img { width: 100%; height: 100%; object-fit: cover; }
+            .avatar-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(26, 63, 122, 0.7); display: flex; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease; border-radius: 50%; }
+            .avatar:hover .avatar-overlay { opacity: 1; }
+            .avatar-overlay i { color: white; font-size: 1.8rem; }
+            .avatar-change-text { color: var(--primary-blue); font-size: 0.95rem; font-weight: 500; text-align: center; }
+            /* Form Area */
+            .form-container { background: white; border-radius: var(--card-radius); padding: var(--padding); box-shadow: var(--shadow); margin-bottom: 20px; }
+            .form-group { margin-bottom: 20px; }
+            .form-label { display: block; margin-bottom: 8px; font-size: 0.95rem; color: var(--text-dark); font-weight: 500; padding-left: 6px; }
+            .input-row { display: flex; align-items: center; background: white; border: 1px solid var(--border-color); border-radius: 14px; padding: 0 16px; height: 54px; }
+            .input-row.focused { border-color: var(--primary-blue); box-shadow: var(--active-shadow); background: var(--primary-blue); }
+            .icon-wrap { width: 36px; display: flex; justify-content: center; align-items: center; }
+            .icon-wrap svg { width: 20px; height: 20px; fill: var(--primary-blue); }
+            .input-row.focused .icon-wrap svg { fill: white; }
+            .icon-wrap i { font-size: 1.2rem; color: var(--primary-blue); }
+            .input-row.focused .icon-wrap i { color: white; }
+            .input-field { flex: 1; height: 100%; background: none; border: none; padding: 0 0 0 8px; font-size: 0.95rem; color: var(--text-dark); outline: none; }
+            .input-row.focused .input-field { color: white; }
+            .input-field::placeholder { color: var(--text-gray); }
+            .input-row.focused .input-field::placeholder { color: rgba(255, 255, 255, 0.7); }
+            .disabled-field { background: #f8fafc; cursor: not-allowed; color: var(--text-gray); }
+            .disabled-row { opacity: 0.7; }
+            /* Button Area */
+            .action-container { display: flex; flex-direction: column; gap: 16px; margin-top: 10px; }
+            .action-button { height: 52px; border-radius: 14px; border: none; font-size: 1.05rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow); }
+            .update-btn { background: linear-gradient(to right, var(--primary-blue), #2d5281); color: white; }
+            .logout-btn { background: #8B0000; color: white; }
+            .action-icon { margin-right: 12px; display: flex; align-items: center; }
+            .action-icon svg { width: 24px; height: 24px; fill: white; }
+            /* Responsive */
+            @media (max-width: 400px) { :root { --avatar-size: 80px; --spacing: 16px; } }
+        </style>
+    </head>
+    <body>
+        <!-- Header -->
+        <div class="header">
+            <div class="title">Account Settings</div>
+        </div>
+
+        <!-- Avatar Area -->
+        <div class="avatar-container">
+            <div class="avatar-wrapper">
+                <div class="avatar" id="avatar">
+                    <img src="https://images.unsplash.com/photo-1534030347209-467a5b0ad3e6?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&w=300" alt="User Avatar">
+                    <div class="avatar-overlay">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="avatar-change-text">Click to change avatar</div>
+        </div>
+
+        <!-- Form Area -->
+        <div class="form-container">
+            <div class="form-group">
+                <label class="form-label">Account</label>
+                <div class="input-row disabled-row">
+                    <div class="icon-wrap">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <input type="text" class="input-field disabled-field" value="user_9001" readonly>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Current Password</label>
+                <div class="input-row" id="row-current-pwd">
+                    <div class="icon-wrap">
+                        <!-- Password SVG -->
+                        <svg t="1760010313467" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6425" width="20" height="20"><path d="M288 384v-74.666667c0-123.722667 100.266667-224 224-224s224 100.224 224 224v74.666667h10.677333C811.445333 384 864 436.597333 864 501.333333v320c0 64.821333-52.469333 117.333333-117.322667 117.333334H277.333333C212.554667 938.666667 160 886.069333 160 821.333333V501.333333c0-64.821333 52.469333-117.333333 117.322667-117.333333H288z m64 0h320v-74.666667c0-88.426667-71.605333-160-160-160-88.384 0-160 71.626667-160 160v74.666667zM224 501.333333v320c0 29.397333 23.914667 53.333333 53.322667 53.333334H746.666667A53.269333 53.269333 0 0 0 800 821.333333V501.333333c0-29.397333-23.914667-53.333333-53.322667-53.333333H277.333333A53.269333 53.269333 0 0 0 224 501.333333z" fill="#000000" p-id="6426"></path></svg>
+                    </div>
+                    <input type="password" class="input-field" placeholder="Enter current password" id="current-pwd">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="form-label">New Username</label>
+                <div class="input-row" id="row-new-username">
+                    <div class="icon-wrap">
+                        <!-- New Username SVG -->
+                        <svg t="1760009748859" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5430" width="20" height="20"><path d="M240.64 605.866667h327.68a109.653333 109.653333 0 0 1 109.226667 109.226666v47.36a381.44 381.44 0 0 1-538.88 9.813334l-7.253334-7.253334v-49.92a109.653333 109.653333 0 0 1 109.226667-109.226666zM404.48 496.64a163.84 163.84 0 1 1 163.84-163.413333 163.413333 163.413333 0 0 1-163.84 163.413333zM622.08 464.213333h114.773333V349.44h59.306667v114.773333h114.346667v59.306667h-114.346667v114.346667h-59.306667v-114.346667h-114.773333v-59.306667z" fill="#1953A4" p-id="5431"></path></svg>
+                    </div>
+                    <input type="text" class="input-field" placeholder="Enter new username" id="new-username">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="form-label">New Password</label>
+                <div class="input-row" id="row-new-pwd">
+                    <div class="icon-wrap">
+                        <!-- password SVG -->
+                        <svg t="1760010313467" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6425" width="20" height="20"><path d="M288 384v-74.666667c0-123.722667 100.266667-224 224-224s224 100.224 224 224v74.666667h10.677333C811.445333 384 864 436.597333 864 501.333333v320c0 64.821333-52.469333 117.333333-117.322667 117.333334H277.333333C212.554667 938.666667 160 886.069333 160 821.333333V501.333333c0-64.821333 52.469333-117.333333 117.322667-117.333333H288z m64 0h320v-74.666667c0-88.426667-71.605333-160-160-160-88.384 0-160 71.626667-160 160v74.666667zM224 501.333333v320c0 29.397333 23.914667 53.333333 53.322667 53.333334H746.666667A53.269333 53.269333 0 0 0 800 821.333333V501.333333c0-29.397333-23.914667-53.333333-53.322667-53.333333H277.333333A53.269333 53.269333 0 0 0 224 501.333333z" fill="#000000" p-id="6426"></path></svg>
+                    </div>
+                    <input type="password" class="input-field" placeholder="Enter new password (6+ characters)" id="new-pwd">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Confirm New Password</label>
+                <div class="input-row" id="row-confirm-pwd">
+                    <div class="icon-wrap">
+                        <!-- password SVG -->
+                        <svg t="1760010313467" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6425" width="20" height="20"><path d="M288 384v-74.666667c0-123.722667 100.266667-224 224-224s224 100.224 224 224v74.666667h10.677333C811.445333 384 864 436.597333 864 501.333333v320c0 64.821333-52.469333 117.333333-117.322667 117.333334H277.333333C212.554667 938.666667 160 886.069333 160 821.333333V501.333333c0-64.821333 52.469333-117.333333 117.322667-117.333333H288z m64 0h320v-74.666667c0-88.426667-71.605333-160-160-160-88.384 0-160 71.626667-160 160v74.666667zM224 501.333333v320c0 29.397333 23.914667 53.333333 53.322667 53.333334H746.666667A53.269333 53.269333 0 0 0 800 821.333333V501.333333c0-29.397333-23.914667-53.333333-53.322667-53.333333H277.333333A53.269333 53.269333 0 0 0 224 501.333333z" fill="#000000" p-id="6426"></path></svg>
+                    </div>
+                    <input type="password" class="input-field" placeholder="Confirm new password" id="confirm-pwd">
+                </div>
+            </div>
+        </div>
+
+        <!-- Button Area -->
+        <div class="action-container">
+            <button class="action-button update-btn" id="updateBtn">
+                <span class="action-icon">
+                    <!-- Save Changes SVG (white) -->
+                    <svg t="1760011574535" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7418" width="24" height="24"><path d="M55.935033 264.48948c0 0 85.897017-132.548409 221.81443-203.673173 135.916406-71.121743 303.368504-50.646859 413.187968 18.319527 109.819465 68.970415 146.791894 127.160016 146.791894 127.160016l94.59499-53.879895c0 0 19.576483-9.697092 19.576483 12.932142l0 338.379961c0 0 0 30.17399-22.837719 19.395191-19.210878-9.062571-226.959086-127.198289-292.424528-164.466828-35.950145-16.035251-4.365101-29.062068-4.365101-29.062068l91.284402-52.173738c0 0-52.068992-65.209619-128.278989-99.744682-81.576231-42.501826-157.948384-47.541735-251.497925-12.224097-61.002644 23.025054-132.823368 81.988166-184.553949 169.082716L55.935033 264.48948 55.935033 264.48948 55.935033 264.48948zM904.056909 711.697844c0 0-85.897017 132.550423-221.816444 203.671159-135.917413 71.12275-303.366489 50.651895-413.186961-18.315498-109.825508-68.972429-146.790886-127.165052-146.790886-127.165052L27.662591 823.768348c0 0-19.572454 9.703135-19.572454-12.932142L8.090137 472.459267c0 0 0-30.170968 22.831676-19.397205 19.211885 9.067607 226.965129 127.198289 292.430571 164.470856 35.950145 16.035251 4.366109 29.058039 4.366109 29.058039l-91.285409 52.175753c0 0 52.071006 65.206598 128.279996 99.744682 81.57321 42.498804 157.942341 47.540728 251.496918 12.222082 60.998616-23.026061 132.820346-81.983131 184.546898-169.082716L904.056909 711.697844 904.056909 711.697844 904.056909 711.697844zM904.056909 711.697844" fill="#ffffff" p-id="7419"></path></svg>
+                </span>
+                Save Changes
+            </button>
+            <button class="action-button logout-btn" id="logoutBtn">
+                <span class="action-icon">
+                    <!-- Logout SVG (white) -->
+                    <svg t="1760011612161" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8475" width="24" height="24"><path d="M533.333333 64a21.333333 21.333333 0 0 1 21.333334 21.333333v42.666667a21.333333 21.333333 0 0 1-21.333334 21.333333H170.666667v725.333334h362.666666a21.333333 21.333333 0 0 1 21.333334 21.333333v42.666667a21.333333 21.333333 0 0 1-21.333334 21.333333H170.666667a85.333333 85.333333 0 0 1-85.226667-81.066667L85.333333 874.666667V149.333333a85.333333 85.333333 0 0 1 81.066667-85.226666L170.666667 64h362.666666z m194.581334 219.584l183.168 183.168a64 64 0 0 1 2.88 87.424l-2.88 3.072-183.168 183.168a21.333333 21.333333 0 0 1-30.165334 0l-30.165333-30.165333a21.333333 21.333333 0 0 1 0-30.165334L792.96 554.666667H362.666667a21.333333 21.333333 0 0 1-21.333334-21.333334v-42.666666a21.333333 21.333333 0 0 1 21.333334-21.333334h430.293333l-125.376-125.418666a21.333333 21.333333 0 0 1 0-30.165334l30.165333-30.165333a21.333333 21.333333 0 0 1 30.165334 0z" fill="#ffffff" p-id="8476"></path></svg>
+                </span>
+                Logout
+            </button>
+        </div>
+
+        <script>
+
+            // Input focus/blur (using JS to replace :focus-within)
+            const inputs = [
+                { el: document.getElementById('current-pwd'), row: document.getElementById('row-current-pwd') },
+                { el: document.getElementById('new-username'), row: document.getElementById('row-new-username') },
+                { el: document.getElementById('new-pwd'), row: document.getElementById('row-new-pwd') },
+                { el: document.getElementById('confirm-pwd'), row: document.getElementById('row-confirm-pwd') }
+            ];
+            inputs.forEach(item => {
+                const input = item.el; const row = item.row;
+                if (!input.readOnly) {
+                    input.addEventListener('focus', () => { row.classList.add('focused'); });
+                    input.addEventListener('blur', () => { row.classList.remove('focused'); });
+                }
+            });
+            // Button clicks
+            document.getElementById('logoutBtn').addEventListener('click', function() {
+                alert('You have safely logged out');
+                location.href = 'p1.html';
+            });
+            document.getElementById('updateBtn').addEventListener('click', function() {
+                const fields = [ document.getElementById('current-pwd'), document.getElementById('new-username'), document.getElementById('new-pwd'), document.getElementById('confirm-pwd') ];
+                let isValid = true;
+                fields.forEach(field => {
+                    const row = field.closest('.input-row');
+                    if (!field.value.trim()) {
+                        isValid = false; row.style.borderColor = 'var(--error-color)'; setTimeout(() => { row.style.borderColor = ''; }, 1500);
+                    }
+                });
+                if (isValid) { alert('Account information updated successfully!'); } else { alert('Please fill in all required fields'); }
+            });
+
+            function onAvatarSelected(base64) {
+                if (base64) {
+                    const avatarImg = document.getElementById('avatar').querySelector('img');
+                    avatarImg.src = 'data:image/jpeg;base64,' + base64;
+                    console.log('Received Base64, length:', base64.length);
+
+                    // Optional: auto-upload to server
+                    // uploadAvatarToServer(base64);
+                }
+            }
+
+            // Avatar click: call native method
+            document.getElementById('avatar').addEventListener('click', function() {
+                if (typeof Android !== 'undefined' && Android) {
+                    Android.selectAvatar();
+                } else {
+                    alert('Please open this page in the Android App');
+                }
+            });
+        </script>
+    </body>
+</html>
+
+

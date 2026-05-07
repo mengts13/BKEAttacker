@@ -1,0 +1,1759 @@
+     ____
+    / _  |   Frida 16.5.7 - A world-class dynamic instrumentation toolkit
+   | (_| |
+    > _  |   Commands:
+   /_/ |_|       help      -> Displays the help system
+   . . . .       object?   -> Display information about 'object'
+   . . . .       exit/quit -> Exit
+   . . . .
+   . . . .   More info at https://frida.re/docs/home/
+   . . . .
+   . . . .   Connected to 127.0.0.1:12345 (id=socket@127.0.0.1:12345)
+Attaching...
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【FindMatchBLE】--cryptedId: D1E7AD2DD45B969B70B22A90
+[*] Call stack:
+[Remote::PID::6965 ]-> [+] debugNative() called with:
+    str: DK20New
+    str2: 【FindMatchBLE】--findvin:49 ;localvin :52
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【FindMatchBLE】--cryptedId: D1E7AD2DD45B969B70B22A90
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【FindMatchBLE】--findvin:49 ;localvin :52
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【FindMatchBLE】--cryptedId: D1E7AD2DD45B969B70B22A90
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【FindMatchBLE】--findvin:49 ;localvin :52
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【FindMatchBLE】--cryptedId: D1E7AD2DD45B969B70B22A90
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【FindMatchBLE】--findvin:49 ;localvin :52
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【FindMatchBLE】--cryptedId: D1E7AD2DD45B969B70B22A90
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【FindMatchBLE】--findvin:49 ;localvin :52
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【FindMatchBLE】--cryptedId: D1E7AD2DD45B969B70B22A90
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【FindMatchBLE】--findvin:49 ;localvin :52
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【FindMatchBLE】--cryptedId: D1E7AD2DD45B969B70B22A90
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【FindMatchBLE】--findvin:49 ;localvin :52
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【FindMatchBLE】--cryptedId: D1E7AD2DD45B969B70B22A90
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【FindMatchBLE】--findvin:49 ;localvin :52
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【FindMatchBLE】--cryptedId: 19755BE185BEFBBDC70F7287
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【FindMatchBLE】--findvin:72 ;localvin :52
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl】--ble finish scannum: 526;error: 4;isSilentStop:false
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【changeConnStatus】--connStatus: 3
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DKParamsMgr】-- UseDk get:e7eda6bf
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【connectFailCallback】--connect failed:Code=10024
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【GLGlistenerCallback】--GLGlistenerCallback failed:Code=400003
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【checkGLGlistener】--GLGlistener is null : GLGlistenerCallback
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【not found car scan fail】--msg: weak signal of target vehicle，connection failure
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DKConfig】-- getDkBean key: 6680846739722798442[vin]
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DKConfig】-- getDkBean bean: DkDetaiBean{id='e7eda6bf', version=48, createTime=1745383510, exclusive=0, permission=65535, status=5, phoneId='BDAD66325D8B57F3AA3838B74EAE4E5BC1E3A94C6A6926DC67C437E7B18FE087', digitalKey='5+2mvzY2ODA4NDY3Mzk3MjI3OTgCyQC5ALwKBQWmzhQKAAAjKGAd73xGjrRKh9YV16vZ5UT7is0ZHQNm8LwqXWNKoxkj4Cml0tMNQLrxxUwaiPKcPR3j99xE64GE6Rqp2vHE08WOFsoLIJon9YDBX/Msvo4RCk3D7fiJCVz7wcd8k3gSbJSLlD4wYRYevURMtgsxPiMj/cl3jeEl0r+GlcPmnIUmbBP2fTAg0SE0NIEJtDuY6iFqtgrYRrrmltFatDWVYps/fSaZtcq2qIqNfhQvU1i05ERjQl7kx6rbsvQ94LuPDYtEs14ImOYcL/y/N/PLVlIwRgIhAJ/D3GAz0M/PFudBeOd4yEUw/AHvsQtlkhvGuDGBSa7iAiEAqnKG/D2a2yEUBQAw569autjXMETLYnx8QjbQA6AGn00=', phoneCoef='C900B900BC0A0505A6CE140A00002328', vin='[vin]', creatorId='6026471240447886438', sharedId='6680846739722798442', temId='N89860923790003575837583', startTime=1745377567, endTime=2147483647, keytype=2, times=0, longId='null', appPlainDigitalkey='null', tcamPlainDigitalkey='null', source='1', dkType=2, dkDesc='Bluetooth mobile phone sharing keye7eda6bf', cardId='null', cmacKeyCert='null'}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【TSPDigitalKeyClient】--isDKExisted: true
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【KeyParams】--init setVin: [vin]
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【KeyParams】--init setTermId: N89860923790003575837583
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkClientImpl】--addLogaddVin: [vin]
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【SetVinAndTemid】--Success:[vin]/N89860923790003575837583
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【KeyParams】--init setUserId: 6680846739722798442
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkClientImpl】--addLogaddUserid: 6680846739722798442
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【SetUserid】--Success:6680846739722798442
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【KeyParams】--init setUserIdDefault: 6680846739722798442
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【KeyParams】--init setVinDefault: [vin]
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【KeyParams】--init setVin: [vin]
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【KeyParams】--init setTermId: N89860923790003575837583
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkClientImpl】--addLogaddVin: [vin]
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【SetVinAndTemid】--Success:[vin]/N89860923790003575837583
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【KeyParams】--init setUserId: 6680846739722798442
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkClientImpl】--addLogaddUserid: 6680846739722798442
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【SetUserid】--Success:6680846739722798442
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【setListener】--setListener Now: VehicleV2Ble;bleClientListener;
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【TSPDigitalKeyClient】--setListener key: bleClientListener;listener: com.geely.cockpit.services.controlservice.core.ble.dk20.Dk20DigitalKeyModel$setBleListener$1@9b0c3d; ret:true
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【setListenerNew】--setListenerNew Now: bleClientListenerNew;VehicleV2Ble;
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【TSPDigitalKeyClient】--setListenerNew key: bleClientListenerNew;listener: com.geely.cockpit.services.controlservice.core.ble.dk20.Dk20DigitalKeyModel$setBleListener$2@3ecfc32; ret:true
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【KeyParams】--init setUserId: 6680846739722798442
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkClientImpl】--addLogaddUserid: 6680846739722798442
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【SetUserid】--Success:6680846739722798442
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【KeyParams】--init setVin: [vin]
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【KeyParams】--init setTermId: N89860923790003575837583
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkClientImpl】--addLogaddVin: [vin]
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【SetVinAndTemid】--Success:[vin]/N89860923790003575837583
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【newAutoDigitalKey】--getPlatformByVin local:gtsp
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【init set vehicle platform】--vin: [vin] gtsp
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【KeyParams】--init setEnvServiceType: gtsp
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【newAutoDigitalKey】--refresh:0
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【getDeviceID】--devcachestr:BDAD66325D8B57F3AA3838B74EAE4E5BC1E3A94C6A6926DC67C437E7B18FE087
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【getUserCertId】--getUserCertId :6680846739722798442BDAD66325D8B57F3AA3838B74EAE4E5BC1E3A94C6A6926DC67C437E7B18FE087
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【GetOfflineCert】--Exist
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DKConfig】-- getDkBean key: 6680846739722798442[vin]
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DKConfig】-- getDkBean bean: DkDetaiBean{id='e7eda6bf', version=48, createTime=1745383510, exclusive=0, permission=65535, status=5, phoneId='BDAD66325D8B57F3AA3838B74EAE4E5BC1E3A94C6A6926DC67C437E7B18FE087', digitalKey='5+2mvzY2ODA4NDY3Mzk3MjI3OTgCyQC5ALwKBQWmzhQKAAAjKGAd73xGjrRKh9YV16vZ5UT7is0ZHQNm8LwqXWNKoxkj4Cml0tMNQLrxxUwaiPKcPR3j99xE64GE6Rqp2vHE08WOFsoLIJon9YDBX/Msvo4RCk3D7fiJCVz7wcd8k3gSbJSLlD4wYRYevURMtgsxPiMj/cl3jeEl0r+GlcPmnIUmbBP2fTAg0SE0NIEJtDuY6iFqtgrYRrrmltFatDWVYps/fSaZtcq2qIqNfhQvU1i05ERjQl7kx6rbsvQ94LuPDYtEs14ImOYcL/y/N/PLVlIwRgIhAJ/D3GAz0M/PFudBeOd4yEUw/AHvsQtlkhvGuDGBSa7iAiEAqnKG/D2a2yEUBQAw569autjXMETLYnx8QjbQA6AGn00=', phoneCoef='C900B900BC0A0505A6CE140A00002328', vin='[vin]', creatorId='6026471240447886438', sharedId='6680846739722798442', temId='N89860923790003575837583', startTime=1745377567, endTime=2147483647, keytype=2, times=0, longId='null', appPlainDigitalkey='null', tcamPlainDigitalkey='null', source='1', dkType=2, dkDesc='Bluetooth mobile phone sharing keye7eda6bf', cardId='null', cmacKeyCert='null'}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkConfig getDkBean】--path:6680846739722798442[vin];DkDetaiBean:DkDetaiBean{id='e7eda6bf', version=48, createTime=1745383510, exclusive=0, permission=65535, status=5, phoneId='BDAD66325D8B57F3AA3838B74EAE4E5BC1E3A94C6A6926DC67C437E7B18FE087', digitalKey='5+2mvzY2ODA4NDY3Mzk3MjI3OTgCyQC5ALwKBQWmzhQKAAAjKGAd73xGjrRKh9YV16vZ5UT7is0ZHQNm8LwqXWNKoxkj4Cml0tMNQLrxxUwaiPKcPR3j99xE64GE6Rqp2vHE08WOFsoLIJon9YDBX/Msvo4RCk3D7fiJCVz7wcd8k3gSbJSLlD4wYRYevURMtgsxPiMj/cl3jeEl0r+GlcPmnIUmbBP2fTAg0SE0NIEJtDuY6iFqtgrYRrrmltFatDWVYps/fSaZtcq2qIqNfhQvU1i05ERjQl7kx6rbsvQ94LuPDYtEs14ImOYcL/y/N/PLVlIwRgIhAJ/D3GAz0M/PFudBeOd4yEUw/AHvsQtlkhvGuDGBSa7iAiEAqnKG/D2a2yEUBQAw569autjXMETLYnx8QjbQA6AGn00=', phoneCoef='C900B900BC0A0505A6CE140A00002328', vin='[vin]', creatorId='6026471240447886438', sharedId='6680846739722798442', temId='N89860923790003575837583', startTime=1745377567, endTime=2147483647, keytype=2, times=0, longId='null', appPlainDigitalkey='null', tcamPlainDigitalkey='null', source='1', dkType=2, dkDesc='Bluetooth mobile phone sharing keye7eda6bf', cardId='null', cmacKeyCert='null'}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【get share dk】--offline content:DkDetaiBean{id='e7eda6bf', version=48, createTime=1745383510, exclusive=0, permission=65535, status=5, phoneId='BDAD66325D8B57F3AA3838B74EAE4E5BC1E3A94C6A6926DC67C437E7B18FE087', digitalKey='5+2mvzY2ODA4NDY3Mzk3MjI3OTgCyQC5ALwKBQWmzhQKAAAjKGAd73xGjrRKh9YV16vZ5UT7is0ZHQNm8LwqXWNKoxkj4Cml0tMNQLrxxUwaiPKcPR3j99xE64GE6Rqp2vHE08WOFsoLIJon9YDBX/Msvo4RCk3D7fiJCVz7wcd8k3gSbJSLlD4wYRYevURMtgsxPiMj/cl3jeEl0r+GlcPmnIUmbBP2fTAg0SE0NIEJtDuY6iFqtgrYRrrmltFatDWVYps/fSaZtcq2qIqNfhQvU1i05ERjQl7kx6rbsvQ94LuPDYtEs14ImOYcL/y/N/PLVlIwRgIhAJ/D3GAz0M/PFudBeOd4yEUw/AHvsQtlkhvGuDGBSa7iAiEAqnKG/D2a2yEUBQAw569autjXMETLYnx8QjbQA6AGn00=', phoneCoef='C900B900BC0A0505A6CE140A00002328', vin='[vin]', creatorId='6026471240447886438', sharedId='6680846739722798442', temId='N89860923790003575837583', startTime=1745377567, endTime=2147483647, keytype=2, times=0, longId='null', appPlainDigitalkey='null', tcamPlainDigitalkey='null', source='1', dkType=2, dkDesc='Bluetooth mobile phone sharing keye7eda6bf', cardId='null', cmacKeyCert='null'}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【checkOfflineDk】--dk content: DkDetaiBean{id='e7eda6bf', version=48, createTime=1745383510, exclusive=0, permission=65535, status=5, phoneId='BDAD66325D8B57F3AA3838B74EAE4E5BC1E3A94C6A6926DC67C437E7B18FE087', digitalKey='5+2mvzY2ODA4NDY3Mzk3MjI3OTgCyQC5ALwKBQWmzhQKAAAjKGAd73xGjrRKh9YV16vZ5UT7is0ZHQNm8LwqXWNKoxkj4Cml0tMNQLrxxUwaiPKcPR3j99xE64GE6Rqp2vHE08WOFsoLIJon9YDBX/Msvo4RCk3D7fiJCVz7wcd8k3gSbJSLlD4wYRYevURMtgsxPiMj/cl3jeEl0r+GlcPmnIUmbBP2fTAg0SE0NIEJtDuY6iFqtgrYRrrmltFatDWVYps/fSaZtcq2qIqNfhQvU1i05ERjQl7kx6rbsvQ94LuPDYtEs14ImOYcL/y/N/PLVlIwRgIhAJ/D3GAz0M/PFudBeOd4yEUw/AHvsQtlkhvGuDGBSa7iAiEAqnKG/D2a2yEUBQAw569autjXMETLYnx8QjbQA6AGn00=', phoneCoef='C900B900BC0A0505A6CE140A00002328', vin='[vin]', creatorId='6026471240447886438', sharedId='6680846739722798442', temId='N89860923790003575837583', startTime=1745377567, endTime=2147483647, keytype=2, times=0, longId='null', appPlainDigitalkey='null', tcamPlainDigitalkey='null', source='1', dkType=2, dkDesc='Bluetooth mobile phone sharing keye7eda6bf', cardId='null', cmacKeyCert='null'}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【getDeviceID】--devcachestr:BDAD66325D8B57F3AA3838B74EAE4E5BC1E3A94C6A6926DC67C437E7B18FE087
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DK onRetCb】--ret code=200, desc: e7eda6bf
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【KeyParams】--init setUserIdDefault: 6680846739722798442
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【KeyParams】--init setVinDefault: [vin]
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【TSPDigitalKeyClient】--connectVehicle
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【getDeviceID】--devcachestr:BDAD66325D8B57F3AA3838B74EAE4E5BC1E3A94C6A6926DC67C437E7B18FE087
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【getUserCertId】--getUserCertId :6680846739722798442BDAD66325D8B57F3AA3838B74EAE4E5BC1E3A94C6A6926DC67C437E7B18FE087
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DKConfig】-- getDkBean key: 6680846739722798442[vin]
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DKConfig】-- getDkBean bean: DkDetaiBean{id='e7eda6bf', version=48, createTime=1745383510, exclusive=0, permission=65535, status=5, phoneId='BDAD66325D8B57F3AA3838B74EAE4E5BC1E3A94C6A6926DC67C437E7B18FE087', digitalKey='5+2mvzY2ODA4NDY3Mzk3MjI3OTgCyQC5ALwKBQWmzhQKAAAjKGAd73xGjrRKh9YV16vZ5UT7is0ZHQNm8LwqXWNKoxkj4Cml0tMNQLrxxUwaiPKcPR3j99xE64GE6Rqp2vHE08WOFsoLIJon9YDBX/Msvo4RCk3D7fiJCVz7wcd8k3gSbJSLlD4wYRYevURMtgsxPiMj/cl3jeEl0r+GlcPmnIUmbBP2fTAg0SE0NIEJtDuY6iFqtgrYRrrmltFatDWVYps/fSaZtcq2qIqNfhQvU1i05ERjQl7kx6rbsvQ94LuPDYtEs14ImOYcL/y/N/PLVlIwRgIhAJ/D3GAz0M/PFudBeOd4yEUw/AHvsQtlkhvGuDGBSa7iAiEAqnKG/D2a2yEUBQAw569autjXMETLYnx8QjbQA6AGn00=', phoneCoef='C900B900BC0A0505A6CE140A00002328', vin='[vin]', creatorId='6026471240447886438', sharedId='6680846739722798442', temId='N89860923790003575837583', startTime=1745377567, endTime=2147483647, keytype=2, times=0, longId='null', appPlainDigitalkey='null', tcamPlainDigitalkey='null', source='1', dkType=2, dkDesc='Bluetooth mobile phone sharing keye7eda6bf', cardId='null', cmacKeyCert='null'}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DKParamsMgr】-- UseDk get:e7eda6bf
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkClientImpl】--connect dkidcahce:e7eda6bf
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【KeyParams】--init setUserId: 6680846739722798442
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【getDeviceID】--devcachestr:BDAD66325D8B57F3AA3838B74EAE4E5BC1E3A94C6A6926DC67C437E7B18FE087
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【getUserCertId】--getUserCertId :6680846739722798442BDAD66325D8B57F3AA3838B74EAE4E5BC1E3A94C6A6926DC67C437E7B18FE087
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【KeyParams】--init setVin: [vin]
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【KeyParams】--init setTermId: N89860923790003575837583
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl setDkParams】-- Bundle keyparams: KeyParams{isResendAble=true, userId='6680846739722798442', vin='[vin]', dkId='e7eda6bf', termId='N89860923790003575837583', dkUrl='e7eda6bf', certUrl='6680846739722798442BDAD66325D8B57F3AA3838B74EAE4E5BC1E3A94C6A6926DC67C437E7B18FE087', calibData=[-55, 0, -71, 0, -68, 10, 5, 5, -90, -50, 20, 10, 0, 0, 35, 40], cmacKey=null, company=1, criticalValue=5, isAutoConnect=false}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DKParamsMgr】-- UseDk set:e7eda6bf
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl】--setAutoConnect: false
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【NativeDkMgr】-- load file:FileDKList6680846739722798442; content: [DKIdentityAttr{name='Test DK', vin='[vin]', termid='N89860923790003575837583', dkID='e7eda6bf', carNum='[vehicle registration plate number] ', carOwner='test car', dkUrl='e7eda6bf', certOUrl='6680846739722798442BDAD66325D8B57F3AA3838B74EAE4E5BC1E3A94C6A6926DC67C437E7B18FE087', certVUrl='[vin]', pairCode=null, calibData=C900B900BC0A0505A6CE140A00002328, cmacKey=null, initState=true, platform='gtsp'}]
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【NativeDkMgr】-- save file:FileDKList6680846739722798442; content: [DKIdentityAttr{name='Test DK', vin='[vin]', termid='N89860923790003575837583', dkID='e7eda6bf', carNum='[vehicle registration plate number] ', carOwner='test car', dkUrl='e7eda6bf', certOUrl='6680846739722798442BDAD66325D8B57F3AA3838B74EAE4E5BC1E3A94C6A6926DC67C437E7B18FE087', certVUrl='[vin]', pairCode=null, calibData=C900B900BC0A0505A6CE140A00002328, cmacKey=null, initState=true, platform='gtsp'}]
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DKParamsMgr】-- UseDk get:e7eda6bf
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【TSPDigitalKeyClient】--setDkid dkid:e7eda6bf
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【setUseDkid】--DkServerImpl setUseDkid:e7eda6bf
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DKParamsMgr】-- UseDk set:e7eda6bf
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkClientImpl】--connect dkidnow:e7eda6bf
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl】--connectVehicle start: e7eda6bf
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkConfig】-- getDkBeanSource: 1
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl】--connectVehicle DkBeanSource: 1
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl】--connectVehicle currentStatus: 3
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl】--checkNewBlePermissions success!
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl connectVehicle】--checkNewBlePermissions:100000
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl】--bleparam scanmode: 2
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DKConfig】-- getDkBean key: 6680846739722798442[vin]
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DKConfig】-- getDkBean bean: DkDetaiBean{id='e7eda6bf', version=48, createTime=1745383510, exclusive=0, permission=65535, status=5, phoneId='BDAD66325D8B57F3AA3838B74EAE4E5BC1E3A94C6A6926DC67C437E7B18FE087', digitalKey='5+2mvzY2ODA4NDY3Mzk3MjI3OTgCyQC5ALwKBQWmzhQKAAAjKGAd73xGjrRKh9YV16vZ5UT7is0ZHQNm8LwqXWNKoxkj4Cml0tMNQLrxxUwaiPKcPR3j99xE64GE6Rqp2vHE08WOFsoLIJon9YDBX/Msvo4RCk3D7fiJCVz7wcd8k3gSbJSLlD4wYRYevURMtgsxPiMj/cl3jeEl0r+GlcPmnIUmbBP2fTAg0SE0NIEJtDuY6iFqtgrYRrrmltFatDWVYps/fSaZtcq2qIqNfhQvU1i05ERjQl7kx6rbsvQ94LuPDYtEs14ImOYcL/y/N/PLVlIwRgIhAJ/D3GAz0M/PFudBeOd4yEUw/AHvsQtlkhvGuDGBSa7iAiEAqnKG/D2a2yEUBQAw569autjXMETLYnx8QjbQA6AGn00=', phoneCoef='C900B900BC0A0505A6CE140A00002328', vin='[vin]', creatorId='6026471240447886438', sharedId='6680846739722798442', temId='N89860923790003575837583', startTime=1745377567, endTime=2147483647, keytype=2, times=0, longId='null', appPlainDigitalkey='null', tcamPlainDigitalkey='null', source='1', dkType=2, dkDesc='Bluetooth mobile phone sharing keye7eda6bf', cardId='null', cmacKeyCert='null'}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【startLeScan】--mOsVersion: 31, model: AOSP on barbet, brand: Android
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【startLeScan】--ScanMode: 2
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【onScanStarted】--launch scan delay time is 35, over 15ms!
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【changeConnStatus】--connStatus: 1
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【start scan】--dkid: e7eda6bf, time: 1746952952978
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【FindMatchBLE】--cryptedId: D1E7AD2DD45B969B70B22A90
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【FindMatchBLE】--findvin:49 ;localvin :52
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【FindMatchBLE】--cryptedId: 19755BE185BEFBBDC70F7287
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【FindMatchBLE】--findvin:72 ;localvin :52
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【FindMatchBLE】--cryptedId: D1E7AD2DD45B969B70B22A90
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【FindMatchBLE】--findvin:49 ;localvin :52
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【FindMatchBLE】--cryptedId: 19755BE185BEFBBDC70F7287
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【FindMatchBLE】--findvin:72 ;localvin :52
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【FindMatchBLE】--cryptedId: ABE1140BCB9415EAE8B0EC8C
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【FindMatchBLE】--findvin:52 ;localvin :52
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【FindMatchBLE】--random1: CB9415EAE8B0EC8C
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【FindMatchBLE】--BroadCastRnd: CB9415EAE8B0EC8C
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【correctDeviceAndNextStep】--ble scan finish device name: GeelyVehicle252  mac:64:3F:6D:47:87:4B  Rssi:-78  scanRecord:0302fdfd15fffe01090602043532abe1140bcb9415eae8b0ec8c020a0505160006000010094765656c7956656869636c6532353200000000000000000000
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl】--ble finish scannum: 28;error: 0;isSilentStop:false
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl】--find car {ScanResult{device=64:3F:6D:47:87:4B, scanRecord=ScanRecord [mAdvertiseFlags=-1, mServiceUuids=[0000fdfd-0000-1000-8000-00805f9b34fb], mServiceSolicitationUuids=[], mManufacturerSpecificData={510=[9, 6, 2, 4, 53, 50, -85, -31, 20, 11, -53, -108, 21, -22, -24, -80, -20, -116]}, mServiceData={00000600-0000-1000-8000-00805f9b34fb=[0, 0]}, mTxPowerLevel=5, mDeviceName=GeelyVehicle252], rssi=-78, timestampNanos=86149590057789, eventType=27, primaryPhy=1, secondaryPhy=0, advertisingSid=255, txPower=127, periodicAdvertisingInterval=0}}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【BleScan】--Success
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【changeConnStatus】--connStatus: 2
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【notifyScanFinished】--scan finished:64:3F:6D:47:87:4B
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【BleConnect】--ble connect device: GeelyVehicle252, rssi: -78, mac: 64:3F:6D:47:87:4B, autoConnect: false, connectRetryCount:0
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【changeConnStatus】--connStatus: 4
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【connect start】--Delaytime: 135
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【SysBle Status】--onConnectionStateChange , status: 0, newState: 2, lastState: CONNECT_CONNECTING
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【connect】--Discover Services success
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【connect】--onServicesDiscovered status: 0
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【connect】--onServicesDiscovered bluetoothGatt: android.bluetooth.BluetoothGatt@32c40f6
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DKParamsMgr】-- UseDk get:e7eda6bf
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【changeConnStatus】--connStatus: 5
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【connect success】--onConnectSuccess bleDevice = BleDevice{mDevice=64:3F:6D:47:87:4B, mName=GeelyVehicle252, mAddresss=64:3F:6D:47:87:4B, mScanRecord=0302FDFD15FFFE01090602043532ABE1140BCB9415EAE8B0EC8C020A0505160006000010094765656C7956656869636C6532353200000000000000000000, mRssi=-78, mTimestampNanos=86149590057789, mScanResult=ScanResult{device=64:3F:6D:47:87:4B, scanRecord=ScanRecord [mAdvertiseFlags=-1, mServiceUuids=[0000fdfd-0000-1000-8000-00805f9b34fb], mServiceSolicitationUuids=[], mManufacturerSpecificData={510=[9, 6, 2, 4, 53, 50, -85, -31, 20, 11, -53, -108, 21, -22, -24, -80, -20, -116]}, mServiceData={00000600-0000-1000-8000-00805f9b34fb=[0, 0]}, mTxPowerLevel=5, mDeviceName=GeelyVehicle252], rssi=-78, timestampNanos=86149590057789, eventType=27, primaryPhy=1, secondaryPhy=0, advertisingSid=255, txPower=127, periodicAdvertisingInterval=0}};Delaytime: 1714
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【BleConnect】--Success
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【addDynDk】--addDynDk dkAttr: DKIdentityAttr{name='Test DK', vin='[vin]', termid='N89860923790003575837583', dkID='e7eda6bf', carNum='[vehicle registration plate number] ', carOwner='test car', dkUrl='e7eda6bf', certOUrl='6680846739722798442BDAD66325D8B57F3AA3838B74EAE4E5BC1E3A94C6A6926DC67C437E7B18FE087', certVUrl='[vin]', pairCode=null, calibData=C900B900BC0A0505A6CE140A00002328, cmacKey=null, initState=true, platform='gtsp'}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【addDynDk】--dkId: e7eda6bf, BroadCastRnd: CB9415EAE8B0EC8C
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【addDynDk】--Connect key Gen: 0F746D030865710F7468140075730A76
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【addDynDk】--addDynDk bleDevice = BleDevice{mDevice=64:3F:6D:47:87:4B, mName=GeelyVehicle252, mAddresss=64:3F:6D:47:87:4B, mScanRecord=0302FDFD15FFFE01090602043532ABE1140BCB9415EAE8B0EC8C020A0505160006000010094765656C7956656869636C6532353200000000000000000000, mRssi=-78, mTimestampNanos=86149590057789, mScanResult=ScanResult{device=64:3F:6D:47:87:4B, scanRecord=ScanRecord [mAdvertiseFlags=-1, mServiceUuids=[0000fdfd-0000-1000-8000-00805f9b34fb], mServiceSolicitationUuids=[], mManufacturerSpecificData={510=[9, 6, 2, 4, 53, 50, -85, -31, 20, 11, -53, -108, 21, -22, -24, -80, -20, -116]}, mServiceData={00000600-0000-1000-8000-00805f9b34fb=[0, 0]}, mTxPowerLevel=5, mDeviceName=GeelyVehicle252], rssi=-78, timestampNanos=86149590057789, eventType=27, primaryPhy=1, secondaryPhy=0, advertisingSid=255, txPower=127, periodicAdvertisingInterval=0}}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【TaskMessager】--TaskMessager init
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl handleMessage】--msg: { when=-1ms what=19 obj=BleDevice{mDevice=64:3F:6D:47:87:4B, mName=GeelyVehicle252, mAddresss=64:3F:6D:47:87:4B, mScanRecord=0302FDFD15FFFE01090602043532ABE1140BCB9415EAE8B0EC8C020A0505160006000010094765656C7956656869636C6532353200000000000000000000, mRssi=-78, mTimestampNanos=86149590057789, mScanResult=ScanResult{device=64:3F:6D:47:87:4B, scanRecord=ScanRecord [mAdvertiseFlags=-1, mServiceUuids=[0000fdfd-0000-1000-8000-00805f9b34fb], mServiceSolicitationUuids=[], mManufacturerSpecificData={510=[9, 6, 2, 4, 53, 50, -85, -31, 20, 11, -53, -108, 21, -22, -24, -80, -20, -116]}, mServiceData={00000600-0000-1000-8000-00805f9b34fb=[0, 0]}, mTxPowerLevel=5, mDeviceName=GeelyVehicle252], rssi=-78, timestampNanos=86149590057789, eventType=27, primaryPhy=1, secondaryPhy=0, advertisingSid=255, txPower=127, periodicAdvertisingInterval=0}} target=android.os.Handler }
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【SpAutotypeGet】--SpParam getNewAutoType:1
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【setMtu】--init android.bluetooth.BluetoothGatt@32c40f6 setMtu: 243
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【SetMtu】--success, mtu:243
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl handleMessage】--msg: { when=-1ms what=18 obj=BleDevice{mDevice=64:3F:6D:47:87:4B, mName=GeelyVehicle252, mAddresss=64:3F:6D:47:87:4B, mScanRecord=0302FDFD15FFFE01090602043532ABE1140BCB9415EAE8B0EC8C020A0505160006000010094765656C7956656869636C6532353200000000000000000000, mRssi=-78, mTimestampNanos=86149590057789, mScanResult=ScanResult{device=64:3F:6D:47:87:4B, scanRecord=ScanRecord [mAdvertiseFlags=-1, mServiceUuids=[0000fdfd-0000-1000-8000-00805f9b34fb], mServiceSolicitationUuids=[], mManufacturerSpecificData={510=[9, 6, 2, 4, 53, 50, -85, -31, 20, 11, -53, -108, 21, -22, -24, -80, -20, -116]}, mServiceData={00000600-0000-1000-8000-00805f9b34fb=[0, 0]}, mTxPowerLevel=5, mDeviceName=GeelyVehicle252], rssi=-78, timestampNanos=86149590057789, eventType=27, primaryPhy=1, secondaryPhy=0, advertisingSid=255, txPower=127, periodicAdvertisingInterval=0}} target=android.os.Handler }
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【notifyIterate】--Notify Succ 02362A11-CF3A-11E1-EFDE-0002A5D5C51B, Delaytime: 1914 ms
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【notifyIterate】--Notify Succ 02362A13-CF3A-11E1-EFDE-0002A5D5C51B, Delaytime: 2003 ms
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl handleMessage】--msg: { when=-1ms what=32 obj=BleDevice{mDevice=64:3F:6D:47:87:4B, mName=GeelyVehicle252, mAddresss=64:3F:6D:47:87:4B, mScanRecord=0302FDFD15FFFE01090602043532ABE1140BCB9415EAE8B0EC8C020A0505160006000010094765656C7956656869636C6532353200000000000000000000, mRssi=-78, mTimestampNanos=86149590057789, mScanResult=ScanResult{device=64:3F:6D:47:87:4B, scanRecord=ScanRecord [mAdvertiseFlags=-1, mServiceUuids=[0000fdfd-0000-1000-8000-00805f9b34fb], mServiceSolicitationUuids=[], mManufacturerSpecificData={510=[9, 6, 2, 4, 53, 50, -85, -31, 20, 11, -53, -108, 21, -22, -24, -80, -20, -116]}, mServiceData={00000600-0000-1000-8000-00805f9b34fb=[0, 0]}, mTxPowerLevel=5, mDeviceName=GeelyVehicle252], rssi=-78, timestampNanos=86149590057789, eventType=27, primaryPhy=1, secondaryPhy=0, advertisingSid=255, txPower=127, periodicAdvertisingInterval=0}} target=android.os.Handler }
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【add Msg task】--cmdtype: CONNECT CONFIRM
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【TaskMessager】--sendProcessMsg: MessageEntity{mac='64:3F:6D:47:87:4B', dkid='null', cmdID=CMD_A2V_CONNECT_CONFIRM, object=null, instType=REQ, chnIdx=UUID1, peroid=false, peroidTime=3000, conTime=3000, timeout=20000}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【NativeDkMgr】--getLockNseq: 29EA
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【getDeviceID】--devcachestr:BDAD66325D8B57F3AA3838B74EAE4E5BC1E3A94C6A6926DC67C437E7B18FE087
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【ConFirmCodePacker】-- initState:1
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【Send 0101:Auth Confirm】--dkid:e7eda6bf
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【payload-w BasePacker】-- plaintext: 29EA682062FC01E7EDA6BF52D29DD5CCDDA7B7BDAD66325D8B57F3
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【writeData】-- me = MessageEntity{mac='64:3F:6D:47:87:4B', dkid='null', cmdID=CMD_A2V_CONNECT_CONFIRM, object=null, instType=REQ, chnIdx=UUID1, peroid=false, peroidTime=3000, conTime=3000, timeout=20000}bleDevice = BleDevice{mDevice=64:3F:6D:47:87:4B, mName=GeelyVehicle252, mAddresss=64:3F:6D:47:87:4B, mScanRecord=0302FDFD15FFFE01090602043532ABE1140BCB9415EAE8B0EC8C020A0505160006000010094765656C7956656869636C6532353200000000000000000000, mRssi=-78, mTimestampNanos=86149590057789, mScanResult=ScanResult{device=64:3F:6D:47:87:4B, scanRecord=ScanRecord [mAdvertiseFlags=-1, mServiceUuids=[0000fdfd-0000-1000-8000-00805f9b34fb], mServiceSolicitationUuids=[], mManufacturerSpecificData={510=[9, 6, 2, 4, 53, 50, -85, -31, 20, 11, -53, -108, 21, -22, -24, -80, -20, -116]}, mServiceData={00000600-0000-1000-8000-00805f9b34fb=[0, 0]}, mTxPowerLevel=5, mDeviceName=GeelyVehicle252], rssi=-78, timestampNanos=86149590057789, eventType=27, primaryPhy=1, secondaryPhy=0, advertisingSid=255, txPower=127, periodicAdvertisingInterval=0}}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【writeData】--SEND CONNECT CONFIRM UUID: 0, (len : 41) :
+ FE060029010101207A70F57E211003B3047A784A39C790761810560D459A198412CD8F92477C053CE0
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【BleManager】--writeSplit(bleDevice = BleDevice{mDevice=64:3F:6D:47:87:4B, mName=GeelyVehicle252, mAddresss=64:3F:6D:47:87:4B, mScanRecord=0302FDFD15FFFE01090602043532ABE1140BCB9415EAE8B0EC8C020A0505160006000010094765656C7956656869636C6532353200000000000000000000, mRssi=-78, mTimestampNanos=86149590057789, mScanResult=ScanResult{device=64:3F:6D:47:87:4B, scanRecord=ScanRecord [mAdvertiseFlags=-1, mServiceUuids=[0000fdfd-0000-1000-8000-00805f9b34fb], mServiceSolicitationUuids=[], mManufacturerSpecificData={510=[9, 6, 2, 4, 53, 50, -85, -31, 20, 11, -53, -108, 21, -22, -24, -80, -20, -116]}, mServiceData={00000600-0000-1000-8000-00805f9b34fb=[0, 0]}, mTxPowerLevel=5, mDeviceName=GeelyVehicle252], rssi=-78, timestampNanos=86149590057789, eventType=27, primaryPhy=1, secondaryPhy=0, advertisingSid=255, txPower=127, periodicAdvertisingInterval=0}})
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【writeData】--write data success Delaytime 
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【writeData】--write success callback: current: 1, total: 1, justWrite: fe060029010101207a70f57e211003b3047a784a39c790761810560d459a198412cd8f92477c053ce0
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【onCharacteristicChanged】--receive:[fe0600190102022fbac44f5175aee0677fcc22921846bcecdc]
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【onCharacteristicChanged】--FE0600190102022FBAC44F5175AEE0677FCC22921846BCECDC
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl handleMessage】--msg: { when=0 what=36 obj=EventEntity{mac='64:3F:6D:47:87:4B', evtID=1, evtDes=, cmdID=0, chnIdx=0, errCode=0, content=[-2, 6, 0, 25, 1, 2, 2, 47, -70, -60, 79, 81, 117, -82, -32, 103, 127, -52, 34, -110, 24, 70, -68, -20, -36]} target=android.os.Handler }
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【RECEIVE DATA】--data:0 (len : 25) 
+  FE0600190102022FBAC44F5175AEE0677FCC22921846BCECDC
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl handleMessage】--msg: { when=-1ms what=37 obj=EventEntity{mac='64:3F:6D:47:87:4B', evtID=1, evtDes=, cmdID=0, chnIdx=0, errCode=0, content=[-2, 6, 0, 25, 1, 2, 2, 47, -70, -60, 79, 81, 117, -82, -32, 103, 127, -52, 34, -110, 24, 70, -68, -20, -36]} target=android.os.Handler }
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【TaskMessager】--receive : data cmd:DK STATUS, (Len : 25) 
+FE0600190102022FBAC44F5175AEE0677FCC22921846BCECDC
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【payload-r】-- BaseDispose plaintext: 29EA682062F21012
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DigtalKeyStatusDisposer】-- bin： 29EA682062F21012
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【NativeDkMgr】--getNseq: 29EA
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【SpAutotypeGet】--SpParam getNewAutoType:1
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【NativeDkMgr】-- save file:FileDKList6680846739722798442; content: [DKIdentityAttr{name='Test DK', vin='[vin]', termid='N89860923790003575837583', dkID='e7eda6bf', carNum='[vehicle registration plate number] ', carOwner='test car', dkUrl='e7eda6bf', certOUrl='6680846739722798442BDAD66325D8B57F3AA3838B74EAE4E5BC1E3A94C6A6926DC67C437E7B18FE087', certVUrl='[vin]', pairCode=null, calibData=C900B900BC0A0505A6CE140A00002328, cmacKey=null, initState=true, platform='gtsp'}]
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DigtalKeyStatusDisposer】-- Code=4114
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【Receive 0102:DK Status】--Success:FastConnect
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【TaskMessager】--receive  ee: EventEntity{mac='64:3F:6D:47:87:4B', evtID=26, evtDes=, cmdID=106, chnIdx=0, errCode=1012, content=null}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl handleMessage】--msg: { when=0 what=38 obj=EventEntity{mac='64:3F:6D:47:87:4B', evtID=26, evtDes=, cmdID=106, chnIdx=0, errCode=1012, content=null} target=android.os.Handler }
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【add Msg task】--cmdtype: APP FACTOR
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【TaskMessager】--sendProcessMsg: MessageEntity{mac='64:3F:6D:47:87:4B', dkid='null', cmdID=CMD_A2V_SEND_APP_FACTOR, object=null, instType=REQ, chnIdx=UUID1, peroid=false, peroidTime=3000, conTime=3000, timeout=20000}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【NativeDkMgr】--getLockNseq: 29EB
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【AppFactorPacker】--AppFactorPacker nseq: 29EB, timestamp: 682062FC, 
+factorArray x: 08C128C93BCFB2258AA79F79953D88A8CC717E56B8E4E1DD58ABC2B3AFDCDF6A, 
+factorArray y: 00A655EFF434E61D958082A641F90D93324514AA622DB354D490AB0FA395F30ADF
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【AppFactorPacker】--cmd_exchFactorA content: 29EB682062FC08C128C93BCFB2258AA79F79953D88A8CC717E56B8E4E1DD58ABC2B3AFDCDF6AA655EFF434E61D958082A641F90D93324514AA622DB354D490AB0FA395F30ADF
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【AppFactorPacker】--cmd_exchFactorA digest: DDD254DEF48F7A0156DBF30045511C22AAC983706B7B0E060D78D8FBCFA93A12
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【AppFactorPacker】--cmd_exchFactorA certUrl: 6680846739722798442BDAD66325D8B57F3AA3838B74EAE4E5BC1E3A94C6A6926DC67C437E7B18FE087
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【AppFactorPacker】--cmd_exchFactorA sign: 3045022100B7E30355CB947EB88EED261B59E46725A3A75604A75C6BC7F215EBED5A8D40F802205E3A2890E41EDA486C2D4747DA64CF1F735983A63DDD6F93093208D221AA3297
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【AppFactorPacker】--cmd_exchFactorA verify: true
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【Send 0106:App Factor】--AppSelfVerfiy:Success
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【payload-w BasePacker】-- plaintext: 29EB682062FC08C128C93BCFB2258AA79F79953D88A8CC717E56B8E4E1DD58ABC2B3AFDCDF6AA655EFF434E61D958082A641F90D93324514AA622DB354D490AB0FA395F30ADFDDD254DEF48F7A0156DBF30045511C22AAC983706B7B0E060D78D8FBCFA93A123045022100B7E30355CB947EB88EED261B59E46725A3A75604A75C6BC7F215EBED5A8D40F802205E3A2890E41EDA486C2D4747DA64CF1F735983A63DDD6F93093208D221AA3297
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【writeData】-- me = MessageEntity{mac='64:3F:6D:47:87:4B', dkid='null', cmdID=CMD_A2V_SEND_APP_FACTOR, object=null, instType=REQ, chnIdx=UUID1, peroid=false, peroidTime=3000, conTime=3000, timeout=20000}bleDevice = BleDevice{mDevice=64:3F:6D:47:87:4B, mName=GeelyVehicle252, mAddresss=64:3F:6D:47:87:4B, mScanRecord=0302FDFD15FFFE01090602043532ABE1140BCB9415EAE8B0EC8C020A0505160006000010094765656C7956656869636C6532353200000000000000000000, mRssi=-78, mTimestampNanos=86149590057789, mScanResult=ScanResult{device=64:3F:6D:47:87:4B, scanRecord=ScanRecord [mAdvertiseFlags=-1, mServiceUuids=[0000fdfd-0000-1000-8000-00805f9b34fb], mServiceSolicitationUuids=[], mManufacturerSpecificData={510=[9, 6, 2, 4, 53, 50, -85, -31, 20, 11, -53, -108, 21, -22, -24, -80, -20, -116]}, mServiceData={00000600-0000-1000-8000-00805f9b34fb=[0, 0]}, mTxPowerLevel=5, mDeviceName=GeelyVehicle252], rssi=-78, timestampNanos=86149590057789, eventType=27, primaryPhy=1, secondaryPhy=0, advertisingSid=255, txPower=127, periodicAdvertisingInterval=0}}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【writeData】--SEND APP FACTOR UUID: 0, (len : 182) :
+ FE0600B601060129EB682062FC08C128C93BCFB2258AA79F79953D88A8CC717E56B8E4E1DD58ABC2B3AFDCDF6AA655EFF434E61D958082A641F90D93324514AA622DB354D490AB0FA395F30ADFDDD254DEF48F7A0156DBF30045511C22AAC983706B7B0E060D78D8FBCFA93A123045022100B7E30355CB947EB88EED261B59E46725A3A75604A75C6BC7F215EBED5A8D40F802205E3A2890E41EDA486C2D4747DA64CF1F735983A63DDD6F93093208D221AA32977138
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【BleManager】--writeSplit(bleDevice = BleDevice{mDevice=64:3F:6D:47:87:4B, mName=GeelyVehicle252, mAddresss=64:3F:6D:47:87:4B, mScanRecord=0302FDFD15FFFE01090602043532ABE1140BCB9415EAE8B0EC8C020A0505160006000010094765656C7956656869636C6532353200000000000000000000, mRssi=-78, mTimestampNanos=86149590057789, mScanResult=ScanResult{device=64:3F:6D:47:87:4B, scanRecord=ScanRecord [mAdvertiseFlags=-1, mServiceUuids=[0000fdfd-0000-1000-8000-00805f9b34fb], mServiceSolicitationUuids=[], mManufacturerSpecificData={510=[9, 6, 2, 4, 53, 50, -85, -31, 20, 11, -53, -108, 21, -22, -24, -80, -20, -116]}, mServiceData={00000600-0000-1000-8000-00805f9b34fb=[0, 0]}, mTxPowerLevel=5, mDeviceName=GeelyVehicle252], rssi=-78, timestampNanos=86149590057789, eventType=27, primaryPhy=1, secondaryPhy=0, advertisingSid=255, txPower=127, periodicAdvertisingInterval=0}})
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【writeData】--write data success Delaytime 
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【writeData】--write success callback: current: 1, total: 1, justWrite: fe0600b601060129eb682062fc08c128c93bcfb2258aa79f79953d88a8cc717e56b8e4e1dd58abc2b3afdcdf6aa655eff434e61d958082a641f90d93324514aa622db354d490ab0fa395f30adfddd254def48f7a0156dbf30045511c22aac983706b7b0e060d78d8fbcfa93a123045022100b7e30355cb947eb88eed261b59e46725a3a75604a75c6bc7f215ebed5a8d40f802205e3a2890e41eda486c2d4747da64cf1f735983a63ddd6f93093208d221aa32977138
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【onCharacteristicChanged】--receive:[fe0600b601080229eb682062f291e5606800961dc7aea82d793c00281add579d5b6724edf7a5baae285fbc7aebfd9c9304f962b145573b14191fae24fe3a912920593fbb7cc14186b3374849b7f5e61cbe0861278601a080a5ce5792d2c05abe678350cbff21b0e36b7e7b3a31304502210091e5606800961dc7aea82d793c00281add579d5b6724edf7a5baae285fbc7aeb022005c3b0d5fd1b6b08af64b8d7dded648a24820cc2a28a6eee767044b8a7639482ab83]
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【onCharacteristicChanged】--FE0600B601080229EB682062F291E5606800961DC7AEA82D793C00281ADD579D5B6724EDF7A5BAAE285FBC7AEBFD9C9304F962B145573B14191FAE24FE3A912920593FBB7CC14186B3374849B7F5E61CBE0861278601A080A5CE5792D2C05ABE678350CBFF21B0E36B7E7B3A31304502210091E5606800961DC7AEA82D793C00281ADD579D5B6724EDF7A5BAAE285FBC7AEB022005C3B0D5FD1B6B08AF64B8D7DDED648A24820CC2A28A6EEE767044B8A7639482AB83
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl handleMessage】--msg: { when=-1ms what=36 obj=EventEntity{mac='64:3F:6D:47:87:4B', evtID=1, evtDes=, cmdID=0, chnIdx=0, errCode=0, content=[-2, 6, 0, -74, 1, 8, 2, 41, -21, 104, 32, 98, -14, -111, -27, 96, 104, 0, -106, 29, -57, -82, -88, 45, 121, 60, 0, 40, 26, -35, 87, -99, 91, 103, 36, -19, -9, -91, -70, -82, 40, 95, -68, 122, -21, -3, -100, -109, 4, -7, 98, -79, 69, 87, 59, 20, 25, 31, -82, 36, -2, 58, -111, 41, 32, 89, 63, -69, 124, -63, 65, -122, -77, 55, 72, 73, -73, -11, -26, 28, -66, 8, 97, 39, -122, 1, -96, -128, -91, -50, 87, -110, -46, -64, 90, -66, 103, -125, 80, -53, -1, 33, -80, -29, 107, 126, 123, 58, 49, 48, 69, 2, 33, 0, -111, -27, 96, 104, 0, -106, 29, -57, -82, -88, 45, 121, 60, 0, 40, 26, -35, 87, -99, 91, 103, 36, -19, -9, -91, -70, -82, 40, 95, -68, 122, -21, 2, 32, 5, -61, -80, -43, -3, 27, 107, 8, -81, 100, -72, -41, -35, -19, 100, -118, 36, -126, 12, -62, -94, -118, 110, -18, 118, 112, 68, -72, -89, 99, -108, -126, -85, -125]} target=android.os.Handler }
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【RECEIVE DATA】--data:0 (len : 182) 
+  FE0600B601080229EB682062F291E5606800961DC7AEA82D793C00281ADD579D5B6724EDF7A5BAAE285FBC7AEBFD9C9304F962B145573B14191FAE24FE3A912920593FBB7CC14186B3374849B7F5E61CBE0861278601A080A5CE5792D2C05ABE678350CBFF21B0E36B7E7B3A31304502210091E5606800961DC7AEA82D793C00281ADD579D5B6724EDF7A5BAAE285FBC7AEB022005C3B0D5FD1B6B08AF64B8D7DDED648A24820CC2A28A6EEE767044B8A7639482AB83
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl handleMessage】--msg: { when=0 what=37 obj=EventEntity{mac='64:3F:6D:47:87:4B', evtID=1, evtDes=, cmdID=0, chnIdx=0, errCode=0, content=[-2, 6, 0, -74, 1, 8, 2, 41, -21, 104, 32, 98, -14, -111, -27, 96, 104, 0, -106, 29, -57, -82, -88, 45, 121, 60, 0, 40, 26, -35, 87, -99, 91, 103, 36, -19, -9, -91, -70, -82, 40, 95, -68, 122, -21, -3, -100, -109, 4, -7, 98, -79, 69, 87, 59, 20, 25, 31, -82, 36, -2, 58, -111, 41, 32, 89, 63, -69, 124, -63, 65, -122, -77, 55, 72, 73, -73, -11, -26, 28, -66, 8, 97, 39, -122, 1, -96, -128, -91, -50, 87, -110, -46, -64, 90, -66, 103, -125, 80, -53, -1, 33, -80, -29, 107, 126, 123, 58, 49, 48, 69, 2, 33, 0, -111, -27, 96, 104, 0, -106, 29, -57, -82, -88, 45, 121, 60, 0, 40, 26, -35, 87, -99, 91, 103, 36, -19, -9, -91, -70, -82, 40, 95, -68, 122, -21, 2, 32, 5, -61, -80, -43, -3, 27, 107, 8, -81, 100, -72, -41, -35, -19, 100, -118, 36, -126, 12, -62, -94, -118, 110, -18, 118, 112, 68, -72, -89, 99, -108, -126, -85, -125]} target=android.os.Handler }
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【TaskMessager】--receive : data cmd:VEHICLE FACTOR, (Len : 182) 
+FE0600B601080229EB682062F291E5606800961DC7AEA82D793C00281ADD579D5B6724EDF7A5BAAE285FBC7AEBFD9C9304F962B145573B14191FAE24FE3A912920593FBB7CC14186B3374849B7F5E61CBE0861278601A080A5CE5792D2C05ABE678350CBFF21B0E36B7E7B3A31304502210091E5606800961DC7AEA82D793C00281ADD579D5B6724EDF7A5BAAE285FBC7AEB022005C3B0D5FD1B6B08AF64B8D7DDED648A24820CC2A28A6EEE767044B8A7639482AB83
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【payload-r】-- BaseDispose plaintext: 29EB682062F291E5606800961DC7AEA82D793C00281ADD579D5B6724EDF7A5BAAE285FBC7AEBFD9C9304F962B145573B14191FAE24FE3A912920593FBB7CC14186B3374849B7F5E61CBE0861278601A080A5CE5792D2C05ABE678350CBFF21B0E36B7E7B3A31304502210091E5606800961DC7AEA82D793C00281ADD579D5B6724EDF7A5BAAE285FBC7AEB022005C3B0D5FD1B6B08AF64B8D7DDED648A24820CC2A28A6EEE767044B8A7639482
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【NativeDkMgr】--getNseq: 29EB
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【SpAutotypeGet】--SpParam getNewAutoType:1
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【Receive 0108:Vehicle Factor】--Success
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【TaskMessager】--receive  ee: EventEntity{mac='64:3F:6D:47:87:4B', evtID=26, evtDes=, cmdID=109, chnIdx=0, errCode=1000, content=null}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl handleMessage】--msg: { when=0 what=38 obj=EventEntity{mac='64:3F:6D:47:87:4B', evtID=26, evtDes=, cmdID=109, chnIdx=0, errCode=1000, content=null} target=android.os.Handler }
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【CMD_A2V_DK_PRE_SYNC】--SKey+IV : F5A4FBC84FA39DF0A429992841B3012E, 4EC7011DDCB759B1F68265A7
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkConfig】-- getDkBeanSource: 1
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【add Msg task】--cmdtype: DK PRESYNC
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【TaskMessager】--sendProcessMsg: MessageEntity{mac='64:3F:6D:47:87:4B', dkid='null', cmdID=CMD_A2V_DK_PRE_SYNC, object=null, instType=REQ, chnIdx=UUID1, peroid=false, peroidTime=3000, conTime=3000, timeout=20000}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【NativeDkMgr】--getLockNseq: 29EC
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkPreSync payloadPacker】--longId:601DEF7C468EB44A87D615D7ABD9E544
+ id:E7EDA6BF
+ gid:36363830383436373339373232373938
+ secretKey:FB8ACD191D0366F0BC2A5D634AA31923E029A5D2D30D40BAF1C54C1A88F29C3D1DE3F7DC44EB8184E91AA9DAF1C4D3C58E16CA0B209A27F580C15FF32CBE8E110A4DC3EDF889095CFBC1C77C9378126C948B943E3061161EBD444CB60B313E23
+ signature:30460221009FC3DC6033D0CFCF16E74178E778C84530FC01EFB10B65921BC6B8318149AEE2022100AA7286FC3D9ADB2114050030E7AF5ABAD8D73044CB627C7C4236D003A0069F4D
+ PhoneCoef:C900B900BC0A0505A6CE140A00002328
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【Send 0109:Dk Presync】--phonecoef：C900B900BC0A0505A6CE140A00002328
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【payload-w BasePacker】-- plaintext: 29EC682062FDC900B900BC0A0505A6CE140A00002328601DEF7C468EB44A87D615D7ABD9E544FB8ACD191D0366F0BC2A5D634AA31923E029A5D2D30D40BAF1C54C1A88F29C3D1DE3F7DC44EB8184E91AA9DAF1C4D3C58E16CA0B209A27F580C15FF32CBE8E110A4DC3EDF889095CFBC1C77C9378126C948B943E3061161EBD444CB60B313E23
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【writeData】-- me = MessageEntity{mac='64:3F:6D:47:87:4B', dkid='null', cmdID=CMD_A2V_DK_PRE_SYNC, object=null, instType=REQ, chnIdx=UUID1, peroid=false, peroidTime=3000, conTime=3000, timeout=20000}bleDevice = BleDevice{mDevice=64:3F:6D:47:87:4B, mName=GeelyVehicle252, mAddresss=64:3F:6D:47:87:4B, mScanRecord=0302FDFD15FFFE01090602043532ABE1140BCB9415EAE8B0EC8C020A0505160006000010094765656C7956656869636C6532353200000000000000000000, mRssi=-78, mTimestampNanos=86149590057789, mScanResult=ScanResult{device=64:3F:6D:47:87:4B, scanRecord=ScanRecord [mAdvertiseFlags=-1, mServiceUuids=[0000fdfd-0000-1000-8000-00805f9b34fb], mServiceSolicitationUuids=[], mManufacturerSpecificData={510=[9, 6, 2, 4, 53, 50, -85, -31, 20, 11, -53, -108, 21, -22, -24, -80, -20, -116]}, mServiceData={00000600-0000-1000-8000-00805f9b34fb=[0, 0]}, mTxPowerLevel=5, mDeviceName=GeelyVehicle252], rssi=-78, timestampNanos=86149590057789, eventType=27, primaryPhy=1, secondaryPhy=0, advertisingSid=255, txPower=127, periodicAdvertisingInterval=0}}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【writeData】--SEND DK PRESYNC UUID: 0, (len : 159) :
+ FE06009F01090112127D692718459A596408BAEBFBA898E886FAFB3B0130C49AD954E2C0CCEB58B8341BE3A892F1A492ED40CC086107954D7C641DC44B38FFDE09BCD8F92BE2E63E6BFAC13DADDD093BC590209D3A097B70C2D2E96AE805FE85A6D60E19B493EEA5EBC404EB2853C649C25A7F4EC81FC89C5B736E5E6AAC7131941208E6AB16ADD80C1201EF482B864AE24EDF318F22F8A36AA7C51918BACB
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【BleManager】--writeSplit(bleDevice = BleDevice{mDevice=64:3F:6D:47:87:4B, mName=GeelyVehicle252, mAddresss=64:3F:6D:47:87:4B, mScanRecord=0302FDFD15FFFE01090602043532ABE1140BCB9415EAE8B0EC8C020A0505160006000010094765656C7956656869636C6532353200000000000000000000, mRssi=-78, mTimestampNanos=86149590057789, mScanResult=ScanResult{device=64:3F:6D:47:87:4B, scanRecord=ScanRecord [mAdvertiseFlags=-1, mServiceUuids=[0000fdfd-0000-1000-8000-00805f9b34fb], mServiceSolicitationUuids=[], mManufacturerSpecificData={510=[9, 6, 2, 4, 53, 50, -85, -31, 20, 11, -53, -108, 21, -22, -24, -80, -20, -116]}, mServiceData={00000600-0000-1000-8000-00805f9b34fb=[0, 0]}, mTxPowerLevel=5, mDeviceName=GeelyVehicle252], rssi=-78, timestampNanos=86149590057789, eventType=27, primaryPhy=1, secondaryPhy=0, advertisingSid=255, txPower=127, periodicAdvertisingInterval=0}})
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【writeData】--write data success Delaytime 
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【writeData】--write success callback: current: 1, total: 1, justWrite: fe06009f01090112127d692718459a596408baebfba898e886fafb3b0130c49ad954e2c0cceb58b8341be3a892f1a492ed40cc086107954d7c641dc44b38ffde09bcd8f92be2e63e6bfac13daddd093bc590209d3a097b70c2d2e96ae805fe85a6d60e19b493eea5ebc404eb2853c649c25a7f4ec81fc89c5b736e5e6aac7131941208e6ab16add80c1201ef482b864ae24edf318f22f8a36aa7c51918bacb
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【onCharacteristicChanged】--receive:[fe060021010a0212127d6927169c9abefe6689b4cceb8dd6ee7b15701d3955a55e]
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【onCharacteristicChanged】--receive:[fe06002e01210212127d6927162630e165b5b1eefe0e56fc24fbeb18cc0fdb71f551dd4f55fe8b1ea90dc5a3e9be]
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【onCharacteristicChanged】--FE060021010A0212127D6927169C9ABEFE6689B4CCEB8DD6EE7B15701D3955A55E
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【onCharacteristicChanged】--FE06002E01210212127D6927162630E165B5B1EEFE0E56FC24FBEB18CC0FDB71F551DD4F55FE8B1EA90DC5A3E9BE
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl handleMessage】--msg: { when=-4ms what=36 obj=EventEntity{mac='64:3F:6D:47:87:4B', evtID=1, evtDes=, cmdID=0, chnIdx=0, errCode=0, content=[-2, 6, 0, 33, 1, 10, 2, 18, 18, 125, 105, 39, 22, -100, -102, -66, -2, 102, -119, -76, -52, -21, -115, -42, -18, 123, 21, 112, 29, 57, 85, -91, 94]} target=android.os.Handler }
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【RECEIVE DATA】--data:0 (len : 33) 
+  FE060021010A0212127D6927169C9ABEFE6689B4CCEB8DD6EE7B15701D3955A55E
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl handleMessage】--msg: { when=-10ms what=36 obj=EventEntity{mac='64:3F:6D:47:87:4B', evtID=1, evtDes=, cmdID=0, chnIdx=0, errCode=0, content=[-2, 6, 0, 46, 1, 33, 2, 18, 18, 125, 105, 39, 22, 38, 48, -31, 101, -75, -79, -18, -2, 14, 86, -4, 36, -5, -21, 24, -52, 15, -37, 113, -11, 81, -35, 79, 85, -2, -117, 30, -87, 13, -59, -93, -23, -66]} target=android.os.Handler }
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【RECEIVE DATA】--data:0 (len : 46) 
+  FE06002E01210212127D6927162630E165B5B1EEFE0E56FC24FBEB18CC0FDB71F551DD4F55FE8B1EA90DC5A3E9BE
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl handleMessage】--msg: { when=-6ms what=37 obj=EventEntity{mac='64:3F:6D:47:87:4B', evtID=1, evtDes=, cmdID=0, chnIdx=0, errCode=0, content=[-2, 6, 0, 33, 1, 10, 2, 18, 18, 125, 105, 39, 22, -100, -102, -66, -2, 102, -119, -76, -52, -21, -115, -42, -18, 123, 21, 112, 29, 57, 85, -91, 94]} target=android.os.Handler }
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【TaskMessager】--receive : data cmd:DK PRESYNC RESP, (Len : 33) 
+FE060021010A0212127D6927169C9ABEFE6689B4CCEB8DD6EE7B15701D3955A55E
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【payload-r】-- BaseDispose plaintext: 29EC682062F31000
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【NativeDkMgr】--getNseq: 29EC
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【SpAutotypeGet】--SpParam getNewAutoType:1
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DKPreSyncRespDisposer】-- code: 4096
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【Receive 010A:Dk Presync RSP】--Success
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【TaskMessager】--receive  ee: EventEntity{mac='64:3F:6D:47:87:4B', evtID=27, evtDes=, cmdID=ffffffff, chnIdx=0, errCode=1000, content=null}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl handleMessage】--msg: { when=-29ms what=37 obj=EventEntity{mac='64:3F:6D:47:87:4B', evtID=1, evtDes=, cmdID=0, chnIdx=0, errCode=0, content=[-2, 6, 0, 46, 1, 33, 2, 18, 18, 125, 105, 39, 22, 38, 48, -31, 101, -75, -79, -18, -2, 14, 86, -4, 36, -5, -21, 24, -52, 15, -37, 113, -11, 81, -35, 79, 85, -2, -117, 30, -87, 13, -59, -93, -23, -66]} target=android.os.Handler }
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【TaskMessager】--receive : data cmd:VSTATUS SYNC, (Len : 46) 
+FE06002E01210212127D6927162630E165B5B1EEFE0E56FC24FBEB18CC0FDB71F551DD4F55FE8B1EA90DC5A3E9BE
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【payload-r】-- BaseDispose plaintext: 29EC682062F3AAAA010101010000000000A8011000
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【TaskMessager】--receive  ee: EventEntity{mac='64:3F:6D:47:87:4B', evtID=4, evtDes=, cmdID=ffffffff, chnIdx=0, errCode=1000, content=[-86, -86, 1, 1, 1, 1, 0, 0, 0, 0, 0, -88, 1, 16, 0]}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【TaskMessager】--sendProcessMsg: MessageEntity{mac='64:3F:6D:47:87:4B', dkid='null', cmdID=CMD_A2V_INST_ACK, object=AckPayload{cmdId=0121data=null}, instType=ACK, chnIdx=UUID1, peroid=false, peroidTime=3000, conTime=3000, timeout=20000}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl handleMessage】--msg: { when=-11ms what=39 obj=EventEntity{mac='64:3F:6D:47:87:4B', evtID=27, evtDes=, cmdID=ffffffff, chnIdx=0, errCode=1000, content=null} target=android.os.Handler }
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【NativeDkMgr】--getLockNseq: 29ED
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【auth success】--Delaytime: 1375;mInterruptConnect:false
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【payload-w BasePacker】-- plaintext: 29EC682062F30121
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【AuthVehicleFinish】--Success
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【writeData】-- me = MessageEntity{mac='64:3F:6D:47:87:4B', dkid='null', cmdID=CMD_A2V_INST_ACK, object=AckPayload{cmdId=0121data=null}, instType=ACK, chnIdx=UUID1, peroid=false, peroidTime=3000, conTime=3000, timeout=20000}bleDevice = BleDevice{mDevice=64:3F:6D:47:87:4B, mName=GeelyVehicle252, mAddresss=64:3F:6D:47:87:4B, mScanRecord=0302FDFD15FFFE01090602043532ABE1140BCB9415EAE8B0EC8C020A0505160006000010094765656C7956656869636C6532353200000000000000000000, mRssi=-78, mTimestampNanos=86149590057789, mScanResult=ScanResult{device=64:3F:6D:47:87:4B, scanRecord=ScanRecord [mAdvertiseFlags=-1, mServiceUuids=[0000fdfd-0000-1000-8000-00805f9b34fb], mServiceSolicitationUuids=[], mManufacturerSpecificData={510=[9, 6, 2, 4, 53, 50, -85, -31, 20, 11, -53, -108, 21, -22, -24, -80, -20, -116]}, mServiceData={00000600-0000-1000-8000-00805f9b34fb=[0, 0]}, mTxPowerLevel=5, mDeviceName=GeelyVehicle252], rssi=-78, timestampNanos=86149590057789, eventType=27, primaryPhy=1, secondaryPhy=0, advertisingSid=255, txPower=127, periodicAdvertisingInterval=0}}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DKParamsMgr】-- UseDk get:e7eda6bf
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【onCharacteristicChanged】--receive:[fe06002e01210212127d6927162630e165b5b1eefe0e56fc24fbeb18cc0fdb71f551dd4f55fe8b1ea90dc5a3e9be]
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【writeData】--SEND INST ACK UUID: 0, (len : 17) :
+ FE060011FFFE0429EC682062F301210B69
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【changeConnStatus】--connStatus: 8
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【BleManager】--writeSplit(bleDevice = BleDevice{mDevice=64:3F:6D:47:87:4B, mName=GeelyVehicle252, mAddresss=64:3F:6D:47:87:4B, mScanRecord=0302FDFD15FFFE01090602043532ABE1140BCB9415EAE8B0EC8C020A0505160006000010094765656C7956656869636C6532353200000000000000000000, mRssi=-78, mTimestampNanos=86149590057789, mScanResult=ScanResult{device=64:3F:6D:47:87:4B, scanRecord=ScanRecord [mAdvertiseFlags=-1, mServiceUuids=[0000fdfd-0000-1000-8000-00805f9b34fb], mServiceSolicitationUuids=[], mManufacturerSpecificData={510=[9, 6, 2, 4, 53, 50, -85, -31, 20, 11, -53, -108, 21, -22, -24, -80, -20, -116]}, mServiceData={00000600-0000-1000-8000-00805f9b34fb=[0, 0]}, mTxPowerLevel=5, mDeviceName=GeelyVehicle252], rssi=-78, timestampNanos=86149590057789, eventType=27, primaryPhy=1, secondaryPhy=0, advertisingSid=255, txPower=127, periodicAdvertisingInterval=0}})
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【checkGLGlistener】--GLGlistener is null : connectSuccess
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【startPsBroadcasting】--send ble Broadcasting local
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【Start Local Adv】--Success
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【startCustAdvertiser】--custadvertiser: android.bluetooth.le.BluetoothLeAdvertiser@5c72ea
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【AutoPolling】--setmAutoUnlockStatus:0
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【add Msg task】--cmdtype: PAIRING REQ
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【TaskMessager】--sendProcessMsg: MessageEntity{mac='64:3F:6D:47:87:4B', dkid='null', cmdID=CMD_A2V_PAIRING_REQ, object=null, instType=CON, chnIdx=UUID1, peroid=false, peroidTime=3000, conTime=3000, timeout=20000}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl handleMessage】--msg: { when=-45ms what=4 obj=EventEntity{mac='64:3F:6D:47:87:4B', evtID=4, evtDes=, cmdID=ffffffff, chnIdx=0, errCode=1000, content=[-86, -86, 1, 1, 1, 1, 0, 0, 0, 0, 0, -88, 1, 16, 0]} target=android.os.Handler }
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【NativeDkMgr】--getLockNseq: 29EE
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【getDeviceID】--devcachestr:BDAD66325D8B57F3AA3838B74EAE4E5BC1E3A94C6A6926DC67C437E7B18FE087
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【Send 0137:Pairing Data】--Pairing Data:PairingPayload{pairData=0000000000000000000000000000000000000000000000, crc=0000}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【payload-w BasePacker】-- plaintext: 29EE682062FD00000000000000000000000000000000000000000000000000
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【writeData】-- me = MessageEntity{mac='64:3F:6D:47:87:4B', dkid='null', cmdID=CMD_A2V_PAIRING_REQ, object=null, instType=CON, chnIdx=UUID1, peroid=false, peroidTime=3000, conTime=3000, timeout=20000}bleDevice = BleDevice{mDevice=64:3F:6D:47:87:4B, mName=GeelyVehicle252, mAddresss=64:3F:6D:47:87:4B, mScanRecord=0302FDFD15FFFE01090602043532ABE1140BCB9415EAE8B0EC8C020A0505160006000010094765656C7956656869636C6532353200000000000000000000, mRssi=-78, mTimestampNanos=86149590057789, mScanResult=ScanResult{device=64:3F:6D:47:87:4B, scanRecord=ScanRecord [mAdvertiseFlags=-1, mServiceUuids=[0000fdfd-0000-1000-8000-00805f9b34fb], mServiceSolicitationUuids=[], mManufacturerSpecificData={510=[9, 6, 2, 4, 53, 50, -85, -31, 20, 11, -53, -108, 21, -22, -24, -80, -20, -116]}, mServiceData={00000600-0000-1000-8000-00805f9b34fb=[0, 0]}, mTxPowerLevel=5, mDeviceName=GeelyVehicle252], rssi=-78, timestampNanos=86149590057789, eventType=27, primaryPhy=1, secondaryPhy=0, advertisingSid=255, txPower=127, periodicAdvertisingInterval=0}}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【writeData】--SEND PAIRING REQ UUID: 0, (len : 56) :
+ FE06003801370312107D6927188C9AE064B4B0EEFE0E56FC8CFAFB182950D975A5126C74866CD4CDF3C7000630874D5129080AE413C144C3
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【BleManager】--writeSplit(bleDevice = BleDevice{mDevice=64:3F:6D:47:87:4B, mName=GeelyVehicle252, mAddresss=64:3F:6D:47:87:4B, mScanRecord=0302FDFD15FFFE01090602043532ABE1140BCB9415EAE8B0EC8C020A0505160006000010094765656C7956656869636C6532353200000000000000000000, mRssi=-78, mTimestampNanos=86149590057789, mScanResult=ScanResult{device=64:3F:6D:47:87:4B, scanRecord=ScanRecord [mAdvertiseFlags=-1, mServiceUuids=[0000fdfd-0000-1000-8000-00805f9b34fb], mServiceSolicitationUuids=[], mManufacturerSpecificData={510=[9, 6, 2, 4, 53, 50, -85, -31, 20, 11, -53, -108, 21, -22, -24, -80, -20, -116]}, mServiceData={00000600-0000-1000-8000-00805f9b34fb=[0, 0]}, mTxPowerLevel=5, mDeviceName=GeelyVehicle252], rssi=-78, timestampNanos=86149590057789, eventType=27, primaryPhy=1, secondaryPhy=0, advertisingSid=255, txPower=127, periodicAdvertisingInterval=0}})
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【Receive 0121:Vehicle Staus Update】--Vehicle Staus Update:
+VehicleStatus{doorStatus={frontLeft=2, frontRight=2, rearLeft=2, rearRight=2}, lockStatus=LockStatus{frontLeft=2, frontRight=2, rearLeft=2, rearRight=2, trunkLock=2, centerLock=0, approachUnlockSwitchStatus=0, walkAwayLockSwitchStatus=0, automaticLockSwitch=1}, windowStatus={frontLeft=1, frontRight=1, rearLeft=1, rearRight=1}, sidedoorStatus={left=0, right=0}, sunroof={sunroof=0, sunCurtain=0}, hoodStatus=2, trunkStatus={trunkStatus=2, trunkOpenStatus=0}, pepsStatus={psStatus=0, peStatus=0}, carmode=0, pollStatus={pollCondition=0, pollStatus=0, pollInterrupt=1, AlarmStatus=0}, extraLightStatus={LowBeam=0, HighBeam=0, HomeSafeBeam=0, HazardWarningLamp=0}, hmiStatus=null}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【openPolling】--mPollingEnable: false
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【onCharacteristicChanged】--FE06002E01210212127D6927162630E165B5B1EEFE0E56FC24FBEB18CC0FDB71F551DD4F55FE8B1EA90DC5A3E9BE
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【writeData】--write data success Delaytime 
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【writeData】--write success callback: current: 1, total: 1, justWrite: fe060011fffe0429ec682062f301210b69
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【writeData】--write data success Delaytime 
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【writeData】--write success callback: current: 1, total: 1, justWrite: fe06003801370312107d6927188c9ae064b4b0eefe0e56fc8cfafb182950d975a5126c74866cd4cdf3c7000630874d5129080ae413c144c3
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl handleMessage】--msg: { when=-14ms what=36 obj=EventEntity{mac='64:3F:6D:47:87:4B', evtID=1, evtDes=, cmdID=0, chnIdx=0, errCode=0, content=[-2, 6, 0, 46, 1, 33, 2, 18, 18, 125, 105, 39, 22, 38, 48, -31, 101, -75, -79, -18, -2, 14, 86, -4, 36, -5, -21, 24, -52, 15, -37, 113, -11, 81, -35, 79, 85, -2, -117, 30, -87, 13, -59, -93, -23, -66]} target=android.os.Handler }
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【RECEIVE DATA】--data:0 (len : 46) 
+  FE06002E01210212127D6927162630E165B5B1EEFE0E56FC24FBEB18CC0FDB71F551DD4F55FE8B1EA90DC5A3E9BE
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【RECEIVE DATA】--received data repeat:FE06002E01210212127D6927162630E165B5B1EEFE0E56FC24FBEB18CC0FDB71F551DD4F55FE8B1EA90DC5A3E9BE
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【LocalService】-- BroadcastReceiver: com.action.refresh.notification
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DKParamsMgr】-- UseDk get:e7eda6bf
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【isVehicleConnected】--e7eda6bf: isConnected: true
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【LocalService】-- updateNotification btStatus: BTCONNECTED, dkId: e7eda6bf
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【onCharacteristicChanged】--receive:[fe060013fffe0429ee682062f3013710003199]
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【onCharacteristicChanged】--FE060013FFFE0429EE682062F3013710003199
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl handleMessage】--msg: { when=0 what=36 obj=EventEntity{mac='64:3F:6D:47:87:4B', evtID=1, evtDes=, cmdID=0, chnIdx=0, errCode=0, content=[-2, 6, 0, 19, -1, -2, 4, 41, -18, 104, 32, 98, -13, 1, 55, 16, 0, 49, -103]} target=android.os.Handler }
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【RECEIVE DATA】--data:0 (len : 19) 
+  FE060013FFFE0429EE682062F3013710003199
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl handleMessage】--msg: { when=0 what=37 obj=EventEntity{mac='64:3F:6D:47:87:4B', evtID=1, evtDes=, cmdID=0, chnIdx=0, errCode=0, content=[-2, 6, 0, 19, -1, -2, 4, 41, -18, 104, 32, 98, -13, 1, 55, 16, 0, 49, -103]} target=android.os.Handler }
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【TaskMessager】--receive : data cmd:INST ACK, (Len : 19) 
+FE060013FFFE0429EE682062F3013710003199
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【payload-r】-- BaseDispose plaintext: 29EE682062F301371000
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【NativeDkMgr】--getNseq: 29EE
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【TaskMessager】--receive  ee: EventEntity{mac='64:3F:6D:47:87:4B', evtID=1, evtDes=, cmdID=ffffffff, chnIdx=0, errCode=1000, content=null}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【TaskMessager】--receive  error:Handler (android.os.Handler) {84b8efc}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【onCharacteristicChanged】--receive:[fe06002e01210412107d6927112630e165b5b1eefe0e56fc14fbeb18ec64f387f4747785950e33635501ed5b8b60]
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【onCharacteristicChanged】--FE06002E01210412107D6927112630E165B5B1EEFE0E56FC14FBEB18EC64F387F4747785950E33635501ED5B8B60
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl handleMessage】--msg: { when=0 what=36 obj=EventEntity{mac='64:3F:6D:47:87:4B', evtID=1, evtDes=, cmdID=0, chnIdx=0, errCode=0, content=[-2, 6, 0, 46, 1, 33, 4, 18, 16, 125, 105, 39, 17, 38, 48, -31, 101, -75, -79, -18, -2, 14, 86, -4, 20, -5, -21, 24, -20, 100, -13, -121, -12, 116, 119, -123, -107, 14, 51, 99, 85, 1, -19, 91, -117, 96]} target=android.os.Handler }
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【RECEIVE DATA】--data:0 (len : 46) 
+  FE06002E01210412107D6927112630E165B5B1EEFE0E56FC14FBEB18EC64F387F4747785950E33635501ED5B8B60
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl handleMessage】--msg: { when=0 what=37 obj=EventEntity{mac='64:3F:6D:47:87:4B', evtID=1, evtDes=, cmdID=0, chnIdx=0, errCode=0, content=[-2, 6, 0, 46, 1, 33, 4, 18, 16, 125, 105, 39, 17, 38, 48, -31, 101, -75, -79, -18, -2, 14, 86, -4, 20, -5, -21, 24, -20, 100, -13, -121, -12, 116, 119, -123, -107, 14, 51, 99, 85, 1, -19, 91, -117, 96]} target=android.os.Handler }
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【TaskMessager】--receive : data cmd:VSTATUS SYNC, (Len : 46) 
+FE06002E01210412107D6927112630E165B5B1EEFE0E56FC14FBEB18EC64F387F4747785950E33635501ED5B8B60
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【payload-r】-- BaseDispose plaintext: 29EE682062F4AAAA01010101000000000098011000
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【TaskMessager】--receive  ee: EventEntity{mac='64:3F:6D:47:87:4B', evtID=4, evtDes=, cmdID=ffffffff, chnIdx=0, errCode=1000, content=[-86, -86, 1, 1, 1, 1, 0, 0, 0, 0, 0, -104, 1, 16, 0]}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【TaskMessager】--sendProcessMsg: MessageEntity{mac='64:3F:6D:47:87:4B', dkid='null', cmdID=CMD_A2V_INST_ACK, object=AckPayload{cmdId=0121data=null}, instType=ACK, chnIdx=UUID1, peroid=false, peroidTime=3000, conTime=3000, timeout=20000}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl handleMessage】--msg: { when=-1ms what=4 obj=EventEntity{mac='64:3F:6D:47:87:4B', evtID=4, evtDes=, cmdID=ffffffff, chnIdx=0, errCode=1000, content=[-86, -86, 1, 1, 1, 1, 0, 0, 0, 0, 0, -104, 1, 16, 0]} target=android.os.Handler }
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【NativeDkMgr】--getLockNseq: 29EF
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【Receive 0121:Vehicle Staus Update】--Vehicle Staus Update:
+VehicleStatus{doorStatus={frontLeft=2, frontRight=2, rearLeft=2, rearRight=2}, lockStatus=LockStatus{frontLeft=2, frontRight=2, rearLeft=2, rearRight=2, trunkLock=1, centerLock=0, approachUnlockSwitchStatus=0, walkAwayLockSwitchStatus=0, automaticLockSwitch=1}, windowStatus={frontLeft=1, frontRight=1, rearLeft=1, rearRight=1}, sidedoorStatus={left=0, right=0}, sunroof={sunroof=0, sunCurtain=0}, hoodStatus=2, trunkStatus={trunkStatus=2, trunkOpenStatus=0}, pepsStatus={psStatus=0, peStatus=0}, carmode=0, pollStatus={pollCondition=0, pollStatus=0, pollInterrupt=1, AlarmStatus=0}, extraLightStatus={LowBeam=0, HighBeam=0, HomeSafeBeam=0, HazardWarningLamp=0}, hmiStatus=null}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【payload-w BasePacker】-- plaintext: 29EE682062F40121
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【writeData】-- me = MessageEntity{mac='64:3F:6D:47:87:4B', dkid='null', cmdID=CMD_A2V_INST_ACK, object=AckPayload{cmdId=0121data=null}, instType=ACK, chnIdx=UUID1, peroid=false, peroidTime=3000, conTime=3000, timeout=20000}bleDevice = BleDevice{mDevice=64:3F:6D:47:87:4B, mName=GeelyVehicle252, mAddresss=64:3F:6D:47:87:4B, mScanRecord=0302FDFD15FFFE01090602043532ABE1140BCB9415EAE8B0EC8C020A0505160006000010094765656C7956656869636C6532353200000000000000000000, mRssi=-78, mTimestampNanos=86149590057789, mScanResult=ScanResult{device=64:3F:6D:47:87:4B, scanRecord=ScanRecord [mAdvertiseFlags=-1, mServiceUuids=[0000fdfd-0000-1000-8000-00805f9b34fb], mServiceSolicitationUuids=[], mManufacturerSpecificData={510=[9, 6, 2, 4, 53, 50, -85, -31, 20, 11, -53, -108, 21, -22, -24, -80, -20, -116]}, mServiceData={00000600-0000-1000-8000-00805f9b34fb=[0, 0]}, mTxPowerLevel=5, mDeviceName=GeelyVehicle252], rssi=-78, timestampNanos=86149590057789, eventType=27, primaryPhy=1, secondaryPhy=0, advertisingSid=255, txPower=127, periodicAdvertisingInterval=0}}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【openPolling】--mPollingEnable: false
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【writeData】--SEND INST ACK UUID: 0, (len : 17) :
+ FE060011FFFE0429EE682062F401210AFB
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【BleManager】--writeSplit(bleDevice = BleDevice{mDevice=64:3F:6D:47:87:4B, mName=GeelyVehicle252, mAddresss=64:3F:6D:47:87:4B, mScanRecord=0302FDFD15FFFE01090602043532ABE1140BCB9415EAE8B0EC8C020A0505160006000010094765656C7956656869636C6532353200000000000000000000, mRssi=-78, mTimestampNanos=86149590057789, mScanResult=ScanResult{device=64:3F:6D:47:87:4B, scanRecord=ScanRecord [mAdvertiseFlags=-1, mServiceUuids=[0000fdfd-0000-1000-8000-00805f9b34fb], mServiceSolicitationUuids=[], mManufacturerSpecificData={510=[9, 6, 2, 4, 53, 50, -85, -31, 20, 11, -53, -108, 21, -22, -24, -80, -20, -116]}, mServiceData={00000600-0000-1000-8000-00805f9b34fb=[0, 0]}, mTxPowerLevel=5, mDeviceName=GeelyVehicle252], rssi=-78, timestampNanos=86149590057789, eventType=27, primaryPhy=1, secondaryPhy=0, advertisingSid=255, txPower=127, periodicAdvertisingInterval=0}})
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【writeData】--write data success Delaytime 
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【writeData】--write success callback: current: 1, total: 1, justWrite: fe060011fffe0429ee682062f401210afb
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【onCharacteristicChanged】--receive:[fe06002e01210412107d69271126c3e165b5b1eefe0e56fc14fbeb185012fe1faecd54963877fe9d53db86428dde]
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【onCharacteristicChanged】--FE06002E01210412107D69271126C3E165B5B1EEFE0E56FC14FBEB185012FE1FAECD54963877FE9D53DB86428DDE
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl handleMessage】--msg: { when=0 what=36 obj=EventEntity{mac='64:3F:6D:47:87:4B', evtID=1, evtDes=, cmdID=0, chnIdx=0, errCode=0, content=[-2, 6, 0, 46, 1, 33, 4, 18, 16, 125, 105, 39, 17, 38, -61, -31, 101, -75, -79, -18, -2, 14, 86, -4, 20, -5, -21, 24, 80, 18, -2, 31, -82, -51, 84, -106, 56, 119, -2, -99, 83, -37, -122, 66, -115, -34]} target=android.os.Handler }
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【RECEIVE DATA】--data:0 (len : 46) 
+  FE06002E01210412107D69271126C3E165B5B1EEFE0E56FC14FBEB185012FE1FAECD54963877FE9D53DB86428DDE
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl handleMessage】--msg: { when=0 what=37 obj=EventEntity{mac='64:3F:6D:47:87:4B', evtID=1, evtDes=, cmdID=0, chnIdx=0, errCode=0, content=[-2, 6, 0, 46, 1, 33, 4, 18, 16, 125, 105, 39, 17, 38, -61, -31, 101, -75, -79, -18, -2, 14, 86, -4, 20, -5, -21, 24, 80, 18, -2, 31, -82, -51, 84, -106, 56, 119, -2, -99, 83, -37, -122, 66, -115, -34]} target=android.os.Handler }
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【TaskMessager】--receive : data cmd:VSTATUS SYNC, (Len : 46) 
+FE06002E01210412107D69271126C3E165B5B1EEFE0E56FC14FBEB185012FE1FAECD54963877FE9D53DB86428DDE
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【payload-r】-- BaseDispose plaintext: 29EE682062F4AA5901010101000000000098011000
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【TaskMessager】--receive  ee: EventEntity{mac='64:3F:6D:47:87:4B', evtID=4, evtDes=, cmdID=ffffffff, chnIdx=0, errCode=1000, content=[-86, 89, 1, 1, 1, 1, 0, 0, 0, 0, 0, -104, 1, 16, 0]}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【TaskMessager】--sendProcessMsg: MessageEntity{mac='64:3F:6D:47:87:4B', dkid='null', cmdID=CMD_A2V_INST_ACK, object=AckPayload{cmdId=0121data=null}, instType=ACK, chnIdx=UUID1, peroid=false, peroidTime=3000, conTime=3000, timeout=20000}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl handleMessage】--msg: { when=0 what=4 obj=EventEntity{mac='64:3F:6D:47:87:4B', evtID=4, evtDes=, cmdID=ffffffff, chnIdx=0, errCode=1000, content=[-86, 89, 1, 1, 1, 1, 0, 0, 0, 0, 0, -104, 1, 16, 0]} target=android.os.Handler }
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【NativeDkMgr】--getLockNseq: 29F0
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【payload-w BasePacker】-- plaintext: 29EE682062F40121
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【writeData】-- me = MessageEntity{mac='64:3F:6D:47:87:4B', dkid='null', cmdID=CMD_A2V_INST_ACK, object=AckPayload{cmdId=0121data=null}, instType=ACK, chnIdx=UUID1, peroid=false, peroidTime=3000, conTime=3000, timeout=20000}bleDevice = BleDevice{mDevice=64:3F:6D:47:87:4B, mName=GeelyVehicle252, mAddresss=64:3F:6D:47:87:4B, mScanRecord=0302FDFD15FFFE01090602043532ABE1140BCB9415EAE8B0EC8C020A0505160006000010094765656C7956656869636C6532353200000000000000000000, mRssi=-78, mTimestampNanos=86149590057789, mScanResult=ScanResult{device=64:3F:6D:47:87:4B, scanRecord=ScanRecord [mAdvertiseFlags=-1, mServiceUuids=[0000fdfd-0000-1000-8000-00805f9b34fb], mServiceSolicitationUuids=[], mManufacturerSpecificData={510=[9, 6, 2, 4, 53, 50, -85, -31, 20, 11, -53, -108, 21, -22, -24, -80, -20, -116]}, mServiceData={00000600-0000-1000-8000-00805f9b34fb=[0, 0]}, mTxPowerLevel=5, mDeviceName=GeelyVehicle252], rssi=-78, timestampNanos=86149590057789, eventType=27, primaryPhy=1, secondaryPhy=0, advertisingSid=255, txPower=127, periodicAdvertisingInterval=0}}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【Receive 0121:Vehicle Staus Update】--Vehicle Staus Update:
+VehicleStatus{doorStatus={frontLeft=2, frontRight=2, rearLeft=2, rearRight=2}, lockStatus=LockStatus{frontLeft=1, frontRight=1, rearLeft=2, rearRight=1, trunkLock=1, centerLock=0, approachUnlockSwitchStatus=0, walkAwayLockSwitchStatus=0, automaticLockSwitch=1}, windowStatus={frontLeft=1, frontRight=1, rearLeft=1, rearRight=1}, sidedoorStatus={left=0, right=0}, sunroof={sunroof=0, sunCurtain=0}, hoodStatus=2, trunkStatus={trunkStatus=2, trunkOpenStatus=0}, pepsStatus={psStatus=0, peStatus=0}, carmode=0, pollStatus={pollCondition=0, pollStatus=0, pollInterrupt=1, AlarmStatus=0}, extraLightStatus={LowBeam=0, HighBeam=0, HomeSafeBeam=0, HazardWarningLamp=0}, hmiStatus=null}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【writeData】--SEND INST ACK UUID: 0, (len : 17) :
+ FE060011FFFE0429EE682062F401210AFB
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【openPolling】--mPollingEnable: false
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【BleManager】--writeSplit(bleDevice = BleDevice{mDevice=64:3F:6D:47:87:4B, mName=GeelyVehicle252, mAddresss=64:3F:6D:47:87:4B, mScanRecord=0302FDFD15FFFE01090602043532ABE1140BCB9415EAE8B0EC8C020A0505160006000010094765656C7956656869636C6532353200000000000000000000, mRssi=-78, mTimestampNanos=86149590057789, mScanResult=ScanResult{device=64:3F:6D:47:87:4B, scanRecord=ScanRecord [mAdvertiseFlags=-1, mServiceUuids=[0000fdfd-0000-1000-8000-00805f9b34fb], mServiceSolicitationUuids=[], mManufacturerSpecificData={510=[9, 6, 2, 4, 53, 50, -85, -31, 20, 11, -53, -108, 21, -22, -24, -80, -20, -116]}, mServiceData={00000600-0000-1000-8000-00805f9b34fb=[0, 0]}, mTxPowerLevel=5, mDeviceName=GeelyVehicle252], rssi=-78, timestampNanos=86149590057789, eventType=27, primaryPhy=1, secondaryPhy=0, advertisingSid=255, txPower=127, periodicAdvertisingInterval=0}})
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【writeData】--write data success Delaytime 
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【writeData】--write success callback: current: 1, total: 1, justWrite: fe060011fffe0429ee682062f401210afb
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【onCharacteristicChanged】--receive:[fe06002e01210012107d69271126cfe165b5b1eefe0e56fc16fbeb18bd938e0f2c7cda636d171ec0a652c50b52d4]
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【onCharacteristicChanged】--FE06002E01210012107D69271126CFE165B5B1EEFE0E56FC16FBEB18BD938E0F2C7CDA636D171EC0A652C50B52D4
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl handleMessage】--msg: { when=0 what=36 obj=EventEntity{mac='64:3F:6D:47:87:4B', evtID=1, evtDes=, cmdID=0, chnIdx=0, errCode=0, content=[-2, 6, 0, 46, 1, 33, 0, 18, 16, 125, 105, 39, 17, 38, -49, -31, 101, -75, -79, -18, -2, 14, 86, -4, 22, -5, -21, 24, -67, -109, -114, 15, 44, 124, -38, 99, 109, 23, 30, -64, -90, 82, -59, 11, 82, -44]} target=android.os.Handler }
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【RECEIVE DATA】--data:0 (len : 46) 
+  FE06002E01210012107D69271126CFE165B5B1EEFE0E56FC16FBEB18BD938E0F2C7CDA636D171EC0A652C50B52D4
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl handleMessage】--msg: { when=0 what=37 obj=EventEntity{mac='64:3F:6D:47:87:4B', evtID=1, evtDes=, cmdID=0, chnIdx=0, errCode=0, content=[-2, 6, 0, 46, 1, 33, 0, 18, 16, 125, 105, 39, 17, 38, -49, -31, 101, -75, -79, -18, -2, 14, 86, -4, 22, -5, -21, 24, -67, -109, -114, 15, 44, 124, -38, 99, 109, 23, 30, -64, -90, 82, -59, 11, 82, -44]} target=android.os.Handler }
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【TaskMessager】--receive : data cmd:VSTATUS SYNC, (Len : 46) 
+FE06002E01210012107D69271126CFE165B5B1EEFE0E56FC16FBEB18BD938E0F2C7CDA636D171EC0A652C50B52D4
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【payload-r】-- BaseDispose plaintext: 29EE682062F4AA550101010100000000009A011000
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【TaskMessager】--receive  ee: EventEntity{mac='64:3F:6D:47:87:4B', evtID=4, evtDes=, cmdID=ffffffff, chnIdx=0, errCode=1000, content=[-86, 85, 1, 1, 1, 1, 0, 0, 0, 0, 0, -102, 1, 16, 0]}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl handleMessage】--msg: { when=0 what=4 obj=EventEntity{mac='64:3F:6D:47:87:4B', evtID=4, evtDes=, cmdID=ffffffff, chnIdx=0, errCode=1000, content=[-86, 85, 1, 1, 1, 1, 0, 0, 0, 0, 0, -102, 1, 16, 0]} target=android.os.Handler }
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【TaskMessager】--sendProcessMsg: MessageEntity{mac='64:3F:6D:47:87:4B', dkid='null', cmdID=CMD_A2V_INST_ACK, object=AckPayload{cmdId=0121data=null}, instType=ACK, chnIdx=UUID1, peroid=false, peroidTime=3000, conTime=3000, timeout=20000}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【NativeDkMgr】--getLockNseq: 29F1
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【Receive 0121:Vehicle Staus Update】--Vehicle Staus Update:
+VehicleStatus{doorStatus={frontLeft=2, frontRight=2, rearLeft=2, rearRight=2}, lockStatus=LockStatus{frontLeft=1, frontRight=1, rearLeft=1, rearRight=1, trunkLock=1, centerLock=2, approachUnlockSwitchStatus=0, walkAwayLockSwitchStatus=0, automaticLockSwitch=1}, windowStatus={frontLeft=1, frontRight=1, rearLeft=1, rearRight=1}, sidedoorStatus={left=0, right=0}, sunroof={sunroof=0, sunCurtain=0}, hoodStatus=2, trunkStatus={trunkStatus=2, trunkOpenStatus=0}, pepsStatus={psStatus=0, peStatus=0}, carmode=0, pollStatus={pollCondition=0, pollStatus=0, pollInterrupt=1, AlarmStatus=0}, extraLightStatus={LowBeam=0, HighBeam=0, HomeSafeBeam=0, HazardWarningLamp=0}, hmiStatus=null}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【openPolling】--mPollingEnable: false
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【payload-w BasePacker】-- plaintext: 29EE682062F40121
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【writeData】-- me = MessageEntity{mac='64:3F:6D:47:87:4B', dkid='null', cmdID=CMD_A2V_INST_ACK, object=AckPayload{cmdId=0121data=null}, instType=ACK, chnIdx=UUID1, peroid=false, peroidTime=3000, conTime=3000, timeout=20000}bleDevice = BleDevice{mDevice=64:3F:6D:47:87:4B, mName=GeelyVehicle252, mAddresss=64:3F:6D:47:87:4B, mScanRecord=0302FDFD15FFFE01090602043532ABE1140BCB9415EAE8B0EC8C020A0505160006000010094765656C7956656869636C6532353200000000000000000000, mRssi=-78, mTimestampNanos=86149590057789, mScanResult=ScanResult{device=64:3F:6D:47:87:4B, scanRecord=ScanRecord [mAdvertiseFlags=-1, mServiceUuids=[0000fdfd-0000-1000-8000-00805f9b34fb], mServiceSolicitationUuids=[], mManufacturerSpecificData={510=[9, 6, 2, 4, 53, 50, -85, -31, 20, 11, -53, -108, 21, -22, -24, -80, -20, -116]}, mServiceData={00000600-0000-1000-8000-00805f9b34fb=[0, 0]}, mTxPowerLevel=5, mDeviceName=GeelyVehicle252], rssi=-78, timestampNanos=86149590057789, eventType=27, primaryPhy=1, secondaryPhy=0, advertisingSid=255, txPower=127, periodicAdvertisingInterval=0}}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【writeData】--SEND INST ACK UUID: 0, (len : 17) :
+ FE060011FFFE0429EE682062F401210AFB
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【BleManager】--writeSplit(bleDevice = BleDevice{mDevice=64:3F:6D:47:87:4B, mName=GeelyVehicle252, mAddresss=64:3F:6D:47:87:4B, mScanRecord=0302FDFD15FFFE01090602043532ABE1140BCB9415EAE8B0EC8C020A0505160006000010094765656C7956656869636C6532353200000000000000000000, mRssi=-78, mTimestampNanos=86149590057789, mScanResult=ScanResult{device=64:3F:6D:47:87:4B, scanRecord=ScanRecord [mAdvertiseFlags=-1, mServiceUuids=[0000fdfd-0000-1000-8000-00805f9b34fb], mServiceSolicitationUuids=[], mManufacturerSpecificData={510=[9, 6, 2, 4, 53, 50, -85, -31, 20, 11, -53, -108, 21, -22, -24, -80, -20, -116]}, mServiceData={00000600-0000-1000-8000-00805f9b34fb=[0, 0]}, mTxPowerLevel=5, mDeviceName=GeelyVehicle252], rssi=-78, timestampNanos=86149590057789, eventType=27, primaryPhy=1, secondaryPhy=0, advertisingSid=255, txPower=127, periodicAdvertisingInterval=0}})
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【writeData】--write data success Delaytime 
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【writeData】--write success callback: current: 1, total: 1, justWrite: fe060011fffe0429ee682062f401210afb
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【onCharacteristicChanged】--receive:[fe06002e01210012107d69271126cfe165b5b1eefe0e56fc16fbeb8885de74dd33ede2e3981afd2532de7e09a37e]
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【onCharacteristicChanged】--FE06002E01210012107D69271126CFE165B5B1EEFE0E56FC16FBEB8885DE74DD33EDE2E3981AFD2532DE7E09A37E
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl handleMessage】--msg: { when=0 what=36 obj=EventEntity{mac='64:3F:6D:47:87:4B', evtID=1, evtDes=, cmdID=0, chnIdx=0, errCode=0, content=[-2, 6, 0, 46, 1, 33, 0, 18, 16, 125, 105, 39, 17, 38, -49, -31, 101, -75, -79, -18, -2, 14, 86, -4, 22, -5, -21, -120, -123, -34, 116, -35, 51, -19, -30, -29, -104, 26, -3, 37, 50, -34, 126, 9, -93, 126]} target=android.os.Handler }
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【RECEIVE DATA】--data:0 (len : 46) 
+  FE06002E01210012107D69271126CFE165B5B1EEFE0E56FC16FBEB8885DE74DD33EDE2E3981AFD2532DE7E09A37E
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl handleMessage】--msg: { when=-1ms what=37 obj=EventEntity{mac='64:3F:6D:47:87:4B', evtID=1, evtDes=, cmdID=0, chnIdx=0, errCode=0, content=[-2, 6, 0, 46, 1, 33, 0, 18, 16, 125, 105, 39, 17, 38, -49, -31, 101, -75, -79, -18, -2, 14, 86, -4, 22, -5, -21, -120, -123, -34, 116, -35, 51, -19, -30, -29, -104, 26, -3, 37, 50, -34, 126, 9, -93, 126]} target=android.os.Handler }
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【TaskMessager】--receive : data cmd:VSTATUS SYNC, (Len : 46) 
+FE06002E01210012107D69271126CFE165B5B1EEFE0E56FC16FBEB8885DE74DD33EDE2E3981AFD2532DE7E09A37E
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【payload-r】-- BaseDispose plaintext: 29EE682062F4AA550101010100000000009A011090
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【TaskMessager】--receive  ee: EventEntity{mac='64:3F:6D:47:87:4B', evtID=4, evtDes=, cmdID=ffffffff, chnIdx=0, errCode=1000, content=[-86, 85, 1, 1, 1, 1, 0, 0, 0, 0, 0, -102, 1, 16, -112]}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl handleMessage】--msg: { when=0 what=4 obj=EventEntity{mac='64:3F:6D:47:87:4B', evtID=4, evtDes=, cmdID=ffffffff, chnIdx=0, errCode=1000, content=[-86, 85, 1, 1, 1, 1, 0, 0, 0, 0, 0, -102, 1, 16, -112]} target=android.os.Handler }
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【TaskMessager】--sendProcessMsg: MessageEntity{mac='64:3F:6D:47:87:4B', dkid='null', cmdID=CMD_A2V_INST_ACK, object=AckPayload{cmdId=0121data=null}, instType=ACK, chnIdx=UUID1, peroid=false, peroidTime=3000, conTime=3000, timeout=20000}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【NativeDkMgr】--getLockNseq: 29F2
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【Receive 0121:Vehicle Staus Update】--Vehicle Staus Update:
+VehicleStatus{doorStatus={frontLeft=2, frontRight=2, rearLeft=2, rearRight=2}, lockStatus=LockStatus{frontLeft=1, frontRight=1, rearLeft=1, rearRight=1, trunkLock=1, centerLock=2, approachUnlockSwitchStatus=0, walkAwayLockSwitchStatus=0, automaticLockSwitch=1}, windowStatus={frontLeft=1, frontRight=1, rearLeft=1, rearRight=1}, sidedoorStatus={left=0, right=0}, sunroof={sunroof=0, sunCurtain=0}, hoodStatus=2, trunkStatus={trunkStatus=2, trunkOpenStatus=9}, pepsStatus={psStatus=0, peStatus=0}, carmode=0, pollStatus={pollCondition=0, pollStatus=0, pollInterrupt=1, AlarmStatus=0}, extraLightStatus={LowBeam=0, HighBeam=0, HomeSafeBeam=0, HazardWarningLamp=0}, hmiStatus=null}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【payload-w BasePacker】-- plaintext: 29EE682062F40121
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【openPolling】--mPollingEnable: false
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【writeData】-- me = MessageEntity{mac='64:3F:6D:47:87:4B', dkid='null', cmdID=CMD_A2V_INST_ACK, object=AckPayload{cmdId=0121data=null}, instType=ACK, chnIdx=UUID1, peroid=false, peroidTime=3000, conTime=3000, timeout=20000}bleDevice = BleDevice{mDevice=64:3F:6D:47:87:4B, mName=GeelyVehicle252, mAddresss=64:3F:6D:47:87:4B, mScanRecord=0302FDFD15FFFE01090602043532ABE1140BCB9415EAE8B0EC8C020A0505160006000010094765656C7956656869636C6532353200000000000000000000, mRssi=-78, mTimestampNanos=86149590057789, mScanResult=ScanResult{device=64:3F:6D:47:87:4B, scanRecord=ScanRecord [mAdvertiseFlags=-1, mServiceUuids=[0000fdfd-0000-1000-8000-00805f9b34fb], mServiceSolicitationUuids=[], mManufacturerSpecificData={510=[9, 6, 2, 4, 53, 50, -85, -31, 20, 11, -53, -108, 21, -22, -24, -80, -20, -116]}, mServiceData={00000600-0000-1000-8000-00805f9b34fb=[0, 0]}, mTxPowerLevel=5, mDeviceName=GeelyVehicle252], rssi=-78, timestampNanos=86149590057789, eventType=27, primaryPhy=1, secondaryPhy=0, advertisingSid=255, txPower=127, periodicAdvertisingInterval=0}}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【writeData】--SEND INST ACK UUID: 0, (len : 17) :
+ FE060011FFFE0429EE682062F401210AFB
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【BleManager】--writeSplit(bleDevice = BleDevice{mDevice=64:3F:6D:47:87:4B, mName=GeelyVehicle252, mAddresss=64:3F:6D:47:87:4B, mScanRecord=0302FDFD15FFFE01090602043532ABE1140BCB9415EAE8B0EC8C020A0505160006000010094765656C7956656869636C6532353200000000000000000000, mRssi=-78, mTimestampNanos=86149590057789, mScanResult=ScanResult{device=64:3F:6D:47:87:4B, scanRecord=ScanRecord [mAdvertiseFlags=-1, mServiceUuids=[0000fdfd-0000-1000-8000-00805f9b34fb], mServiceSolicitationUuids=[], mManufacturerSpecificData={510=[9, 6, 2, 4, 53, 50, -85, -31, 20, 11, -53, -108, 21, -22, -24, -80, -20, -116]}, mServiceData={00000600-0000-1000-8000-00805f9b34fb=[0, 0]}, mTxPowerLevel=5, mDeviceName=GeelyVehicle252], rssi=-78, timestampNanos=86149590057789, eventType=27, primaryPhy=1, secondaryPhy=0, advertisingSid=255, txPower=127, periodicAdvertisingInterval=0}})
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【writeData】--write data success Delaytime 
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【writeData】--write success callback: current: 1, total: 1, justWrite: fe060011fffe0429ee682062f401210afb
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【onCharacteristicChanged】--receive:[fe06002e01210012107d69271126cfe165b5b1eefe0e56fc16fbeb0885d200840b6cf91c8fe96cfb6dbed0d0011b]
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【onCharacteristicChanged】--FE06002E01210012107D69271126CFE165B5B1EEFE0E56FC16FBEB0885D200840B6CF91C8FE96CFB6DBED0D0011B
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl handleMessage】--msg: { when=0 what=36 obj=EventEntity{mac='64:3F:6D:47:87:4B', evtID=1, evtDes=, cmdID=0, chnIdx=0, errCode=0, content=[-2, 6, 0, 46, 1, 33, 0, 18, 16, 125, 105, 39, 17, 38, -49, -31, 101, -75, -79, -18, -2, 14, 86, -4, 22, -5, -21, 8, -123, -46, 0, -124, 11, 108, -7, 28, -113, -23, 108, -5, 109, -66, -48, -48, 1, 27]} target=android.os.Handler }
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【RECEIVE DATA】--data:0 (len : 46) 
+  FE06002E01210012107D69271126CFE165B5B1EEFE0E56FC16FBEB0885D200840B6CF91C8FE96CFB6DBED0D0011B
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl handleMessage】--msg: { when=0 what=37 obj=EventEntity{mac='64:3F:6D:47:87:4B', evtID=1, evtDes=, cmdID=0, chnIdx=0, errCode=0, content=[-2, 6, 0, 46, 1, 33, 0, 18, 16, 125, 105, 39, 17, 38, -49, -31, 101, -75, -79, -18, -2, 14, 86, -4, 22, -5, -21, 8, -123, -46, 0, -124, 11, 108, -7, 28, -113, -23, 108, -5, 109, -66, -48, -48, 1, 27]} target=android.os.Handler }
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【TaskMessager】--receive : data cmd:VSTATUS SYNC, (Len : 46) 
+FE06002E01210012107D69271126CFE165B5B1EEFE0E56FC16FBEB0885D200840B6CF91C8FE96CFB6DBED0D0011B
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【payload-r】-- BaseDispose plaintext: 29EE682062F4AA550101010100000000009A011010
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【TaskMessager】--receive  ee: EventEntity{mac='64:3F:6D:47:87:4B', evtID=4, evtDes=, cmdID=ffffffff, chnIdx=0, errCode=1000, content=[-86, 85, 1, 1, 1, 1, 0, 0, 0, 0, 0, -102, 1, 16, 16]}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【TaskMessager】--sendProcessMsg: MessageEntity{mac='64:3F:6D:47:87:4B', dkid='null', cmdID=CMD_A2V_INST_ACK, object=AckPayload{cmdId=0121data=null}, instType=ACK, chnIdx=UUID1, peroid=false, peroidTime=3000, conTime=3000, timeout=20000}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl handleMessage】--msg: { when=-1ms what=4 obj=EventEntity{mac='64:3F:6D:47:87:4B', evtID=4, evtDes=, cmdID=ffffffff, chnIdx=0, errCode=1000, content=[-86, 85, 1, 1, 1, 1, 0, 0, 0, 0, 0, -102, 1, 16, 16]} target=android.os.Handler }
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【NativeDkMgr】--getLockNseq: 29F3
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【payload-w BasePacker】-- plaintext: 29EE682062F40121
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【Receive 0121:Vehicle Staus Update】--Vehicle Staus Update:
+VehicleStatus{doorStatus={frontLeft=2, frontRight=2, rearLeft=2, rearRight=2}, lockStatus=LockStatus{frontLeft=1, frontRight=1, rearLeft=1, rearRight=1, trunkLock=1, centerLock=2, approachUnlockSwitchStatus=0, walkAwayLockSwitchStatus=0, automaticLockSwitch=1}, windowStatus={frontLeft=1, frontRight=1, rearLeft=1, rearRight=1}, sidedoorStatus={left=0, right=0}, sunroof={sunroof=0, sunCurtain=0}, hoodStatus=2, trunkStatus={trunkStatus=2, trunkOpenStatus=1}, pepsStatus={psStatus=0, peStatus=0}, carmode=0, pollStatus={pollCondition=0, pollStatus=0, pollInterrupt=1, AlarmStatus=0}, extraLightStatus={LowBeam=0, HighBeam=0, HomeSafeBeam=0, HazardWarningLamp=0}, hmiStatus=null}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【writeData】-- me = MessageEntity{mac='64:3F:6D:47:87:4B', dkid='null', cmdID=CMD_A2V_INST_ACK, object=AckPayload{cmdId=0121data=null}, instType=ACK, chnIdx=UUID1, peroid=false, peroidTime=3000, conTime=3000, timeout=20000}bleDevice = BleDevice{mDevice=64:3F:6D:47:87:4B, mName=GeelyVehicle252, mAddresss=64:3F:6D:47:87:4B, mScanRecord=0302FDFD15FFFE01090602043532ABE1140BCB9415EAE8B0EC8C020A0505160006000010094765656C7956656869636C6532353200000000000000000000, mRssi=-78, mTimestampNanos=86149590057789, mScanResult=ScanResult{device=64:3F:6D:47:87:4B, scanRecord=ScanRecord [mAdvertiseFlags=-1, mServiceUuids=[0000fdfd-0000-1000-8000-00805f9b34fb], mServiceSolicitationUuids=[], mManufacturerSpecificData={510=[9, 6, 2, 4, 53, 50, -85, -31, 20, 11, -53, -108, 21, -22, -24, -80, -20, -116]}, mServiceData={00000600-0000-1000-8000-00805f9b34fb=[0, 0]}, mTxPowerLevel=5, mDeviceName=GeelyVehicle252], rssi=-78, timestampNanos=86149590057789, eventType=27, primaryPhy=1, secondaryPhy=0, advertisingSid=255, txPower=127, periodicAdvertisingInterval=0}}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【writeData】--SEND INST ACK UUID: 0, (len : 17) :
+ FE060011FFFE0429EE682062F401210AFB
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【openPolling】--mPollingEnable: false
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【BleManager】--writeSplit(bleDevice = BleDevice{mDevice=64:3F:6D:47:87:4B, mName=GeelyVehicle252, mAddresss=64:3F:6D:47:87:4B, mScanRecord=0302FDFD15FFFE01090602043532ABE1140BCB9415EAE8B0EC8C020A0505160006000010094765656C7956656869636C6532353200000000000000000000, mRssi=-78, mTimestampNanos=86149590057789, mScanResult=ScanResult{device=64:3F:6D:47:87:4B, scanRecord=ScanRecord [mAdvertiseFlags=-1, mServiceUuids=[0000fdfd-0000-1000-8000-00805f9b34fb], mServiceSolicitationUuids=[], mManufacturerSpecificData={510=[9, 6, 2, 4, 53, 50, -85, -31, 20, 11, -53, -108, 21, -22, -24, -80, -20, -116]}, mServiceData={00000600-0000-1000-8000-00805f9b34fb=[0, 0]}, mTxPowerLevel=5, mDeviceName=GeelyVehicle252], rssi=-78, timestampNanos=86149590057789, eventType=27, primaryPhy=1, secondaryPhy=0, advertisingSid=255, txPower=127, periodicAdvertisingInterval=0}})
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【writeData】--write data success Delaytime 
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【writeData】--write success callback: current: 1, total: 1, justWrite: fe060011fffe0429ee682062f401210afb
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【LocalService】-- HEART:1746952978057
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【onCharacteristicChanged】--receive:[fe06002e01210012107d6926c426cfe165b5b1eefe0e56fc26fbeb08555d0bf7fdce2d994843bd7f8ba10a8d0416]
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【onCharacteristicChanged】--FE06002E01210012107D6926C426CFE165B5B1EEFE0E56FC26FBEB08555D0BF7FDCE2D994843BD7F8BA10A8D0416
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl handleMessage】--msg: { when=0 what=36 obj=EventEntity{mac='64:3F:6D:47:87:4B', evtID=1, evtDes=, cmdID=0, chnIdx=0, errCode=0, content=[-2, 6, 0, 46, 1, 33, 0, 18, 16, 125, 105, 38, -60, 38, -49, -31, 101, -75, -79, -18, -2, 14, 86, -4, 38, -5, -21, 8, 85, 93, 11, -9, -3, -50, 45, -103, 72, 67, -67, 127, -117, -95, 10, -115, 4, 22]} target=android.os.Handler }
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【RECEIVE DATA】--data:0 (len : 46) 
+  FE06002E01210012107D6926C426CFE165B5B1EEFE0E56FC26FBEB08555D0BF7FDCE2D994843BD7F8BA10A8D0416
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl handleMessage】--msg: { when=-1ms what=37 obj=EventEntity{mac='64:3F:6D:47:87:4B', evtID=1, evtDes=, cmdID=0, chnIdx=0, errCode=0, content=[-2, 6, 0, 46, 1, 33, 0, 18, 16, 125, 105, 38, -60, 38, -49, -31, 101, -75, -79, -18, -2, 14, 86, -4, 38, -5, -21, 8, 85, 93, 11, -9, -3, -50, 45, -103, 72, 67, -67, 127, -117, -95, 10, -115, 4, 22]} target=android.os.Handler }
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【TaskMessager】--receive : data cmd:VSTATUS SYNC, (Len : 46) 
+FE06002E01210012107D6926C426CFE165B5B1EEFE0E56FC26FBEB08555D0BF7FDCE2D994843BD7F8BA10A8D0416
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【payload-r】-- BaseDispose plaintext: 29EE68206321AA55010101010000000000AA011010
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【TaskMessager】--receive  ee: EventEntity{mac='64:3F:6D:47:87:4B', evtID=4, evtDes=, cmdID=ffffffff, chnIdx=0, errCode=1000, content=[-86, 85, 1, 1, 1, 1, 0, 0, 0, 0, 0, -86, 1, 16, 16]}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl handleMessage】--msg: { when=0 what=4 obj=EventEntity{mac='64:3F:6D:47:87:4B', evtID=4, evtDes=, cmdID=ffffffff, chnIdx=0, errCode=1000, content=[-86, 85, 1, 1, 1, 1, 0, 0, 0, 0, 0, -86, 1, 16, 16]} target=android.os.Handler }
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【TaskMessager】--sendProcessMsg: MessageEntity{mac='64:3F:6D:47:87:4B', dkid='null', cmdID=CMD_A2V_INST_ACK, object=AckPayload{cmdId=0121data=null}, instType=ACK, chnIdx=UUID1, peroid=false, peroidTime=3000, conTime=3000, timeout=20000}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【NativeDkMgr】--getLockNseq: 29F4
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【payload-w BasePacker】-- plaintext: 29EE682063210121
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【writeData】-- me = MessageEntity{mac='64:3F:6D:47:87:4B', dkid='null', cmdID=CMD_A2V_INST_ACK, object=AckPayload{cmdId=0121data=null}, instType=ACK, chnIdx=UUID1, peroid=false, peroidTime=3000, conTime=3000, timeout=20000}bleDevice = BleDevice{mDevice=64:3F:6D:47:87:4B, mName=GeelyVehicle252, mAddresss=64:3F:6D:47:87:4B, mScanRecord=0302FDFD15FFFE01090602043532ABE1140BCB9415EAE8B0EC8C020A0505160006000010094765656C7956656869636C6532353200000000000000000000, mRssi=-78, mTimestampNanos=86149590057789, mScanResult=ScanResult{device=64:3F:6D:47:87:4B, scanRecord=ScanRecord [mAdvertiseFlags=-1, mServiceUuids=[0000fdfd-0000-1000-8000-00805f9b34fb], mServiceSolicitationUuids=[], mManufacturerSpecificData={510=[9, 6, 2, 4, 53, 50, -85, -31, 20, 11, -53, -108, 21, -22, -24, -80, -20, -116]}, mServiceData={00000600-0000-1000-8000-00805f9b34fb=[0, 0]}, mTxPowerLevel=5, mDeviceName=GeelyVehicle252], rssi=-78, timestampNanos=86149590057789, eventType=27, primaryPhy=1, secondaryPhy=0, advertisingSid=255, txPower=127, periodicAdvertisingInterval=0}}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【Receive 0121:Vehicle Staus Update】--Vehicle Staus Update:
+VehicleStatus{doorStatus={frontLeft=2, frontRight=2, rearLeft=2, rearRight=2}, lockStatus=LockStatus{frontLeft=1, frontRight=1, rearLeft=1, rearRight=1, trunkLock=2, centerLock=2, approachUnlockSwitchStatus=0, walkAwayLockSwitchStatus=0, automaticLockSwitch=1}, windowStatus={frontLeft=1, frontRight=1, rearLeft=1, rearRight=1}, sidedoorStatus={left=0, right=0}, sunroof={sunroof=0, sunCurtain=0}, hoodStatus=2, trunkStatus={trunkStatus=2, trunkOpenStatus=1}, pepsStatus={psStatus=0, peStatus=0}, carmode=0, pollStatus={pollCondition=0, pollStatus=0, pollInterrupt=1, AlarmStatus=0}, extraLightStatus={LowBeam=0, HighBeam=0, HomeSafeBeam=0, HazardWarningLamp=0}, hmiStatus=null}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【writeData】--SEND INST ACK UUID: 0, (len : 17) :
+ FE060011FFFE0429EE6820632101210EEB
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【openPolling】--mPollingEnable: false
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【BleManager】--writeSplit(bleDevice = BleDevice{mDevice=64:3F:6D:47:87:4B, mName=GeelyVehicle252, mAddresss=64:3F:6D:47:87:4B, mScanRecord=0302FDFD15FFFE01090602043532ABE1140BCB9415EAE8B0EC8C020A0505160006000010094765656C7956656869636C6532353200000000000000000000, mRssi=-78, mTimestampNanos=86149590057789, mScanResult=ScanResult{device=64:3F:6D:47:87:4B, scanRecord=ScanRecord [mAdvertiseFlags=-1, mServiceUuids=[0000fdfd-0000-1000-8000-00805f9b34fb], mServiceSolicitationUuids=[], mManufacturerSpecificData={510=[9, 6, 2, 4, 53, 50, -85, -31, 20, 11, -53, -108, 21, -22, -24, -80, -20, -116]}, mServiceData={00000600-0000-1000-8000-00805f9b34fb=[0, 0]}, mTxPowerLevel=5, mDeviceName=GeelyVehicle252], rssi=-78, timestampNanos=86149590057789, eventType=27, primaryPhy=1, secondaryPhy=0, advertisingSid=255, txPower=127, periodicAdvertisingInterval=0}})
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【writeData】--write data success Delaytime 
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【writeData】--write success callback: current: 1, total: 1, justWrite: fe060011fffe0429ee6820632101210eeb
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【onCharacteristicChanged】--receive:[fe06002e01210012107d6926c42630e165b5b1eefe0e56fc27fbeb08c97ce5797dc4f056d49f539f9e2422e753b4]
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【onCharacteristicChanged】--FE06002E01210012107D6926C42630E165B5B1EEFE0E56FC27FBEB08C97CE5797DC4F056D49F539F9E2422E753B4
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl handleMessage】--msg: { when=0 what=36 obj=EventEntity{mac='64:3F:6D:47:87:4B', evtID=1, evtDes=, cmdID=0, chnIdx=0, errCode=0, content=[-2, 6, 0, 46, 1, 33, 0, 18, 16, 125, 105, 38, -60, 38, 48, -31, 101, -75, -79, -18, -2, 14, 86, -4, 39, -5, -21, 8, -55, 124, -27, 121, 125, -60, -16, 86, -44, -97, 83, -97, -98, 36, 34, -25, 83, -76]} target=android.os.Handler }
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【RECEIVE DATA】--data:0 (len : 46) 
+  FE06002E01210012107D6926C42630E165B5B1EEFE0E56FC27FBEB08C97CE5797DC4F056D49F539F9E2422E753B4
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl handleMessage】--msg: { when=-1ms what=37 obj=EventEntity{mac='64:3F:6D:47:87:4B', evtID=1, evtDes=, cmdID=0, chnIdx=0, errCode=0, content=[-2, 6, 0, 46, 1, 33, 0, 18, 16, 125, 105, 38, -60, 38, 48, -31, 101, -75, -79, -18, -2, 14, 86, -4, 39, -5, -21, 8, -55, 124, -27, 121, 125, -60, -16, 86, -44, -97, 83, -97, -98, 36, 34, -25, 83, -76]} target=android.os.Handler }
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【TaskMessager】--receive : data cmd:VSTATUS SYNC, (Len : 46) 
+FE06002E01210012107D6926C42630E165B5B1EEFE0E56FC27FBEB08C97CE5797DC4F056D49F539F9E2422E753B4
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【payload-r】-- BaseDispose plaintext: 29EE68206321AAAA010101010000000000AB011010
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【TaskMessager】--receive  ee: EventEntity{mac='64:3F:6D:47:87:4B', evtID=4, evtDes=, cmdID=ffffffff, chnIdx=0, errCode=1000, content=[-86, -86, 1, 1, 1, 1, 0, 0, 0, 0, 0, -85, 1, 16, 16]}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【DkServerImpl handleMessage】--msg: { when=0 what=4 obj=EventEntity{mac='64:3F:6D:47:87:4B', evtID=4, evtDes=, cmdID=ffffffff, chnIdx=0, errCode=1000, content=[-86, -86, 1, 1, 1, 1, 0, 0, 0, 0, 0, -85, 1, 16, 16]} target=android.os.Handler }
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【TaskMessager】--sendProcessMsg: MessageEntity{mac='64:3F:6D:47:87:4B', dkid='null', cmdID=CMD_A2V_INST_ACK, object=AckPayload{cmdId=0121data=null}, instType=ACK, chnIdx=UUID1, peroid=false, peroidTime=3000, conTime=3000, timeout=20000}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【NativeDkMgr】--getLockNseq: 29F5
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【payload-w BasePacker】-- plaintext: 29EE682063210121
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【Receive 0121:Vehicle Staus Update】--Vehicle Staus Update:
+VehicleStatus{doorStatus={frontLeft=2, frontRight=2, rearLeft=2, rearRight=2}, lockStatus=LockStatus{frontLeft=2, frontRight=2, rearLeft=2, rearRight=2, trunkLock=2, centerLock=3, approachUnlockSwitchStatus=0, walkAwayLockSwitchStatus=0, automaticLockSwitch=1}, windowStatus={frontLeft=1, frontRight=1, rearLeft=1, rearRight=1}, sidedoorStatus={left=0, right=0}, sunroof={sunroof=0, sunCurtain=0}, hoodStatus=2, trunkStatus={trunkStatus=2, trunkOpenStatus=1}, pepsStatus={psStatus=0, peStatus=0}, carmode=0, pollStatus={pollCondition=0, pollStatus=0, pollInterrupt=1, AlarmStatus=0}, extraLightStatus={LowBeam=0, HighBeam=0, HomeSafeBeam=0, HazardWarningLamp=0}, hmiStatus=null}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【openPolling】--mPollingEnable: false
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【writeData】-- me = MessageEntity{mac='64:3F:6D:47:87:4B', dkid='null', cmdID=CMD_A2V_INST_ACK, object=AckPayload{cmdId=0121data=null}, instType=ACK, chnIdx=UUID1, peroid=false, peroidTime=3000, conTime=3000, timeout=20000}bleDevice = BleDevice{mDevice=64:3F:6D:47:87:4B, mName=GeelyVehicle252, mAddresss=64:3F:6D:47:87:4B, mScanRecord=0302FDFD15FFFE01090602043532ABE1140BCB9415EAE8B0EC8C020A0505160006000010094765656C7956656869636C6532353200000000000000000000, mRssi=-78, mTimestampNanos=86149590057789, mScanResult=ScanResult{device=64:3F:6D:47:87:4B, scanRecord=ScanRecord [mAdvertiseFlags=-1, mServiceUuids=[0000fdfd-0000-1000-8000-00805f9b34fb], mServiceSolicitationUuids=[], mManufacturerSpecificData={510=[9, 6, 2, 4, 53, 50, -85, -31, 20, 11, -53, -108, 21, -22, -24, -80, -20, -116]}, mServiceData={00000600-0000-1000-8000-00805f9b34fb=[0, 0]}, mTxPowerLevel=5, mDeviceName=GeelyVehicle252], rssi=-78, timestampNanos=86149590057789, eventType=27, primaryPhy=1, secondaryPhy=0, advertisingSid=255, txPower=127, periodicAdvertisingInterval=0}}
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【writeData】--SEND INST ACK UUID: 0, (len : 17) :
+ FE060011FFFE0429EE6820632101210EEB
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【BleManager】--writeSplit(bleDevice = BleDevice{mDevice=64:3F:6D:47:87:4B, mName=GeelyVehicle252, mAddresss=64:3F:6D:47:87:4B, mScanRecord=0302FDFD15FFFE01090602043532ABE1140BCB9415EAE8B0EC8C020A0505160006000010094765656C7956656869636C6532353200000000000000000000, mRssi=-78, mTimestampNanos=86149590057789, mScanResult=ScanResult{device=64:3F:6D:47:87:4B, scanRecord=ScanRecord [mAdvertiseFlags=-1, mServiceUuids=[0000fdfd-0000-1000-8000-00805f9b34fb], mServiceSolicitationUuids=[], mManufacturerSpecificData={510=[9, 6, 2, 4, 53, 50, -85, -31, 20, 11, -53, -108, 21, -22, -24, -80, -20, -116]}, mServiceData={00000600-0000-1000-8000-00805f9b34fb=[0, 0]}, mTxPowerLevel=5, mDeviceName=GeelyVehicle252], rssi=-78, timestampNanos=86149590057789, eventType=27, primaryPhy=1, secondaryPhy=0, advertisingSid=255, txPower=127, periodicAdvertisingInterval=0}})
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【writeData】--write data success Delaytime 
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【writeData】--write success callback: current: 1, total: 1, justWrite: fe060011fffe0429ee6820632101210eeb
+[*] Call stack:
+[+] debugNative() called with:
+    str: DK20New
+    str2: 【LocalService】-- HEART:1746953038056
+[*] Call stack:
+Process terminated
+
+Thank you for using Frida!

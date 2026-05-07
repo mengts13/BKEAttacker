@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="filename" content="bkeattacker-login.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BKEAttacker - Security certification</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Roboto', 'Microsoft YaHei', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0d2a57, #152c5d);
+            padding: 1rem;
+        }
+
+        /* Device simulation container */
+        .device-container {
+            width: 375px;
+            height: 812px;
+            background: linear-gradient(to bottom, #f0f4f9, #ffffff);
+            border-radius: 36px;
+            box-shadow: 0 15px 40px rgba(8, 20, 50, 0.3);
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* status bar */
+        .status-bar {
+            height: 44px;
+            background-color: #0d2a57;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 24px;
+            font-size: 0.85rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* main content area */
+        .login-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 1.5rem 1.8rem; /* Reduce the top padding to move the element up */
+            background: transparent;
+        }
+
+        /* Adjustment of overall movement of elements upward */
+        .app-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 2rem; /* Reduce the space below */
+        }
+
+        .app-logo-icon {
+            background: linear-gradient(135deg, #1a3f7a, #0d2a57);
+            width: 60px;
+            height: 60px;
+            border-radius: 14px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 10px rgba(26, 63, 122, 0.2);
+        }
+
+        .app-logo-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+
+        .app-name {
+            color: #1a3f7a;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        /* The form area shortens the distance from the top */
+        .login-form {
+            flex: 1;
+            margin-top: -0.5rem; /* Move the form up */
+        }
+
+        .input-group {
+            margin-bottom: 1.2rem; /* Reduce input box spacing */
+            position: relative;
+        }
+
+        .input-label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #334155;
+            margin-bottom: 0.6rem; /* Reduce label bottom margin */
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 13px 42px 13px 16px;
+            font-size: 0.95rem;
+            border: 1px solid #d1dae6;
+            border-radius: 10px;
+            background-color: #fff;
+            transition: all 0.3s ease;
+            color: #1e293b;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: #1a3f7a;
+            box-shadow: 0 0 0 3px rgba(26, 63, 122, 0.15);
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-icon {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #64748b;
+            cursor: pointer;
+        }
+
+        /* Server selection style */
+        .server-select-wrapper {
+            position: relative;
+        }
+
+        .server-select {
+            width: 100%;
+            padding: 13px 16px;
+            font-size: 0.95rem;
+            border: 1px solid #d1dae6;
+            border-radius: 10px;
+            background-color: #fff;
+            appearance: none;
+            color: #1e293b;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231e293b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1em;
+            cursor: pointer;
+        }
+
+        .server-select:focus {
+            outline: none;
+            border-color: #1a3f7a;
+            box-shadow: 0 0 0 3px rgba(26, 63, 122, 0.15);
+        }
+
+        /* Fine-tuning the login button style */
+        .login-btn {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #1a3f7a, #0d2a57);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(26, 63, 122, 0.25);
+            margin-top: 0.8rem; /* Reduce top margin */
+            letter-spacing: 0.5px;
+        }
+
+        .login-btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 5px rgba(26, 63, 122, 0.25);
+            background: linear-gradient(135deg, #17386f, #0b244a);
+        }
+
+        /* security status indicator */
+        .auth-status {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 1.2rem;
+            font-size: 0.8rem;
+            color: #64748b;
+        }
+
+        .auth-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #38a169;
+            margin-right: 8px;
+            box-shadow: 0 0 8px rgba(56, 161, 105, 0.4);
+        }
+
+        /* Bottom information */
+        .footer {
+            padding: 1.2rem;
+            background-color: rgba(26, 63, 122, 0.05);
+            border-top: 1px solid #e6eef8;
+            text-align: center;
+            color: #64748b;
+            font-size: 0.75rem;
+            margin-top: auto;
+        }
+
+        /* watermark effect */
+        .watermark {
+            position: absolute;
+            top: 60%;
+            right: -30px;
+            font-size: 8rem;
+            color: rgba(8, 44, 100, 0.06);
+            font-weight: 900;
+            z-index: 1;
+            transform: rotate(-30deg);
+            pointer-events: none;
+            letter-spacing: -4px;
+        }
+
+        /* Device frame style */
+        .device-frame {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 100;
+            border-radius: 36px;
+            box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.07);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 400px) {
+            .device-container {
+                width: 100%;
+                height: auto;
+                min-height: 100vh;
+                border-radius: 0;
+            }
+
+            .device-frame {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Android device container -->
+<div class="device-container">
+    <!-- status bar -->
+    <div class="status-bar">
+        <div>9:41</div>
+        <div><i class="fas fa-signal"></i> 5G <i class="fas fa-wifi"></i> <i class="fas fa-battery-full"></i></div>
+    </div>
+
+    <!-- main content area -->
+    <div class="login-content">
+        <!-- application name andLOGO -->
+        <div class="app-logo">
+            <div class="app-logo-icon">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <div class="app-name">BKEAttacker</div>
+        </div>
+
+        <!-- form area（Move up as a whole） -->
+        <div class="login-form">
+            <!-- Account input -->
+            <div class="input-group">
+                <label class="input-label">account</label>
+                <div class="input-wrapper">
+                    <input type="text" class="input-field" placeholder="Please enter your account number" value="admin_officer">
+                    <i class="fas fa-user input-icon"></i>
+                </div>
+            </div>
+
+            <!-- Password input -->
+            <div class="input-group">
+                <label class="input-label">password</label>
+                <div class="input-wrapper">
+                    <input type="password" class="input-field" id="password" placeholder="Please enter password" value="••••••••">
+                    <i class="fas fa-eye input-icon" id="togglePassword"></i>
+                </div>
+            </div>
+
+            <!-- Server selection -->
+            <div class="input-group">
+                <label class="input-label">server</label>
+                <div class="server-select-wrapper">
+                    <select class="server-select">
+                        <option value="anonymous City 1" selected>anonymous City 1 server</option>
+                        <option value="Anonymous City 2">Anonymous City 2 server</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Login button -->
+            <button class="login-btn">board record</button>
+
+            <!-- Security status indication -->
+            <div class="auth-status">
+                <div class="auth-indicator"></div>
+                <div>System connection status: Encrypted transmission &middot; Security certification</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom information -->
+    <div class="footer">
+        Powered By YSPX beta. V2025.10.07.1
+    </div>
+
+    <!-- watermark -->
+    <div class="watermark">SECURE</div>
+
+    <!-- Device border -->
+    <div class="device-frame"></div>
+</div>
+
+<script>
+    // Password display/Hide toggle
+    const togglePassword = document.getElementById('togglePassword');
+    const password = document.getElementById('password');
+
+    togglePassword.addEventListener('click', function() {
+        // switch passwordtypeproperty
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+
+        // toggle icon
+        if (type === 'password') {
+            this.classList.remove('fa-eye-slash');
+            this.classList.add('fa-eye');
+        } else {
+            this.classList.remove('fa-eye');
+            this.classList.add('fa-eye-slash');
+        }
+    });
+
+    // Login button click effect
+    const loginBtn = document.querySelector('.login-btn');
+
+    let activeTimer;
+    loginBtn.addEventListener('mousedown', function() {
+        this.style.opacity = '0.9';
+        this.style.transform = 'translateY(2px)';
+        clearTimeout(activeTimer);
+    });
+
+    loginBtn.addEventListener('mouseup', function() {
+        this.style.opacity = '1';
+        this.style.transform = 'translateY(0)';
+    });
+
+    loginBtn.addEventListener('mouseleave', function() {
+        this.style.opacity = '1';
+        this.style.transform = 'translateY(0)';
+    });
+
+    // Add interactive feedback for server selection
+    const serverSelect = document.querySelector('.server-select');
+
+    serverSelect.addEventListener('change', function() {
+        const selectWrapper = this.parentElement;
+        selectWrapper.style.animation = 'select-pulse 0.4s';
+        setTimeout(() => {
+            selectWrapper.style.animation = '';
+        }, 400);
+    });
+
+    // Add small animation toCSS
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes select-pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+    `;
+    document.head.appendChild(style);
+</script>
+</body>

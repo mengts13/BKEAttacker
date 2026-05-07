@@ -1,0 +1,16 @@
+# Multi-server configuration example (New version: message and stream ports are configured separately).
+# p1.html will read this file during initialization, populate the server dropdown, and set it to the backend via DupClient.setServerAddrs(ip, messagePort, streamPort).
+# Only the server IP is displayed on the login page, ports are not shown; however, messagePort and streamPort must be provided in the configuration.
+
+servers:
+  - name: Anonymous
+    ip: 127.0.0.1
+    messagePort: 8080
+    streamPort: 8081
+
+
+
+defaultServer: anonymous City 1
+
+# Compatibility with old field (deprecated): serverAddr
+# If present it will be ignored; please migrate everything to the servers/ip/messagePort/streamPort structure.

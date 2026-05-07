@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Broadcast Selection Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Roboto', 'Microsoft YaHei', sans-serif;
+        }
+        body {
+            background: #f0f4f9;
+            color: #1a3f7a;
+            padding: 8px;
+            min-height: 100vh;
+        }
+        /* Search container: ensure input takes full width and reduce bottom margin */
+.search-container {
+    width: 100%;
+    margin-bottom: 12px; /* Was 20px, now smaller */
+}
+
+.search-container input {
+    width: 100%;
+    padding: 10px 14px; /* Was 14px 16px, now more compact vertically */
+    border: 2px solid #e2e8f0;
+    border-radius: 12px; /* Slightly smaller border-radius for a more refined look */
+    font-size: 0.95rem; /* Slightly smaller for a lighter visual weight */
+    background: white;
+    color: #1a3f7a;
+    outline: none;
+    box-sizing: border-box;
+    font-family: inherit;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-container input::placeholder {
+    color: #94a3b8;
+    font-size: 0.95rem;
+}
+
+.search-container input:focus {
+    border-color: #1a3f7a;
+    box-shadow: 0 2px 6px rgba(26, 63, 122, 0.15);
+}
+        /* Top Navigation */
+        .page-header {
+            display: flex;
+            align-items: center;
+            padding: 16px 0 12px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .back-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #1a3f7a;
+            border: none;
+            cursor: pointer;
+            margin-right: 15px;
+        }
+        .page-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #1a3f7a;
+            flex: 1;
+        }
+        /* Device List Area */
+        .device-list-container {
+            /* Height limit: 5 devices * (100px height + 14px gap) - no gap for the last one ≈ 570px */
+            max-height: 570px;
+            overflow-y: auto;
+            padding-bottom: 20px;
+            margin-top: 24px;
+            /* Optional: hide scrollbar (does not affect functionality) */
+            scrollbar-width: thin;
+            scrollbar-color: #cbd5e1 transparent;
+        }
+        .device-list-container::-webkit-scrollbar {
+            width: 6px;
+        }
+        .device-list-container::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .device-list-container::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1;
+            border-radius: 3px;
+        }
+
+        .section-header {
+            font-size: 1.2rem;
+            color: #1a3f7a;
+            font-weight: 600;
+            margin: 15px 0 22px;
+            display: flex;
+            align-items: center;
+        }
+        .devices-count {
+            background: #1a3f7a;
+            color: white;
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 4px 12px;
+            border-radius: 12px;
+            margin-left: 10px;
+        }
+        .refresh-btn {
+            margin-left: auto;
+            background: white;
+            color: #1a3f7a;
+            border: 2px solid #1a3f7a;
+            border-radius: 50%;
+            width: 34px;
+            height: 34px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        /* BLE Device List */
+        .ble-devices-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .ble-device-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 18px 16px;
+            cursor: pointer;
+            position: relative;
+            min-height: 100px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        }
+        .ble-device-card.selected {
+            background: linear-gradient(135deg, #1a3f7a, #0d2a57);
+            border-color: #1a3f7a;
+            color: white;
+        }
+        .ble-name {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+        }
+        .ble-index {
+            width: 28px;
+            height: 28px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(26, 63, 122, 0.1);
+            border-radius: 8px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .ble-device-card.selected .ble-index {
+            color: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        .mac-wrapper {
+            position: absolute;
+            left: 16px;
+            bottom: 16px;
+            display: flex;
+            align-items: center;
+        }
+        .ble-mac {
+            font-size: 0.85rem;
+            font-family: 'Courier New', monospace;
+            color: #64748b;
+        }
+        .ble-device-card.selected .ble-mac {
+            color: rgba(255, 255, 255, 0.85);
+        }
+        .rssi-wrapper {
+            position: absolute;
+            right: 16px;
+            bottom: 16px;
+        }
+        .ble-rssi {
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+        }
+        /* RSSI Colors */
+        .rssi-strong { color: #38a169; background: rgba(56, 161, 105, 0.1); }
+        .rssi-medium { color: #dd6b20; background: rgba(221, 107, 32, 0.1); }
+        .rssi-weak { color: #e53e3e; background: rgba(229, 62, 62, 0.1); }
+        .rssi-offline { color: #718096; background: rgba(113, 128, 150, 0.1); }
+
+        .ble-device-card.selected .rssi-strong,
+        .ble-device-card.selected .rssi-medium,
+        .ble-device-card.selected .rssi-weak,
+        .ble-device-card.selected .rssi-offline {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .ble-device-card.selected .rssi-strong { color: #a7f3d0; }
+        .ble-device-card.selected .rssi-medium { color: #fde68a; }
+        .ble-device-card.selected .rssi-weak { color: #fecaca; }
+        .ble-device-card.selected .rssi-offline { color: #cbd5e1; }
+
+        /* Bottom Button Bar */
+        .action-bar {
+            display: flex;
+            gap: 15px;
+            margin-top: 24px;
+        }
+        .action-button {
+            flex: 1;
+            padding: 16px;
+            border: none;
+            border-radius: 14px;
+            font-size: 1.08rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .action-button i {
+            margin-right: 10px;
+            font-size: 1.15rem;
+        }
+        .detail-btn {
+            background: white;
+            color: #1a3f7a;
+            border: 2px solid #1a3f7a;
+        }
+        .detail-btn:disabled {
+            opacity: 0.8;
+            cursor: not-allowed;
+        }
+        .confirm-btn {
+            background: linear-gradient(135deg, #1a3f7a, #0d2a57);
+            color: white;
+        }
+        .confirm-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* Animations */
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .rotating {
+            animation: rotate 0.8s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+<!-- Page Header -->
+<div class="page-header">
+    <button class="back-btn" id="back-btn">
+        <svg t="1760082300281" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="9905" width="20" height="20" style="fill: currentColor;">
+            <path d="M475.591111 300.373333V175.217778c-11.377778-52.337778-54.613333-20.48-54.613333-20.48L120.604444 411.875556c-65.991111 45.511111-4.551111 79.644444-4.551111 79.644444l295.822223 254.862222c59.164444 43.235556 63.715556-22.755556 63.715555-22.755555v-116.053334C775.964444 514.275556 898.844444 887.466667 898.844444 887.466667c11.377778 20.48 18.204444 0 18.204445 0 116.053333-559.786667-441.457778-587.093333-441.457778-587.093334z" p-id="9906"></path>
+        </svg>
+    </button>
+    <div class="page-title">Broadcast Selection Page</div>
+</div>
+
+<div class="search-container">
+    <input
+            type="text"
+            id="device-search"
+            placeholder="Enter device name or MAC address"
+    />
+</div>
+<div class="section-header">
+    Scanned BLE Devices
+    <span class="devices-count">6</span>
+    <button class="refresh-btn" id="refresh-btn">
+        <svg class="refresh-icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+            <path d="M792.2 545.2c0-17.1-13.9-31-31-31-16.4 0-29.8 12.7-31 28.8l-0.4-0.1c-17.2 119.4-127.7 202.6-247.3 185.8C362.7 711.9 279.2 601.1 296 481.3 312.9 361.5 423.7 278 543.5 294.9c33.6 4.7 64.4 16.9 90.9 34.5l-38.6 60.4c-1.9 2.9 0.7 6.6 4.1 5.9l145-31.7c2.1-0.5 3.4-2.5 3-4.6L716 213.8c-0.7-3.4-5.2-4.2-7-1.3l-41 64.2c-33.8-22.3-73-37.7-115.8-43.7-154-21.6-296.3 85.6-317.9 239.6-21.6 154 85.6 296.3 239.6 317.9 153.7 21.6 295.9-85.3 317.8-238.9h-0.1c0.4-2 0.6-4.2 0.6-6.4z" fill="#1a3f7a"/>
+        </svg>
+    </button>
+</div>
+<!-- Bottom Action Buttons -->
+<div class="action-bar">
+    <button class="action-button detail-btn" id="detail-btn" disabled>
+        <i class="fas fa-info-circle"></i> Details
+    </button>
+    <button class="action-button confirm-btn" id="confirm-btn" disabled>
+        <i class="fas fa-check-circle"></i> Confirm Selection
+    </button>
+</div>
+<!-- BLE Device List Area -->
+<div class="device-list-container">
+    <div class="ble-devices-list" id="ble-list">
+        </div>
+</div>
+
+
+<script>
+    let selectedDevice = null;
+    const bleListContainer = document.getElementById('ble-list');
+    const deviceCountSpan = document.querySelector('.devices-count');
+    const confirmBtn = document.getElementById('confirm-btn');
+    const detailBtn = document.getElementById('detail-btn');
+    let allDevices = []; // Store all devices obtained from Java
+
+    /**
+     * Get the corresponding CSS class based on the RSSI value
+     */
+    function getRssiClass(rssi) {
+        if (rssi > -60) return 'rssi-strong';
+        if (rssi > -75) return 'rssi-medium';
+        if (rssi > -90) return 'rssi-weak';
+        return 'rssi-offline';
+    }
+
+    /**
+     * Render the device list
+     * @param {Array} devices - Array of ScannedDevice objects from Java
+     */
+    function renderDeviceList(devices) {
+        bleListContainer.innerHTML = ''; // Clear the list
+        deviceCountSpan.textContent = devices.length;
+        allDevices = devices; // Store the full list
+
+        if (devices.length === 0) {
+            bleListContainer.innerHTML = '<p style="text-align:center; color:#64748b;">No devices scanned</p>';
+            return;
+        }
+
+        devices.forEach((device, index) => {
+            const deviceCard = document.createElement('div');
+            deviceCard.className = 'ble-device-card';
+            deviceCard.dataset.id = index; // Use index as ID
+            deviceCard.dataset.address = device.address; // Store MAC address
+
+            const rssiClass = getRssiClass(device.rssi);
+
+            deviceCard.innerHTML = `
+                <div class="ble-name">
+                    <div class="ble-index">${index + 1}</div>
+                    ${device.name}
+                </div>
+                <div class="mac-wrapper">
+                    <div class="ble-mac">${device.address}</div>
+                </div>
+                <div class="rssi-wrapper">
+                    <div class="ble-rssi ${rssiClass}">
+                        <span>${device.rssi} dBm</span>
+                    </div>
+                </div>
+            `;
+
+            // Add click event
+            deviceCard.addEventListener('click', function() {
+                // Remove the selected state from other cards
+                document.querySelectorAll('.ble-device-card').forEach(c => c.classList.remove('selected'));
+                // Add selected state
+                this.classList.add('selected');
+
+                // Store the selected device object
+                selectedDevice = allDevices[parseInt(this.dataset.id)];
+
+                console.log('p4: Device selected:', selectedDevice);
+
+                // enable button
+                confirmBtn.disabled = false;
+                detailBtn.disabled = false;
+            });
+
+            bleListContainer.appendChild(deviceCard);
+        });
+    }
+
+    /**
+     * After the page loads, get the scan results from Android
+     */
+    document.addEventListener('DOMContentLoaded', function() {
+        if (typeof Android === 'undefined' || typeof Android.getScanResults === 'undefined') {
+            alert('Error: Failed to connect to Android native code.');
+            renderDeviceList([]); // Render empty list
+            return;
+        }
+
+        const resultsJson = Android.getScanResults();
+        try {
+            const devices = JSON.parse(resultsJson);
+            console.log('p4: Parsed devices from Java:', devices);
+            renderDeviceList(devices);
+        } catch (e) {
+            alert('Failed to parse scan results: ' + e.message);
+            renderDeviceList([]);
+        }
+    });
+
+    // --- Button Events ---
+
+    // Detail button
+    detailBtn.addEventListener('click', function() {
+        if (!selectedDevice) {
+            alert('Please select a BLE device first');
+            return;
+        }
+        // Call the Java interface to handle details
+        Android.showDetails(JSON.stringify(selectedDevice));
+    });
+
+    // Back button
+    document.getElementById('back-btn').addEventListener('click', function() {
+        // Call Java interface to return to p3
+        Android.goBack();
+    });
+
+    // Confirm Selection button
+    document.getElementById('confirm-btn').addEventListener('click', function() {
+        if (!selectedDevice) {
+            alert('Please select a BLE device first');
+            return;
+        }
+        if (typeof Android === 'undefined' || typeof Android.confirmSelection === 'undefined') {
+            alert('Error: Failed to connect to Android native code (confirmSelection).');
+            return;
+        }
+
+        try {
+            // 1. (Key) Save the selected device to localStorage so that the p3 page can read it
+            //    We use your latest SimpleDevice object, which contains all the details
+            console.log('p4: Saving to localStorage:', selectedDevice);
+            localStorage.setItem('selectedDeviceForP3', JSON.stringify(selectedDevice));
+
+            Log.d(TAG, "Saved to localStorage: " + JSON.stringify(selectedDevice)); // (This line is pseudo-code for demonstration)
+
+        } catch (e) {
+            console.error('Failed to save to localStorage', e);
+            alert('Error saving selection. Continuing...');
+            // (Even if saving fails, we still continue to navigate)
+        }
+
+        // 2. (Unchanged) Call Java as before to navigate to p3?from=p4
+        //    (The confirmSelection logic on the Java side will handle navigation)
+        Android.confirmSelection(JSON.stringify(selectedDevice));
+    });
+
+    // Refresh button (rescan)
+    document.getElementById('refresh-btn').addEventListener('click', function() {
+        const icon = this.querySelector('svg');
+        icon.classList.add('rotating'); // Add rotation animation
+
+        // Call Java to rescan (using manual mode)
+        // The Java side will automatically reload this page (p4.html) after the scan is complete
+        Android.startScan('manual', '');
+
+        // The rotation animation will stop automatically when the page reloads
+    });
+
+    document.getElementById('confirm-btn').addEventListener('click', function() {
+        if (!selectedDevice) {
+            alert('Please select a BLE device first');
+            return;
+        }
+        if (typeof Android === 'undefined' || typeof Android.confirmSelection === 'undefined') {
+            alert('Error: Failed to connect to Android native code (confirmSelection).');
+            return;
+        }
+
+        try {
+            // 1. Save the full device data
+            const selectedDeviceString = JSON.stringify(selectedDevice);
+            localStorage.setItem('selectedDeviceForP3', selectedDeviceString);
+            console.log('p4: Saving full device to localStorage:', selectedDeviceString);
+
+            // 2. (NEW) Save just the MAC address separately for easier retrieval
+            if (selectedDevice.address) {
+                localStorage.setItem('selectedDeviceMacForP3', selectedDevice.address);
+                console.log('p4: Saving MAC to localStorage:', selectedDevice.address);
+            } else {
+                 localStorage.removeItem('selectedDeviceMacForP3'); // Clear if no address
+            }
+
+        } catch (e) {
+            console.error('Failed to save to localStorage', e);
+            alert('Error saving selection. Continuing...');
+        }
+
+        // 3. Call Java navigation (remains the same)
+        Android.confirmSelection(JSON.stringify(selectedDevice));
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,474 @@
+frida -H 127.0.0.1:12347 -n com.android.bluetooth -l all_in_one.js
+     ____
+    / _  |   Frida 16.5.7 - A world-class dynamic instrumentation toolkit
+   | (_| |
+    > _  |   Commands:
+   /_/ |_|       help      -> Displays the help system
+   . . . .       object?   -> Display information about 'object'
+   . . . .       exit/quit -> Exit
+   . . . .
+   . . . .   More info at https://frida.re/docs/home/
+   . . . .
+   . . . .   Connected to 127.0.0.1:12347 (id=socket@127.0.0.1:12347)
+Attaching...                                                            
+[*] Loading Bluetooth protocol stack synthesis Hook script...
+[+] base address: 0x795292b000
+[+] Coming soon Hook function: btm_sec_is_a_bonded_dev @ 0x7952c9fb4c
+[+] Coming soon Hook function: ConnectGatt @ 0x7952cb71d4
+[+] Coming soon Hook function: gatt_connect_cback @ 0x7952cb995c
+[+] Coming soon Hook function: gatt_connect[38C174] @ 0x7952cb7174
+[+] Coming soon Hook function: gatt_connect[397424] @ 0x7952cc2424
+[+] Coming soon Hook function: BTM_BackgroundConnectAddressKnown @ 0x7952c7a74c
+[+] Coming soon Hook function: BTM_BLE_IS_RESOLVE_BDA @ 0x7952c7a74c
+[+] Coming soon Hook function: BTM_IsAclConnectionUp @ 0x7952c6b36c
+[+] Coming soon Hook function: btsnd_hcic_ble_create_ll_conn @ 0x7952cce068
+[+] Coming soon Hook function: btsnd_hcic_ble_ext_create_conn @ 0x7952ccef84
+[+] Coming soon Hook function: supports_ble_extended_advertising @ 0x7952b67cbc
+[+] Coming soon Hook function: BTM_AcceptlistAdd @ 0x7952c7a970
+[*] allHookLoaded successfully！
+[Remote::com.android.bluetooth ]-> BTM_IsAclConnectionUp association MAC address: 0x7952c6b36c
+    Base: 0xb4000079fb4e4f56
+    Original MAC: 30:AF:7E:A9:55:D0
+[+] Module base address: 0x795292b000
+[+] destination address: 0x79531cf03d
+[+] read byte value: 0x00
+1
+[BTM_IsAclConnectionUp] return value: true
+--------------------------------------------------
+BTM_IsAclConnectionUp association MAC address: 0x7952c6b36c
+    Base: 0x79531d2ea9
+    Original MAC: 30:AF:7E:A9:55:D0
+[+] Module base address: 0x795292b000
+[+] destination address: 0x79531cf03d
+[+] read byte value: 0x00
+1
+[BTM_IsAclConnectionUp] return value: true
+--------------------------------------------------
+[btm_sec_is_a_bonded_dev] return value: false
+--------------------------------------------------
+[gatt_connect_cback] association MAC address: 0x7952cb995c
+[GATTC Read operation] connectID: 1, type: 1, address: 0x793efe4298
+Structure content:
+  Authentication request: 0
+  start handle: 0x1
+  end handle: 0xffff
+  UUID:     00002B3A-0000-1000-8000-00805F9B34FB
+[security check] Parameter address: 0x79531d6138
+GATT Security Cls: 0x79531d6138
+[security check] return value: 1
+[security check] return value: reject
+[GATTC Read operation] return value: 0
+BTM_IsAclConnectionUp association MAC address: 0x7952c6b36c
+    Base: 0x79531d71f8
+    Original MAC: 30:AF:7E:A9:55:D0
+[+] Module base address: 0x795292b000
+[+] destination address: 0x79531cf03d
+[+] read byte value: 0x00
+1
+[BTM_IsAclConnectionUp] return value: true
+--------------------------------------------------
+service discovery: 0x79531d61b8
+[MTU Configuration] connectID: 0x6, currentMTU: 200
+[MTU Configuration] return value: 0
+BTM_IsAclConnectionUp association MAC address: 0x7952c6b36c
+    Base: 0x79531d71f8
+    Original MAC: 30:AF:7E:A9:55:D0
+[+] Module base address: 0x795292b000
+[+] destination address: 0x79531cf03d
+[+] read byte value: 0x00
+1
+[BTM_IsAclConnectionUp] return value: true
+--------------------------------------------------
+BTM_IsAclConnectionUp association MAC address: 0x7952c6b36c
+    Base: 0x79531d71f8
+    Original MAC: 30:AF:7E:A9:55:D0
+[+] Module base address: 0x795292b000
+[+] destination address: 0x79531cf03d
+[+] read byte value: 0x00
+1
+[BTM_IsAclConnectionUp] return value: true
+--------------------------------------------------
+service discovery: 0x79531d61b8
+service discovery: 0x79531d6138
+BTM_IsAclConnectionUp association MAC address: 0x7952c6b36c
+    Base: 0x79531d71f8
+    Original MAC: 30:AF:7E:A9:55:D0
+[+] Module base address: 0x795292b000
+[+] destination address: 0x79531cf03d
+[+] read byte value: 0x00
+1
+[BTM_IsAclConnectionUp] return value: true
+--------------------------------------------------
+service discovery: 0x79531d6138
+BTM_IsAclConnectionUp association MAC address: 0x7952c6b36c
+    Base: 0x79531d71f8
+    Original MAC: 30:AF:7E:A9:55:D0
+[+] Module base address: 0x795292b000
+[+] destination address: 0x79531cf03d
+[+] read byte value: 0x00
+1
+[BTM_IsAclConnectionUp] return value: true
+--------------------------------------------------
+service discovery: 0x79531d6138
+BTM_IsAclConnectionUp association MAC address: 0x7952c6b36c
+    Base: 0x79531d71f8
+    Original MAC: 30:AF:7E:A9:55:D0
+[+] Module base address: 0x795292b000
+[+] destination address: 0x79531cf03d
+[+] read byte value: 0x00
+1
+[BTM_IsAclConnectionUp] return value: true
+--------------------------------------------------
+service discovery: 0x79531d6138
+BTM_IsAclConnectionUp association MAC address: 0x7952c6b36c
+    Base: 0x79531d71f8
+    Original MAC: 30:AF:7E:A9:55:D0
+[+] Module base address: 0x795292b000
+[+] destination address: 0x79531cf03d
+[+] read byte value: 0x00
+1
+[BTM_IsAclConnectionUp] return value: true
+--------------------------------------------------
+BTM_IsAclConnectionUp association MAC address: 0x7952c6b36c
+    Base: 0x79531d71f8
+    Original MAC: 30:AF:7E:A9:55:D0
+[+] Module base address: 0x795292b000
+[+] destination address: 0x79531cf03d
+[+] read byte value: 0x00
+1
+[BTM_IsAclConnectionUp] return value: true
+--------------------------------------------------
+service discovery: 0x79531d6138
+service discovery: 0x79531d6138
+BTM_IsAclConnectionUp association MAC address: 0x7952c6b36c
+    Base: 0x79531d71f8
+    Original MAC: 30:AF:7E:A9:55:D0
+[+] Module base address: 0x795292b000
+[+] destination address: 0x79531cf03d
+[+] read byte value: 0x00
+1
+[BTM_IsAclConnectionUp] return value: true
+--------------------------------------------------
+service discovery: 0x79531d6138
+service discovery: 0x79531d6138
+BTM_IsAclConnectionUp association MAC address: 0x7952c6b36c
+    Base: 0x79531d71f8
+    Original MAC: 30:AF:7E:A9:55:D0
+[+] Module base address: 0x795292b000
+[+] destination address: 0x79531cf03d
+[+] read byte value: 0x00
+1
+[BTM_IsAclConnectionUp] return value: true
+--------------------------------------------------
+service discovery: 0x79531d6138
+BTM_IsAclConnectionUp association MAC address: 0x7952c6b36c
+    Base: 0x79531d71f8
+    Original MAC: 30:AF:7E:A9:55:D0
+[+] Module base address: 0x795292b000
+[+] destination address: 0x79531cf03d
+[+] read byte value: 0x00
+1
+[BTM_IsAclConnectionUp] return value: true
+--------------------------------------------------
+service discovery: 0x79531d6138
+BTM_IsAclConnectionUp association MAC address: 0x7952c6b36c
+    Base: 0x79531d71f8
+    Original MAC: 30:AF:7E:A9:55:D0
+[+] Module base address: 0x795292b000
+[+] destination address: 0x79531cf03d
+[+] read byte value: 0x00
+1
+[BTM_IsAclConnectionUp] return value: true
+--------------------------------------------------
+service discovery: 0x79531d6138
+BTM_IsAclConnectionUp association MAC address: 0x7952c6b36c
+    Base: 0x79531d71f8
+    Original MAC: 30:AF:7E:A9:55:D0
+[+] Module base address: 0x795292b000
+[+] destination address: 0x79531cf03d
+[+] read byte value: 0x00
+1
+[BTM_IsAclConnectionUp] return value: true
+--------------------------------------------------
+service discovery: 0x79531d6138
+service discovery: 0x79531d6138
+BTM_IsAclConnectionUp association MAC address: 0x7952c6b36c
+    Base: 0x79531d71f8
+    Original MAC: 30:AF:7E:A9:55:D0
+[+] Module base address: 0x795292b000
+[+] destination address: 0x79531cf03d
+[+] read byte value: 0x00
+1
+[BTM_IsAclConnectionUp] return value: true
+--------------------------------------------------
+service discovery: 0x79531d6138
+BTM_IsAclConnectionUp association MAC address: 0x7952c6b36c
+    Base: 0x79531d71f8
+    Original MAC: 30:AF:7E:A9:55:D0
+[+] Module base address: 0x795292b000
+[+] destination address: 0x79531cf03d
+[+] read byte value: 0x00
+1
+[BTM_IsAclConnectionUp] return value: true
+--------------------------------------------------
+[btm_sec_is_a_bonded_dev] return value: false
+--------------------------------------------------
+BTM_IsAclConnectionUp association MAC address: 0x7952c6b36c
+    Base: 0x79531d71f8
+    Original MAC: 30:AF:7E:A9:55:D0
+[+] Module base address: 0x795292b000
+[+] destination address: 0x79531cf03d
+[+] read byte value: 0x00
+1
+[BTM_IsAclConnectionUp] return value: true
+--------------------------------------------------
+--- Service discovery completed (bta_gattc_disc_cmpl) ---
+Serve [0]
+  handle: 0x9 | UUID: 0000fcd1-0000-1000-8000-00805f9b34fb
+  type: main service | end handle: 0xffff
+  Eigenvalue [0]
+    declare handle: 0xa | UUID: 0000fff1-0000-1000-8000-00805f9b34fb
+    value handle: 0xb | property: 0xc
+    descriptor [0]
+      handle: 0xc | UUID: 00002901-0000-1000-8000-00805f9b34fb
+  Eigenvalue [1]
+    declare handle: 0xd | UUID: 0000fff2-0000-1000-8000-00805f9b34fb
+    value handle: 0xe | property: 0x30
+    descriptor [0]
+      handle: 0xf | UUID: 00002902-0000-1000-8000-00805f9b34fb
+    descriptor [1]
+      handle: 0x10 | UUID: 00002901-0000-1000-8000-00805f9b34fb
+Serve [1]
+  handle: 0x1 | UUID: 0000fffe-0000-1000-8000-00805f9b34fb
+  type: main service | end handle: 0x8
+  Eigenvalue [0]
+    declare handle: 0x2 | UUID: 0000fff4-0000-1000-8000-00805f9b34fb
+    value handle: 0x3 | property: 0xa
+    descriptor [0]
+      handle: 0x4 | UUID: 00002901-0000-1000-8000-00805f9b34fb
+  Eigenvalue [1]
+    declare handle: 0x5 | UUID: 0000fff2-0000-1000-8000-00805f9b34fb
+    value handle: 0x6 | property: 0x1a
+    descriptor [0]
+      handle: 0x7 | UUID: 00002902-0000-1000-8000-00805f9b34fb
+    descriptor [1]
+      handle: 0x8 | UUID: 00002901-0000-1000-8000-00805f9b34fb
+Total number of services discovered: 2
+BTM_IsAclConnectionUp association MAC address: 0x7952c6b36c
+    Base: 0x79531d71f8
+    Original MAC: 30:AF:7E:A9:55:D0
+[+] Module base address: 0x795292b000
+[+] destination address: 0x79531cf03d
+[+] read byte value: 0x00
+1
+[BTM_IsAclConnectionUp] return value: true
+--------------------------------------------------
+BTM_IsAclConnectionUp association MAC address: 0x7952c6b36c
+    Base: 0x79531d4941
+    Original MAC: 30:AF:7E:A9:55:D0
+[+] Module base address: 0x795292b000
+[+] destination address: 0x79531cf03d
+[+] read byte value: 0x00
+1
+[BTM_IsAclConnectionUp] return value: true
+--------------------------------------------------
+
+[GATTC write operation]
+connect ID: 0x6 (6)
+type: GATT_WRITE (2)
+data structure:
+{
+    connectID: 0x6,
+    handle: 0x7,
+    offset: 0x0,
+    length: 2,
+    Authentication request: 0x0,
+    data: [01 00]
+}
+[security check] Parameter address: 0x79531d6138
+GATT Security Cls: 0x79531d6138
+[security check] return value: 1
+[security check] return value: reject
+[GATTC write operation] return value: 0x0
+BTM_IsAclConnectionUp association MAC address: 0x7952c6b36c
+    Base: 0x79531d71f8
+    Original MAC: 30:AF:7E:A9:55:D0
+[+] Module base address: 0x795292b000
+[+] destination address: 0x79531cf03d
+[+] read byte value: 0x00
+1
+[BTM_IsAclConnectionUp] return value: true
+--------------------------------------------------
+BTM_IsAclConnectionUp association MAC address: 0x7952c6b36c
+    Base: 0x79531d71f8
+    Original MAC: 30:AF:7E:A9:55:D0
+[+] Module base address: 0x795292b000
+[+] destination address: 0x79531cf03d
+[+] read byte value: 0x00
+1
+[BTM_IsAclConnectionUp] return value: true
+--------------------------------------------------
+
+[GATTC write operation]
+connect ID: 0x6 (6)
+type: GATT_WRITE (2)
+data structure:
+{
+    connectID: 0x6,
+    handle: 0x6,
+    offset: 0x0,
+    length: 155,
+    Authentication request: 0x0,
+    data: [aa ee 97 00 36 1c 78 00 04 5c bc 1c c8 19 20 ea a0 eb 13 0e 41 60 8b 4b 40 27 4d ac fc b3 31 2e 30 99 18 df c4 ae d8 b8 50 58 5b d8 2d 83 53 f1 9c 3e 58 fc 42 da 8c 42 cf 03 85 e2 e4 bb c7 a5 c8 80 9f a0 20 84 32 7e da 46 77 4f 30 58 59 65 47 79 30 46 4f 48 47 30 47 52 2f 67 6d 4d 55 58 4a 4c 70 78 54 37 30 42 66 4c 62 69 78 36 4d 4d 5a 58 54 69 34 64 52 79 61 68 4f 54 6c 4f 55 52 43 64 32 49 67 77 5a 70 73 01 09 34 35 d1 5c 9d 1f 97 ee 38 8f 71 c6 c8 0e 18 a1]
+}
+[security check] Parameter address: 0x79531d6138
+GATT Security Cls: 0x79531d6138
+[security check] return value: 1
+[security check] return value: reject
+[GATTC write operation] return value: 0x0
+BTM_IsAclConnectionUp association MAC address: 0x7952c6b36c
+    Base: 0x79531d71f8
+    Original MAC: 30:AF:7E:A9:55:D0
+[+] Module base address: 0x795292b000
+[+] destination address: 0x79531cf03d
+[+] read byte value: 0x00
+1
+[BTM_IsAclConnectionUp] return value: true
+--------------------------------------------------
+BTM_IsAclConnectionUp association MAC address: 0x7952c6b36c
+    Base: 0x79531d71f8
+    Original MAC: 30:AF:7E:A9:55:D0
+[+] Module base address: 0x795292b000
+[+] destination address: 0x79531cf03d
+[+] read byte value: 0x00
+1
+[BTM_IsAclConnectionUp] return value: true
+--------------------------------------------------
+
+[Bluetooth GATT notify]
+aisle ID: 0x4, opcode: 0x1b, total length: 32 bytes
+data block #1
+handle: 0x0006
+Data length: 30 bytes
+Data content: AA AB 18 00 00 00 71 4E 7A 39 76 4F 5A 53 34 39 5A 6E 56 4E 64 4E 5A 49 59 76 6F 67 3D 3D
+BTM_IsAclConnectionUp association MAC address: 0x7952c6b36c
+    Base: 0x79531d71f8
+    Original MAC: 30:AF:7E:A9:55:D0
+[+] Module base address: 0x795292b000
+[+] destination address: 0x79531cf03d
+[+] read byte value: 0x00
+1
+[BTM_IsAclConnectionUp] return value: true
+--------------------------------------------------
+
+[Bluetooth GATT notify]
+aisle ID: 0x4, opcode: 0x1b, total length: 32 bytes
+data block #1
+handle: 0x0006
+Data length: 30 bytes
+Data content: AA AB 18 00 00 00 71 4E 7A 39 76 4F 5A 53 34 39 5A 6E 56 4E 64 4E 5A 49 59 76 6F 67 3D 3D
+BTM_IsAclConnectionUp association MAC address: 0x7952c6b36c
+    Base: 0x79531d71f8
+    Original MAC: 30:AF:7E:A9:55:D0
+[+] Module base address: 0x795292b000
+[+] destination address: 0x79531cf03d
+[+] read byte value: 0x00
+1
+[BTM_IsAclConnectionUp] return value: true
+--------------------------------------------------
+
+[Bluetooth GATT notify]
+aisle ID: 0x4, opcode: 0x1b, total length: 32 bytes
+data block #1
+handle: 0x0006
+Data length: 30 bytes
+Data content: AA AB 18 00 00 00 71 4E 7A 39 76 4F 5A 53 34 39 5A 6E 56 4E 64 4E 5A 49 59 76 6F 67 3D 3D
+BTM_IsAclConnectionUp association MAC address: 0x7952c6b36c
+    Base: 0x79531d71f8
+    Original MAC: 30:AF:7E:A9:55:D0
+[+] Module base address: 0x795292b000
+[+] destination address: 0x79531cf03d
+[+] read byte value: 0x00
+1
+[BTM_IsAclConnectionUp] return value: true
+--------------------------------------------------
+
+[Bluetooth GATT notify]
+aisle ID: 0x4, opcode: 0x1b, total length: 32 bytes
+data block #1
+handle: 0x0006
+Data length: 30 bytes
+Data content: AA AB 18 00 00 00 71 4E 7A 39 76 4F 5A 53 34 39 5A 6E 56 4E 64 4E 5A 49 59 76 6F 67 3D 3D
+BTM_IsAclConnectionUp association MAC address: 0x7952c6b36c
+    Base: 0x79531d71f8
+    Original MAC: 30:AF:7E:A9:55:D0
+[+] Module base address: 0x795292b000
+[+] destination address: 0x79531cf03d
+[+] read byte value: 0x00
+1
+[BTM_IsAclConnectionUp] return value: true
+--------------------------------------------------
+BTM_IsAclConnectionUp association MAC address: 0x7952c6b36c
+    Base: 0x79531d71f8
+    Original MAC: 30:AF:7E:A9:55:D0
+[+] Module base address: 0x795292b000
+[+] destination address: 0x79531cf03d
+[+] read byte value: 0x00
+1
+[BTM_IsAclConnectionUp] return value: true
+--------------------------------------------------
+
+[Bluetooth GATT notify]
+aisle ID: 0x4, opcode: 0x1b, total length: 15 bytes
+data block #1
+handle: 0x0006
+Data length: 13 bytes
+Data content: AA AC 01 09 00 02 03 00 00 00 2D 02 01
+BTM_IsAclConnectionUp association MAC address: 0x7952c6b36c
+    Base: 0x79531d71f8
+    Original MAC: 30:AF:7E:A9:55:D0
+[+] Module base address: 0x795292b000
+[+] destination address: 0x79531cf03d
+[+] read byte value: 0x00
+1
+[BTM_IsAclConnectionUp] return value: true
+--------------------------------------------------
+
+[Bluetooth GATT notify]
+aisle ID: 0x4, opcode: 0x1b, total length: 14 bytes
+data block #1
+handle: 0x0006
+Data length: 12 bytes
+Data content: AA AC 01 09 00 03 02 00 00 00 07 01
+BTM_IsAclConnectionUp association MAC address: 0x7952c6b36c
+    Base: 0x79531d71f8
+    Original MAC: 30:AF:7E:A9:55:D0
+[+] Module base address: 0x795292b000
+[+] destination address: 0x79531cf03d
+[+] read byte value: 0x00
+1
+[BTM_IsAclConnectionUp] return value: true
+--------------------------------------------------
+
+[Bluetooth GATT notify]
+aisle ID: 0x4, opcode: 0x1b, total length: 32 bytes
+data block #1
+handle: 0x0006
+Data length: 30 bytes
+Data content: AA AB 18 00 00 00 4A 69 45 6C 33 73 51 39 6E 55 6A 47 75 4B 33 32 69 63 35 4B 2B 67 3D 3D
+BTM_IsAclConnectionUp association MAC address: 0x7952c6b36c
+    Base: 0x79531d71f8
+    Original MAC: 30:AF:7E:A9:55:D0
+[+] Module base address: 0x795292b000
+[+] destination address: 0x79531cf03d
+[+] read byte value: 0x00
+1
+[BTM_IsAclConnectionUp] return value: true
+--------------------------------------------------
+
+[Bluetooth GATT notify]
+aisle ID: 0x4, opcode: 0x1b, total length: 32 bytes
+data block #1
+handle: 0x0006
+Data length: 30 bytes
+Data content: AA AB 18 00 00 00 4A 69 45 6C 33 73 51 39 6E 55 6A 47 75 4B 33 32 69 63 35 4B 2B 67 3D 3D

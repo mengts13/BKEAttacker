@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="filename" content="ble-professional-analyzer.html">
+    <title>BLEDevice details</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+        }
+
+        :root {
+            --primary: #1A3F7A;
+            --primary-light: #2d5b9e;
+            --success: #27ae60;
+            --warning: #f39c12;
+            --text: #2c3e50;
+            --text-light: #7f8c9d;
+            --border: #dce4ef;
+        }
+
+        body {
+            background: linear-gradient(145deg, #e0ecff 0%, #d5e5ff 100%);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+        }
+
+        .container {
+            background: white;
+            border-radius: 0;
+            box-shadow: none;
+            overflow: hidden;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* (Revise) Head style，adaptation page-header */
+        .page-header {
+            background: var(--primary);
+            padding: 1.2rem;
+            display: flex;
+            align-items: center;
+            color: white;
+            position: relative;
+            top: 0;
+            z-index: 10;
+            flex-shrink: 0;
+        }
+
+        /* (Revise) .back-btn now is <button> */
+        .page-header .back-btn {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s;
+
+            /* (new) reset button Default style */
+            border: none;
+            padding: 0;
+            color: white; /* (new) make sure SVG inherit white */
+        }
+        .page-header .back-btn:hover {
+             background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* (Revise) .title become .page-title */
+        .page-header .page-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            text-align: center;
+            flex: 1;
+            margin-right: 36px; /* Still leave room for the button */
+        }
+
+
+        .device-overview { padding: 1rem 1.2rem; text-align: center; background: rgba(26, 63, 122, 0.05); border-bottom: 1px solid var(--border); flex-shrink: 0; }
+        .device-name { font-weight: 600; font-size: 1.1rem; color: var(--primary); margin-bottom: 0.5rem; }
+        .device-address { font-family: 'Courier New', monospace; font-size: 0.85rem; color: var(--text-light); background: rgba(26, 63, 122, 0.08); padding: 0.3rem 0.8rem; border-radius: 15px; display: inline-block; margin-bottom: 0.8rem; }
+        .signal { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(26, 63, 122, 0.07); padding: 0.3rem 1.2rem; border-radius: 20px; }
+        .tabs { display: flex; background: rgba(26, 63, 122, 0.07); border-bottom: 1px solid var(--border); flex-shrink: 0; }
+        .tab { flex: 1; padding: 0.9rem 0; text-align: center; font-weight: 600; position: relative; cursor: pointer; transition: all 0.3s; color: var(--text); font-size: 0.95rem; }
+        .tab.active { color: var(--primary); }
+        .tab.active::after { content: ''; position: absolute; bottom: 0; left: 15%; right: 15%; height: 3px; background: var(--primary); border-radius: 3px; }
+
+        .content-section {
+            flex: 1;
+            min-height: 0;
+            padding: 1.5rem;
+            overflow-y: auto;
+            display: none;
+        }
+        .content-section.active {
+            display: block;
+        }
+
+        .broadcast-container { display: flex; flex-direction: column; gap: 1.8rem; }
+        .packet-card { background: white; border-radius: 18px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); overflow: hidden; border: 1px solid var(--border); }
+        .packet-header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: white; padding: 1rem 1.2rem; display: flex; align-items: center; justify-content: space-between; }
+        .packet-title { font-weight: 600; font-size: 1rem; }
+        .packet-type { background: rgba(255, 255, 255, 0.25); padding: 0.2rem 0.8rem; border-radius: 15px; font-size: 0.85rem; }
+        .packet-body { padding: 1.5rem 1.2rem; }
+        .data-group { margin-bottom: 1.5rem; }
+        .packet-body .data-group:last-child {
+            margin-bottom: 0;
+        }
+        .data-label { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.8rem; font-weight: 600; color: var(--primary); }
+        .hex-data { line-height: 1.7; font-family: 'Courier New', monospace; font-size: 0.9rem; word-break: break-all; padding: 1rem; background: rgba(26, 63, 122, 0.05); border-radius: 10px; border: 1px solid var(--border); color: var(--primary); }
+
+        .table-container { overflow-x: auto; margin-top: 1rem; padding-bottom: 0.5rem; position: relative; }
+        .analysis-table { border-collapse: collapse; border-radius: 10px; overflow: hidden; box-shadow: 0 3px 12px rgba(26, 63, 122, 0.1); }
+        .analysis-table th { background: rgba(26, 63, 122, 0.15); color: var(--primary); font-weight: 600; text-align: left; padding: 0.8rem; border-bottom: 2px solid var(--primary); position: sticky; left: 0; }
+        .analysis-table td { padding: 0.8rem; border-bottom: 1px solid rgba(0,0,0,0.05); font-size: 0.85rem; white-space: nowrap; }
+        .analysis-table tr:last-child td { border-bottom: none; }
+        .analysis-table tr:nth-child(even) { background: rgba(26, 63, 122, 0.03); }
+        .len-cell { min-width: 60px; font-weight: 600; color: #2e7d32; }
+        .type-cell { min-width: 80px; color: #d32f2f; font-family: 'Courier New', monospace; }
+        .data-cell { min-width: 200px; color: var(--primary); font-family: 'Courier New', monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .table-container::-webkit-scrollbar { height: 6px; }
+        .table-container::-webkit-scrollbar-track { background: rgba(26, 63, 122, 0.05); border-radius: 3px; }
+        .table-container::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 3px; }
+
+        .gatt-tree { padding: 0.5rem 0.2rem; }
+        .node { position: relative; padding: 0.4rem 0; }
+        .node-wrapper { position: relative; }
+        .node-wrapper:before { content: ''; position: absolute; top: -20px; bottom: -20px; left: 25px; width: 1px; background: #e1e5eb; }
+        .node-content { position: relative; padding: 0.8rem; background: white; border-radius: 8px; border: 1px solid var(--border); display: flex; align-items: center; gap: 0.8rem; z-index: 2; transition: all 0.2s; }
+
+        .node-content:has(.node-toggle) {
+            cursor: pointer;
+        }
+        .node-content:has(.node-toggle):hover {
+            background: rgba(26, 63, 122, 0.05);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+        }
+
+        .node-icon { width: 32px; height: 32px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; border-radius: 8px; font-size: 0.85rem; }
+        .service-icon { background: rgba(26, 63, 122, 0.1); color: var(--primary); }
+        .characteristic-icon { background: rgba(39, 174, 96, 0.1); color: var(--success); }
+        .descriptor-icon { background: rgba(243, 156, 18, 0.1); color: var(--warning); }
+        .node-info { flex: 1; min-width: 0; }
+        .node-type { font-size: 0.85rem; font-weight: 600; margin-bottom: 0.2rem; }
+        .service-node .node-type { color: var(--primary); }
+        .characteristic-node .node-type { color: var(--success); }
+        .descriptor-node .node-type { color: var(--warning); }
+        .node-uuid { font-family: 'Courier New', monospace; font-size: 0.8rem; color: var(--text-light); word-break: break-all; }
+        .property-section { display: flex; gap: 0.3rem; margin-top: 0.4rem; flex-wrap: wrap; }
+        .property-tag { background: rgba(39, 174, 96, 0.15); color: var(--success); padding: 0.15rem 0.5rem; border-radius: 10px; font-size: 0.75rem; }
+        .descriptor-tag { background: rgba(243, 156, 18, 0.15); color: var(--warning); }
+        .node-toggle { width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: background 0.3s; flex-shrink: 0; }
+        .children { padding-left: 2.2rem; position: relative; max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+        .expanded .children { max-height: 2000px; }
+        .section-title { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--primary); color: var(--primary); font-weight: 600; }
+
+        footer {
+            padding: 1rem;
+            text-align: center;
+            background: rgba(26, 63, 122, 0.05);
+            border-top: 1px solid var(--border);
+            color: var(--text-light);
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="page-header">
+        <button class="back-btn" id="back-btn">
+            <svg t="1760082300281" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="9905" width="20" height="20" style="fill: currentColor;">
+                <path d="M475.591111 300.373333V175.217778c-11.377778-52.337778-54.613333-20.48-54.613333-20.48L120.604444 411.875556c-65.991111 45.511111-4.551111 79.644444-4.551111 79.644444l295.822223 254.862222c59.164444 43.235556 63.715556-22.755556 63.715555-22.755555v-116.053334C775.964444 514.275556 898.844444 887.466667 898.844444 887.466667c11.377778 20.48 18.204444 0 18.204445 0 116.053333-559.786667-441.457778-587.093333-441.457778-587.093334z" p-id="9906"></path>
+            </svg>
+        </button>
+        <div class="page-title">Device details</div>
+    </div>
+
+    <div class="device-overview">
+        <div class="device-name" id="device-name">Loading...</div>
+        <div class="device-address" id="device-address">...</div>
+        <div class="signal">
+            <i class="fas fa-signal"></i>
+            <span id="signal-strength">N/A dBm</span>
+        </div>
+    </div>
+
+    <div class="tabs">
+        <div class="tab active" data-target="broadcast">Broadcast packet</div>
+        <div class="tab" data-target="gatt">GATT</div>
+    </div>
+
+    <div class="content-section active" id="broadcast">
+        <div class="broadcast-container" id="broadcast-container">
+            <p>Loading broadcast data...</p>
+        </div>
+    </div>
+
+    <div class="content-section" id="gatt">
+        <div class="section-title">
+            <i class="fas fa-network-wired"></i>
+            <span>GATTservice structure</span>
+        </div>
+        <div class="gatt-tree" id="gatt-container">
+            <p>LoadingGATTdata...</p>
+        </div>
+    </div>
+
+    <footer>
+    </footer>
+</div>
+
+<script>
+    // --- 1. UUID dictionary (No change) ---
+    const UUID_REGISTRY = {
+        "1800": { name: "universal access service", icon: "fa-bluetooth-b" },
+        "1801": { name: "Common attribute service", icon: "fa-sliders-h" },
+        "180A": { name: "Device information service", icon: "fa-info-circle" },
+        "180F": { name: "battery service", icon: "fa-battery-full" },
+        "2A00": { name: "Device name", icon: "fa-microchip" },
+        "2A01": { name: "Equipment appearance", icon: "fa-image" },
+        "2A05": { name: "Service changes", icon: "fa-sync-alt" },
+        "2A29": { name: "Manufacturer", icon: "fa-industry" },
+        "2A24": { name: "model", icon: "fa-qrcode" },
+        "2A19": { name: "Battery power", icon: "fa-battery-half" },
+        "2902": { name: "Client configuration", icon: "fa-cog" },
+        "2901": { name: "User description", icon: "fa-align-left" },
+        "2900": { name: "extended attributes", icon: "fa-tags" }
+    };
+    const DEFAULTS = {
+        service: { name: "Custom service", icon: "fa-layer-group" },
+        characteristic: { name: "custom features", icon: "fa-cogs" },
+        descriptor: { name: "custom descriptor", icon: "fa-file-alt" }
+    };
+    const AD_TYPE_REGISTRY = { /* (reserve) */ };
+
+    function getShortUuid(uuid) {
+        const match = (uuid || "").toUpperCase().match(/^0000([0-9A-F]{4,8})-0000-1000-8000-00805F9B34FB$/);
+        return match ? match[1] : null;
+    }
+    function getUuidDetails(uuid, type) {
+        const shortUuid = getShortUuid(uuid);
+        return (shortUuid && UUID_REGISTRY[shortUuid]) ? UUID_REGISTRY[shortUuid] : DEFAULTS[type];
+    }
+
+    // --- 2. Broadcast packet parsing function (No change) ---
+
+    function parseAdData(hexString) {
+        if (!hexString) return [];
+        const structures = [];
+        let i = 0;
+        try {
+             while (i < hexString.length) {
+                const lenHex = hexString.substring(i, i + 2);
+                const len = parseInt(lenHex, 16);
+
+                if (len === 0 || i + 2 + (len * 2) > hexString.length) break;
+
+                const typeHex = hexString.substring(i + 2, i + 4).toUpperCase();
+                const data = hexString.substring(i + 4, i + 2 + (len * 2));
+
+                structures.push({
+                    len: '0x' + lenHex,
+                    type: '0x' + typeHex,
+                    data: data
+                });
+
+                i += (len + 1) * 2;
+            }
+        } catch (e) {
+            console.error("Failed to parse AD data:", e, hexString);
+        }
+        return structures;
+    }
+
+    function generateTableHtml(parsedData) {
+        if (!parsedData || parsedData.length === 0) {
+            return '<tr><td colspan="3" style="text-align:center;color:var(--text-light);">N/A</td></tr>';
+        }
+        return parsedData.map(ad => `
+            <tr>
+                <td class="len-cell">${ad.len}</td>
+                <td class="type-cell">${ad.type}</td>
+                <td class="data-cell">${ad.data}</td>
+            </tr>
+        `).join('');
+    }
+
+
+    // --- 3. render function (No change) ---
+
+    function renderOverview(basicInfo, gattInfo) {
+        if (!basicInfo && !gattInfo) {
+            console.warn("renderOverview: No data provided.");
+            return;
+        }
+        const name = (basicInfo ? basicInfo.name : null) || (gattInfo ? gattInfo.deviceName : null) || 'unknown device';
+        const address = (basicInfo ? basicInfo.address : null) || (gattInfo ? gattInfo.deviceAddress : null) || 'N/A';
+        const rssi = (basicInfo ? basicInfo.rssi : null) || 'N/A';
+
+        document.getElementById('device-name').textContent = name;
+        document.getElementById('device-address').textContent = address;
+        document.getElementById('signal-strength').textContent = `${rssi} dBm`;
+    }
+
+    function renderBroadcastData(broadcastPackets) {
+        const container = document.getElementById('broadcast-container');
+        if (!broadcastPackets || broadcastPackets.length === 0) {
+            container.innerHTML = "<p>No broadcast packet data received。</p>";
+            return;
+        }
+
+        const packetsHtml = broadcastPackets.map((packet, index) => {
+            const adDataParsed = parseAdData(packet.adv_data);
+            const respDataParsed = parseAdData(packet.adv_resp);
+
+            const combinedData = adDataParsed.concat(respDataParsed);
+            const combinedTableHtml = generateTableHtml(combinedData);
+
+            const pduType = packet.pduType || '';
+
+            return `
+                <div class="packet-card">
+                    <div class="packet-header">
+                        <div class="packet-title">Broadcast packet #${index + 1}</div>
+                        ${pduType ? `<div class="packet-type">${pduType}</div>` : ''}
+                    </div>
+                    <div class="packet-body">
+                        <div class="data-group">
+                            <div class="data-label">
+                                <i class="fas fa-broadcast-tower"></i>
+                                <span>adv_data</span>
+                            </div>
+                            <div class="hex-data">${packet.adv_data || 'N/A'}</div>
+                        </div>
+
+                        ${packet.adv_resp ? `
+                        <div class="data-group">
+                            <div class="data-label">
+                                <i class="fas fa-reply"></i>
+                                <span>adv_resp</span>
+                            </div>
+                            <div class="hex-data">${packet.adv_resp}</div>
+                        </div>
+                        ` : ''}
+
+                        <div class="data-group">
+                            <div class="data-label">
+                                <i class="fas fa-list-ol"></i>
+                                <span>AD Structure (Combined)</span>
+                            </div>
+                            <div class="table-container">
+                                <table class="analysis-table">
+                                    <thead>
+                                        <tr>
+                                            <th class="len-cell">Len</th>
+                                            <th class="type-cell">Type</th>
+                                            <th class="data-cell">Data</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        ${combinedTableHtml}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+
+        container.innerHTML = packetsHtml;
+    }
+
+    function renderGattData(data) {
+        const container = document.getElementById('gatt-container');
+        if (!data || !data.services || data.services.length === 0) {
+            container.innerHTML = "<p>not foundGATTServe。</p>";
+            if (data.deviceName || data.deviceAddress) {
+                document.getElementById('device-name').textContent = data.deviceName || 'GATT Failed to obtain';
+                document.getElementById('device-address').textContent = data.deviceAddress || '...';
+            }
+            return;
+        }
+
+        const deviceNameEl = document.getElementById('device-name');
+        if (!deviceNameEl.textContent || deviceNameEl.textContent === "Loading...") {
+             deviceNameEl.textContent = data.deviceName || 'unknown device';
+             document.getElementById('device-address').textContent = data.deviceAddress || '00:00:00:00:00:00';
+        }
+
+        const servicesHtml = data.services.map(service => {
+            const serviceDetails = getUuidDetails(service.uuid, 'service');
+
+            const characteristicsHtml = (service.characteristics || []).map(char => {
+                const charDetails = getUuidDetails(char.uuid, 'characteristic');
+                const propertiesHtml = (char.properties || "NONE")
+                    .split(' | ')
+                    .map(prop => `<div class="property-tag">${prop.trim()}</div>`)
+                    .join('');
+
+                const descriptorsHtml = (char.descriptors || []).map(desc => {
+                    const descDetails = getUuidDetails(desc.uuid, 'descriptor');
+                    return `
+                        <div class="node descriptor-node">
+                            <div class="node-content">
+                                <div class="node-icon descriptor-icon"><i class="fas ${descDetails.icon}"></i></div>
+                                <div class="node-info">
+                                    <div class="node-type">${descDetails.name}</div>
+                                    <div class="node-uuid">${desc.uuid}</div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+
+                return `
+                    <div class="node characteristic-node ${descriptorsHtml ? 'expanded' : ''}">
+                        <div class="node-content">
+                            <div class="node-icon characteristic-icon"><i class="fas ${charDetails.icon}"></i></div>
+                            <div class="node-info">
+                                <div class="node-type">${charDetails.name}</div>
+                                <div class="node-uuid">${char.uuid}</div>
+                                <div class="property-section">${propertiesHtml}</div>
+                            </div>
+                            ${descriptorsHtml ? '<div class="node-toggle"><i class="fas fa-chevron-down"></i></div>' : ''}
+                        </div>
+                        ${descriptorsHtml ? `<div class="children">${descriptorsHtml}</div>` : ''}
+                    </div>
+                `;
+            }).join('');
+
+            return `
+                <div class="node service-node expanded">
+                    <div class="node-wrapper">
+                        <div class="node-content">
+                            <div class="node-icon service-icon"><i class="fas ${serviceDetails.icon}"></i></div>
+                            <div class="node-info">
+                                <div class="node-type">${serviceDetails.name}</div>
+                                <div class="node-uuid">${service.uuid}</div>
+                            </div>
+                            ${characteristicsHtml ? '<div class="node-toggle"><i class="fas fa-chevron-down"></i></div>' : ''}
+                        </div>
+                        ${characteristicsHtml ? `<div class="children">${characteristicsHtml}</div>` : ''}
+                    </div>
+                </div>
+            `;
+        }).join('');
+
+        container.innerHTML = servicesHtml;
+    }
+
+
+    // ========================================================================
+    // ======================== 4. Main execution function ========================
+    // ========================================================================
+
+    document.addEventListener('DOMContentLoaded', () => {
+
+        // --- UI event listener ---
+
+        // 1. Tab switching (No change)
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                // ... (No code changes)
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+                this.classList.add('active');
+                const targetId = this.getAttribute('data-target');
+                if(document.getElementById(targetId)) {
+                    document.getElementById(targetId).classList.add('active');
+                }
+            });
+        });
+
+        const backBtn = document.getElementById('back-btn'); // <-- correction points
+        if (backBtn) {
+            backBtn.addEventListener('click', () => {
+                console.log('Return to device list (p4.html)');
+                location.href = 'p4.html'; // Make sure to return to p4
+            });
+        } else {
+            console.error("p9 Script error: cannot be found ID for 'back-btn' back button!");
+        }
+
+
+        // 3. GATT Tree event delegate listener (No change)
+        const gattContainer = document.getElementById('gatt-container');
+        if (gattContainer) {
+            gattContainer.addEventListener('click', e => {
+                // (Correction) Find .node-toggle or .node-content
+                const nodeContent = e.target.closest('.node-content');
+                if (!nodeContent) return;
+
+                const toggleButton = nodeContent.querySelector('.node-toggle');
+                if (toggleButton) { // Only nodes with arrows can be clicked to collapse
+                    e.stopPropagation();
+                    const node = nodeContent.closest('.node');
+                    if (node) {
+                        node.classList.toggle('expanded');
+                        const icon = toggleButton.querySelector('i');
+                        if (icon) {
+                            icon.classList.toggle('fa-chevron-down');
+                            icon.classList.toggle('fa-chevron-right');
+                        }
+                    }
+                }
+            });
+        }
+
+        // --- Data pulling and rendering (No change) ---
+        let data = {};
+        try {
+            if (typeof Android !== 'undefined' && typeof Android.getDeviceDetailsData === 'function') {
+                console.log("p9: Page loaded, calling Android.getDeviceDetailsData()");
+                const jsonDataString = Android.getDeviceDetailsData();
+                console.log("p9: Received data string length:", jsonDataString ? jsonDataString.length : 'null');
+
+                if (jsonDataString) {
+                    data = JSON.parse(jsonDataString);
+                } else {
+                    throw new Error("getDeviceDetailsData returned null or empty");
+                }
+            } else {
+                console.error("p9: Android.getDeviceDetailsData() bridge not found!");
+                // (Test with sample data)
+                console.warn("p9: NOT IN APP. Using test data.");
+                data = {
+                    basicInfo: { name: "Test bracelet Pro", address: "AA:BB:CC:11:22:33", rssi: -50 },
+                    broadcasts: [
+                        { adv_data: "0201060B09546573742042616E64FF00010203", adv_resp: "0A16F0FF1234567890", pduType: "ADV_IND" },
+                        { adv_data: "02011A0303F0FF0516F0FFAA", pduType: "ADV_SCAN_IND" }
+                    ],
+                    gatt: JSON.stringify({
+                        deviceName: "GATT Device Name", deviceAddress: "AA:BB:CC:11:22:33",
+                        services: [
+                            { uuid: "00001800-0000-1000-8000-00805f9b34fb", characteristics: [
+                                { uuid: "00002a00-0000-1000-8000-00805f9b34fb", properties: "READ", descriptors: []},
+                                { uuid: "00002a01-0000-1000-8000-00805f9b34fb", properties: "READ", descriptors: []}
+                            ]},
+                            { uuid: "0000180F-0000-1000-8000-00805f9b34fb", characteristics: [
+                                { uuid: "00002A19-0000-1000-8000-00805f9b34fb", properties: "READ | NOTIFY", descriptors: [
+                                    { uuid: "00002902-0000-1000-8000-00805f9b34fb" }
+                                ]}
+                            ]},
+                             { uuid: "0000180A-0000-1000-8000-00805f9b34fb", characteristics: []}
+                        ]
+                    })
+                };
+            }
+        } catch (e) {
+            console.error("p9: Failed to get or parse data from Java", e);
+            data = {
+                basicInfo: { name: "Loading failed", address: e.message, rssi: -99 },
+                broadcasts: [],
+                gatt: null
+            };
+        }
+
+        // --- Render all dynamic data (No change) ---
+        console.log("p9: Rendering dynamic data...", data);
+
+        renderOverview(data.basicInfo, null);
+        renderBroadcastData(data.broadcasts);
+
+        let gattData = null;
+        if (data.gatt) {
+            try { gattData = JSON.parse(data.gatt); }
+            catch (e) { console.error("p9: Failed to parse GATT JSON string", e); }
+        }
+        if (!gattData) {
+             gattData = {
+                deviceName: data.basicInfo ? data.basicInfo.name : "N/A",
+                deviceAddress: data.basicInfo ? data.basicInfo.address : "N/A",
+                services: [{uuid: "GATT Service acquisition failed", characteristics: []}]
+             };
+        }
+        if (data.basicInfo) {
+            if (!gattData.deviceName) gattData.deviceName = data.basicInfo.name;
+            if (!gattData.deviceAddress) gattData.deviceAddress = data.basicInfo.address;
+        }
+        renderGattData(gattData);
+
+        if (gattData.deviceName || gattData.deviceAddress) {
+             document.getElementById('device-name').textContent = gattData.deviceName || (data.basicInfo ? data.basicInfo.name : 'unknown device');
+             document.getElementById('device-address').textContent = gattData.deviceAddress || (data.basicInfo ? data.basicInfo.address : 'N/A');
+        }
+    });
+</script>
+</body>
+</html>

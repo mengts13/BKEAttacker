@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>BKEAttacker - Security Authentication</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Roboto', 'Microsoft YaHei', sans-serif;
+        }
+        body {
+            background: white;
+            color: #1e293b;
+            line-height: 1.6;
+            padding: 16px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .login-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+            padding: 24px;
+            margin: auto;
+            width: 100%;
+            max-width: 360px;
+        }
+        .app-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+        .app-logo-icon {
+            background: linear-gradient(135deg, #1a3f7a, #0d2a57);
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 6px rgba(26, 63, 122, 0.2);
+        }
+        .app-name {
+            color: #1a3f7a;
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.4px;
+        }
+        .input-group {
+            margin-bottom: 16px;
+        }
+        .input-label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #334155;
+            margin-bottom: 6px;
+        }
+        .input-wrapper {
+            position: relative;
+        }
+        .input-field {
+            width: 100%;
+            padding: 12px 40px 12px 14px;
+            font-size: 0.95rem;
+            border: 1px solid #d1dae6;
+            border-radius: 10px;
+            background-color: #fff;
+            color: #1e293b;
+            transition: border-color 0.2s;
+        }
+        .input-field:focus {
+            outline: none;
+            border-color: #1a3f7a;
+            box-shadow: 0 0 0 2px rgba(26, 63, 122, 0.1);
+        }
+        .input-icon {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #64748b;
+            cursor: pointer;
+        }
+        .server-select {
+            width: 100%;
+            padding: 12px 14px;
+            font-size: 0.95rem;
+            border: 1px solid #d1dae6;
+            border-radius: 10px;
+            background-color: #fff;
+            color: #1e293b;
+            appearance: none;
+            /* Fix: Ensure the arrow icon is displayed correctly */
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 14px;
+            cursor: pointer;
+        }
+        .server-select:focus {
+            outline: none;
+            border-color: #1a3f7a;
+            box-shadow: 0 0 0 2px rgba(26, 63, 122, 0.1);
+        }
+        .login-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #1a3f7a, #0d2a57);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 8px;
+            letter-spacing: 0.5px;
+            transition: opacity 0.2s, transform 0.1s;
+        }
+        .login-btn:active {
+            transform: translateY(1px);
+            opacity: 0.95;
+        }
+        .auth-status {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 16px;
+            font-size: 0.8rem;
+            color: #64748b;
+        }
+        .auth-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #38a169;
+            margin-right: 6px;
+            box-shadow: 0 0 4px rgba(56, 161, 105, 0.4);
+        }
+        .footer {
+            text-align: center;
+            color: #94a3b8;
+            font-size: 0.75rem;
+            margin-top: 24px;
+            padding-top: 12px;
+            border-top: 1px solid #f1f5f9;
+        }
+        @keyframes select-pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+        @media (max-width: 360px) {
+            .login-card {
+                padding: 20px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="login-card">
+    <!-- LOGO and Title -->
+    <div class="app-logo">
+        <div class="app-logo-icon">
+            <svg t="1760080559402" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8856">
+                <path d="M859.553531 223.46735c-131.266167-0.273397-251.874989-45.271187-347.712244-120.449085-95.882309 75.019185-216.28634 120.176713-347.417344 120.449085-87.404969 286.237962 63.019433 593.928847 347.531004 697.515408C796.534098 817.396197 946.982051 509.705312 859.553531 223.46735zM201.448179 514.182052l310.551821 0L512 160.980375c92.522706 64.419182 199.064407 101.307233 311.691485 107.939403 19.76237 82.987619 18.331902 166.81181-1.178574 245.262275L512 514.182052 512 871.126293c-0.015359 0.006144-0.029695 0.012287-0.045054 0.018431C352.376368 807.140244 240.559241 671.464918 201.448179 514.182052z" fill="#ffffff" p-id="8857"></path>
+            </svg>
+        </div>
+        <div class="app-name">BKEAttacker</div>
+    </div>
+
+    <!-- Login Form -->
+    <div class="input-group">
+        <label class="input-label" for="inputAccount">Account</label>
+        <div class="input-wrapper">
+            <input id="inputAccount" type="text" class="input-field" placeholder="Please enter your account number" value="ua">
+            <i class="fas fa-user input-icon"></i>
+        </div>
+    </div>
+
+    <div class="input-group">
+        <label class="input-label" for="inputPassword">Password</label>
+        <div class="input-wrapper">
+            <input id="inputPassword" type="password" class="input-field" placeholder="Please enter your password" value="1113">
+            <i class="fas fa-eye input-icon" id="togglePassword"></i>
+        </div>
+    </div>
+
+    <div class="input-group">
+        <label class="input-label" for="serverSelect">Server</label>
+        <select class="server-select" id="serverSelect"></select>
+    </div>
+
+    <button id="btnLogin" class="login-btn">Login</button>
+
+    <div class="auth-status" id="authHint">
+        <div class="auth-indicator"></div>
+        <div>System Connection Status: Encrypted Transmission &middot; Secure Authentication</div>
+    </div>
+
+    <div class="footer">
+        Powered By Anonymous
+    </div>
+</div>
+
+<script>
+    // Password visibility toggle
+    (function() {
+        const togglePassword = document.getElementById('togglePassword');
+        const password = document.getElementById('inputPassword');
+        if (togglePassword && password) {
+            togglePassword.addEventListener('click', function () {
+                const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+                password.setAttribute('type', type);
+                if (type === 'password') {
+                    this.classList.remove('fa-eye-slash');
+                    this.classList.add('fa-eye');
+                } else {
+                    this.classList.remove('fa-eye');
+                    this.classList.add('fa-eye-slash');
+                }
+            });
+        }
+    })();
+
+    // Server selection animation + apply on change
+    (function(){
+        const serverSelect = document.getElementById('serverSelect');
+        if (!serverSelect) return;
+        serverSelect.addEventListener('change', function () {
+            const wrapper = this.parentElement;
+            wrapper.style.animation = 'select-pulse 0.4s';
+            setTimeout(() => { wrapper.style.animation = ''; }, 400);
+            const ip = this.selectedOptions && this.selectedOptions[0] ? this.selectedOptions[0].getAttribute('data-ip') : '';
+            const mport = this.selectedOptions && this.selectedOptions[0] ? parseInt(this.selectedOptions[0].getAttribute('data-mport') || '0', 10) : 0;
+            const sport = this.selectedOptions && this.selectedOptions[0] ? parseInt(this.selectedOptions[0].getAttribute('data-sport') || '0', 10) : 0;
+            if (ip && mport && sport && window.DupClient && typeof window.DupClient.setServerAddrs === 'function') {
+                try { window.DupClient.setServerAddrs(ip, mport, sport); } catch (e) { console.error('[p1] setServerAddrs on change error:', e); }
+            }
+        });
+    })();
+
+    // Login page core logic: read yaml -> populate servers (display name + IP) -> set message/stream addresses -> login
+    (function(){
+        // YAML parsing: supports servers: [{name, ip, messagePort, streamPort}] + defaultServer
+        async function readYamlConfig() {
+            try {
+                // Prioritize reading assets through the Java bridge to avoid restrictions on fetch(file://) by WebView/ROM
+                if (window.DupClient && typeof window.DupClient.readConfigYaml === 'function') {
+                    const text = window.DupClient.readConfigYaml();
+                    if (text && typeof text === 'string') return parseYamlServers(text);
+                }
+                // Fallback to fetch (only when the bridge is unavailable)
+                const res = await fetch('file:///android_asset/config.yaml');
+                if (!res.ok) throw new Error('fetch config failed: ' + res.status);
+                const text = await res.text();
+                return parseYamlServers(text);
+            } catch (e) {
+                console.error('[p1] readYamlConfig error:', e);
+                return { servers: [], defaultServer: '' };
+            }
+        }
+
+        function parseYamlServers(text) {
+            const lines = text.split(/\r?\n/);
+            const cfg = { servers: [], defaultServer: '' };
+            let inServers = false;
+            let current = null;
+            for (let raw of lines) {
+                const line = raw.replace(/\t/g, '    ');
+                if (!line.trim() || line.trim().startsWith('#')) continue;
+                if (/^\s*servers\s*:\s*$/.test(line)) { inServers = true; current = null; continue; }
+                if (inServers) {
+                    const itemStart = line.match(/^\s*-\s*name\s*:\s*(.+)\s*$/);
+                    if (itemStart) {
+                        if (current && current.ip && current.messagePort && current.streamPort) cfg.servers.push(current);
+                        current = { name: (itemStart[1] || '').trim(), ip: '', messagePort: 0, streamPort: 0 };
+                        continue;
+                    }
+                    if (current) {
+                        const ipLine = line.match(/^\s*ip\s*:\s*(.+)\s*$/);
+                        if (ipLine) { current.ip = ipLine[1].trim(); continue; }
+                        const mpLine = line.match(/^\s*messagePort\s*:\s*(\d+)\s*$/);
+                        if (mpLine) { current.messagePort = parseInt(mpLine[1], 10); continue; }
+                        const spLine = line.match(/^\s*streamPort\s*:\s*(\d+)\s*$/);
+                        if (spLine) { current.streamPort = parseInt(spLine[1], 10); continue; }
+                    }
+                    if (/^\S/.test(line)) { // Exit the servers block
+                        if (current && current.ip && current.messagePort && current.streamPort) cfg.servers.push(current);
+                        current = null; inServers = false;
+                    } else { continue; }
+                }
+                const def = line.match(/^\s*defaultServer\s*:\s*(.+)\s*$/);
+                if (def) { cfg.defaultServer = def[1].trim(); }
+            }
+            if (inServers && current && current.ip && current.messagePort && current.streamPort) cfg.servers.push(current);
+            return cfg;
+        }
+
+        function populateServers(cfg) {
+            const sel = document.getElementById('serverSelect');
+            if (!sel) return;
+            sel.innerHTML = '';
+            const list = Array.isArray(cfg.servers) ? cfg.servers : [];
+            if (!list.length) { console.warn('[p1] The servers list was not parsed from the configuration or is empty, please check the config.yaml structure'); }
+            list.forEach((s, i) => {
+                if (!s || !s.ip || !s.messagePort || !s.streamPort) return;
+                const opt = document.createElement('option');
+                opt.value = s.name || ('server_' + i);
+                opt.textContent = `${s.name} (${s.ip})`; // Display "Name (IP)"
+                opt.setAttribute('data-ip', s.ip);
+                opt.setAttribute('data-mport', String(s.messagePort));
+                opt.setAttribute('data-sport', String(s.streamPort));
+                sel.appendChild(opt);
+            });
+            // Select the default item and set the backend address (message/stream)
+            let selOpt = null;
+            if (cfg.defaultServer) {
+                for (const o of sel.options) {
+                    if (o.value === cfg.defaultServer || o.textContent.indexOf(cfg.defaultServer) >= 0) { selOpt = o; break; }
+                }
+            }
+            if (!selOpt && sel.options.length > 0) selOpt = sel.options[0];
+            if (selOpt) {
+                selOpt.selected = true;
+                const ip = selOpt.getAttribute('data-ip');
+                const mport = parseInt(selOpt.getAttribute('data-mport') || '0', 10);
+                const sport = parseInt(selOpt.getAttribute('data-sport') || '0', 10);
+                if (ip && mport && sport && window.DupClient && typeof window.DupClient.setServerAddrs === 'function') {
+                    try { window.DupClient.setServerAddrs(ip, mport, sport); } catch (e) { console.error('[p1] setServerAddrs on init error:', e); }
+                }
+            }
+        }
+
+        function bindLogin() {
+            const btn = document.getElementById('btnLogin');
+            const inputAccount = document.getElementById('inputAccount');
+            const inputPassword = document.getElementById('inputPassword');
+            const hint = document.getElementById('authHint');
+
+            async function waitAuthTokenReady(timeoutMs = 5000, intervalMs = 300) {
+                const start = Date.now();
+                while (Date.now() - start < timeoutMs) {
+                    try {
+                        if (window.DupClient && typeof window.DupClient.hasAuthToken === 'function') {
+                            if (window.DupClient.hasAuthToken()) return true;
+                        }
+                    } catch(e) { /* ignore */ }
+                    await new Promise(r => setTimeout(r, intervalMs));
+                }
+                return false;
+            }
+
+            async function doLogin() {
+                const account = (inputAccount && inputAccount.value) || '';
+                const password = (inputPassword && inputPassword.value) || '';
+                try {
+                    if (window.DupClient && typeof window.DupClient.login === 'function') {
+                        const ret = window.DupClient.login(account, password);
+                        console.log('[p1] login ret =', ret);
+                        // TODO Current agreement: ret === 0 is considered a success, navigate to p2, needs to be modified in conjunction with the specific response
+                        if (ret === 0) {
+                            if (hint) hint.lastChild && (hint.lastChild.textContent = 'Login successful, preparing session...');
+                            try {
+                                localStorage.setItem('dup.login_user', account || '');
+                                (function(){
+                                var iso;
+                                try{
+                                    if (window.DupClient && typeof window.DupClient.readCurrentTimestampNs === 'function'){
+                                        var ns = Number(window.DupClient.readCurrentTimestampNs()) || 0;
+                                        var ms = Math.floor(ns/1e6);
+                                        if (ms > 0) iso = new Date(ms).toISOString();
+                                    }
+                                }catch(e){ /* ignore */ }
+                                if (!iso) iso = new Date().toISOString();
+                                localStorage.setItem('dup.login_time', iso);
+                            })();
+                            } catch(e) { console.warn('[p1] save login info failed', e); }
+                            const ready = await waitAuthTokenReady(6000, 300);
+                            if (!ready) {
+                                console.warn('[p1] auth token not ready, proceeding to p2 to be handled by retry mechanism');
+                            }
+                            location.href = 'p2.html';
+                        } else {
+                            alert('Login failed, error code: ' + ret);
+                        }
+                    } else {
+                        console.warn('[p1] DupClient.login not available');
+                    }
+                } catch (e) {
+                    console.error('[p1] login exception:', e);
+                }
+            }
+
+            if (btn) btn.addEventListener('click', doLogin);
+            if (inputPassword) {
+                inputPassword.addEventListener('keydown', function (e) {
+                    if (e.key === 'Enter') doLogin();
+                });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', async function () {
+            const cfg = await readYamlConfig();
+            populateServers(cfg);          // Populate server dropdown from config and set default address
+            bindLogin();                   // Bind login
+        });
+    })();
+</script>
+</body>
+</html>

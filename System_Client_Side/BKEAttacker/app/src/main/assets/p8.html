@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+        <title>PINCode pairing</title>
+        <style>
+            * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', 'Roboto', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif; transition: all 0.25s ease; }
+            :root { --primary-blue: #1A3F7A; --soft-blue: #d4e4ff; --text-dark: #2d3748; --text-light: #718096; --text-gray: #a0aec0; --border-color: #e2e8f0; --shadow: 0 2px 10px rgba(0, 0, 0, 0.06); --active-shadow: 0 5px 15px rgba(26, 63, 122, 0.12); --card-radius: 14px; --spacing: 20px; }
+            body { background: white; color: var(--text-dark); line-height: 1.6; padding: 16px; min-height: 100vh; }
+            .header { display: flex; align-items: center; min-height: 64px; background: white; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02); padding: 0 var(--spacing); border-radius: var(--card-radius); margin-bottom: 24px; }
+            .back-btn { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--primary-blue); background: var(--soft-blue); }
+            .back-btn:hover { transform: translateX(-3px); background: #bfd5ff; }
+            .title { flex: 1; text-align: center; font-size: 1.35rem; font-weight: 700; color: var(--primary-blue); padding-right: 44px; letter-spacing: 0.5px; }
+            .content { padding: 0 var(--spacing); }
+            .pin-section { margin-bottom: 30px; }
+            .pin-title { font-size: 1.1rem; font-weight: 600; color: var(--primary-blue); margin-bottom: 16px; padding-left: 8px; }
+            .pin-display { display: flex; justify-content: center; gap: 10px; margin-bottom: 40px; }
+            .pin-digit { width: 50px; height: 60px; background: var(--soft-blue); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: 600; color: var(--primary-blue); box-shadow: var(--shadow); }
+            .input-section { margin-bottom: 20px; }
+            .input-title { font-size: 1.1rem; font-weight: 600; color: var(--primary-blue); margin-bottom: 16px; padding-left: 8px; }
+            .pin-input { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; }
+            .input-digit { width: 50px; height: 60px; background: white; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: 600; color: var(--primary-blue); box-shadow: var(--shadow); border: 2px solid var(--border-color); }
+            .input-digit.active { border-color: var(--primary-blue); }
+            .input-digit.filled { background: var(--primary-blue); color: white; border-color: var(--primary-blue); }
+            .keyboard-container { margin-top: auto; padding: 0 10px; }
+            .keyboard-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+            .key-button { height: 70px; background: white; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: 600; color: var(--text-dark); box-shadow: var(--shadow); cursor: pointer; border: 1px solid var(--border-color); transition: all 0.2s ease; }
+            .key-button:hover { background: var(--soft-blue); transform: translateY(-2px); box-shadow: var(--active-shadow); }
+            .key-button:active { transform: translateY(0); box-shadow: var(--shadow); }
+            .control-button { font-size: 1.5rem; color: var(--primary-blue); }
+            .delete-btn { background: #ffe0e0; }
+            .submit-btn { background: var(--soft-blue); font-weight: 700; }
+            .submit-btn:hover { background: #bfd5ff; }
+            .status-message { height: 40px; text-align: center; margin-top: 20px; font-size: 0.9rem; color: var(--text-light); }
+            @media (max-width: 400px) { .pin-digit, .input-digit { width: 45px; height: 55px; font-size: 1.6rem; } .key-button { height: 65px; } }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <div class="back-btn" id="backBtn"><i class="fas fa-arrow-left"></i></div>
+            <div class="title">PINCode pairing</div>
+        </div>
+        <div class="content">
+            <div class="pin-section">
+                <div class="pin-title">my matchesPINcode：</div>
+                <div class="pin-display" id="myPinDisplay">
+                    <!-- Dynamically populate native PIN（Only use the value passed in from the previous page，no longer called readPin） -->
+                </div>
+            </div>
+            <div class="input-section">
+                <div class="input-title">Please enter the other party's pairingPINcode：</div>
+                <div class="pin-input">
+                    <div class="input-digit" id="digit1">-</div>
+                    <div class="input-digit" id="digit2">-</div>
+                    <div class="input-digit" id="digit3">-</div>
+                    <div class="input-digit" id="digit4">-</div>
+                    <div class="input-digit" id="digit5">-</div>
+                    <div class="input-digit" id="digit6">-</div>
+                </div>
+            </div>
+            <div class="keyboard-container">
+                <div class="keyboard-grid">
+                    <div class="key-button" data-value="1">1</div>
+                    <div class="key-button" data-value="2">2</div>
+                    <div class="key-button" data-value="3">3</div>
+                    <div class="key-button" data-value="4">4</div>
+                    <div class="key-button" data-value="5">5</div>
+                    <div class="key-button" data-value="6">6</div>
+                    <div class="key-button" data-value="7">7</div>
+                    <div class="key-button" data-value="8">8</div>
+                    <div class="key-button" data-value="9">9</div>
+                     <!-- delete button：Replace with your × SVG -->
+                    <div class="key-button control-button delete-btn" id="deleteBtn">
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="32" height="32" style="fill: #ffffff;">
+                            <path d="M107.632 107.632c15.52-15.52 40.64-15.52 56.16 0L512 455.824 860.208 107.632a39.712 39.712 0 0 1 56.16 56.16L568.176 512l348.192 348.208c14.832 14.832 15.472 38.48 1.936 54.08l-1.936 2.08c-15.52 15.52-40.64 15.52-56.16 0L512 568.176 163.792 916.368a39.712 39.712 0 1 1-56.16-56.16L455.824 512 107.632 163.792a39.712 39.712 0 0 1-1.936-54.08z"/>
+                        </svg>
+                    </div>
+                    <div class="key-button" data-value="0">0</div>
+                    <!-- submit button：Replace with your ✓ SVG -->
+                    <div class="key-button control-button submit-btn" id="submitBtn">
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="32" height="32" style="fill: #ffffff;">
+                            <path d="M384.044 759.713l486.49-486.49c17.573-17.573 46.065-17.573 63.639 0 17.573 17.575 17.573 46.067 0 63.64l-550.13 550.13L89.18 592.129c-17.573-17.574-17.573-46.066 0-63.64 17.574-17.573 46.066-17.573 63.64 0l231.224 231.224z"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="status-message" id="statusMessage">Please enter6BitPINcode</div>
+            </div>
+        </div>
+        <script>
+            // Display the local machine read and saved on the previous page PIN（no longer called native readPin）
+            (function showMyPin(){
+                try {
+                    const cont = document.getElementById('myPinDisplay');
+                    if (!cont) return;
+                    const pin = localStorage.getItem('dup.last_pin') || '';
+                    if (pin && pin.length === 6) {
+                        cont.innerHTML = pin.split('').map(d => `<div class="pin-digit">${d}</div>`).join('');
+                    } else {
+                        cont.innerHTML = '<div style="color:#999">NonePIN，Try again later</div>';
+                    }
+                } catch(e) { console.warn('[p8] showMyPin exception:', e); }
+            })();
+
+            
+            function getCounterpartRole(){
+                const myRole = (localStorage.getItem('dup.role') || 'U').toUpperCase();
+                return myRole ;
+            }
+
+            // PIN input keyboard logic
+            let currentPin = ['-', '-', '-', '-', '-', '-'];
+            let currentIndex = 0;
+            function updatePinInput() {
+                for (let i = 0; i < 6; i++) {
+                    const digitEl = document.getElementById(`digit${i+1}`);
+                    digitEl.textContent = currentPin[i];
+                    digitEl.classList.remove('active', 'filled');
+                    if (currentPin[i] !== '-') digitEl.classList.add('filled');
+                    if (i === currentIndex) digitEl.classList.add('active');
+                }
+                const statusEl = document.getElementById('statusMessage');
+                if (currentIndex === 6) { statusEl.textContent = 'PINCode is full，Press Confirm or Delete changes'; statusEl.style.color = 'var(--primary-blue)'; }
+                else { statusEl.textContent = `Entering... (${currentIndex}/6)`; statusEl.style.color = 'var(--text-light)'; }
+            }
+            document.querySelectorAll('.key-button[data-value]').forEach(button => {
+                button.addEventListener('click', function() {
+                    if (currentIndex < 6) {
+                        currentPin[currentIndex] = this.getAttribute('data-value');
+                        currentIndex++;
+                        updatePinInput();
+                    }
+                });
+            });
+            document.getElementById('deleteBtn').addEventListener('click', function() {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    currentPin[currentIndex] = '-';
+                    updatePinInput();
+                }
+            });
+
+            // submit PIN -> fetchPinToken(other side PIN) -> RegisterPair(own role) -> Jump（Local end U->p3，Local end V->p6）
+            document.getElementById('submitBtn').addEventListener('click', function() {
+                if (currentIndex !== 6) { alert('Please enter the complete6BitPINcode'); return; }
+                const enteredPin = currentPin.join('');
+                try {
+                    // Notice：PIN Code pairing needs to be called fetchPinToken，but does not call readPinTempToken / setGlobalPairToken
+                    if (!(window.DupClient && typeof window.DupClient.fetchPinToken === 'function')) { alert('Backend interface is unavailable：fetchPinToken'); return; }
+                    const rcFetch = window.DupClient.fetchPinToken(enteredPin);
+                    console.log('[p8] fetchPinToken rc=', rcFetch);
+                    if (rcFetch !== 0) { alert('Get temporarytokenfail，error code：' + rcFetch); return; }
+
+                    // Directly adjust according to the opponent's role RegisterPair Complete pairing
+                    const role = getCounterpartRole()
+                    if (!(typeof window.DupClient.registerPair === 'function')) { alert('Backend interface is unavailable：registerPair'); return; }
+                    const rcPair = window.DupClient.registerPair(role);
+                    console.log('[p8] registerPair(' + role + ') rc=', rcPair);
+                    if (rcPair !== 0) { alert('Registration pairing failed，error code：' + rcPair); return; }
+
+                    // Clear local cache PIN（After the pairing is completed, both ends need to be deleted.）
+                    try { localStorage.removeItem('dup.last_pin'); localStorage.removeItem('dup.pin_sent'); } catch (e) {}
+
+                    // After displaying the success prompt，Enter different pages according to your role
+                    alert('Pairing successful');
+                    const myRole = (localStorage.getItem('dup.role') || 'U').toUpperCase();
+                    if (myRole === 'V') location.href = 'p6.html';
+                    else location.href = 'p3.html';
+                } catch(e) {
+                    console.error('[p8] submit flow exception:', e);
+                    alert('Abnormal pairing process：' + e.message);
+                }
+            });
+
+            document.getElementById('backBtn').addEventListener('click', function() { history.back(); });
+            updatePinInput();
+        </script>
+    </body>
+</html>

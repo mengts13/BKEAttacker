@@ -1,0 +1,168 @@
+[*] Loading Bluetooth protocol stack Hook script...
+[+] base address: 0x7054875000
+[*] allHookReady！
+[Remote::PID::30190 ]-> [GATTC_Read] connectID: 1, type: 1, Structure address: 0x7040038298
+Structure content:
+  Authentication request: 0
+  start handle: 0x1
+  end handle: 0xffff
+  UUID:     00002B3A-0000-1000-8000-00805F9B34FB
+[security check] Call parameter address: 0x7055120138
+[security check] return value: fail
+[GATTC_Read] return value: 0
+[MTUConfiguration] connectID: 0x6, currentMTU: 243
+[MTUConfiguration] return value: 0
+
+[GATTC_Write Hooked]
+connect ID: 0x6 (6)
+type: GATT_WRITE (2)
+data structure:
+{
+    conn_id: 0x6 (6),
+    handle: 0x7 (7),
+    offset: 0x0 (0),
+    length: 2,
+    Authentication request: 0x0 (0),
+    data: [01 00]
+}
+[security check] Call parameter address: 0x7055120138
+[security check] return value: fail
+[GATTC_Write] return value: 0x0
+
+[GATTC_Write Hooked]
+connect ID: 0x6 (6)
+type: GATT_WRITE (2)
+data structure:
+{
+    conn_id: 0x6 (6),
+    handle: 0xe (14),
+    offset: 0x0 (0),
+    length: 2,
+    Authentication request: 0x0 (0),
+    data: [01 00]
+}
+[security check] Call parameter address: 0x7055120138
+[security check] return value: fail
+[GATTC_Write] return value: 0x0
+
+[GATTC_Write Hooked]
+connect ID: 0x6 (6)
+type: GATT_WRITE_NO_RSP (1)
+data structure:
+{
+    conn_id: 0x6 (6),
+    handle: 0x3 (3),
+    offset: 0x0 (0),
+    length: 41,
+    Authentication request: 0x0 (0),
+    data: [fe 06 00 29 01 01 01 ff d4 5c b3 b3 d7 ae 72 30 a6 9a 6a 59 7c f1 86 9a 9d 03 5a 75 05 f2 8a ec b1 b0 f4 89 02 c9 8d 6b 8c]
+}
+[security check] Call parameter address: 0x7055120138
+[security check] return value: fail
+[GATTC_Write] return value: 0x0
+
+[Bluetooth GATT notify]
+aisle ID: 0x4, opcode: 0x1b, total length: 27 bytes
+data block #1
+handle: 0x0006
+Data length: 25 bytes
+Data content: FE 06 00 19 01 02 02 23 DD 41 04 92 CD 57 69 6F 42 72 32 65 65 87 DE FD 7E
+
+[GATTC_Write Hooked]
+connect ID: 0x6 (6)
+type: GATT_WRITE_NO_RSP (1)
+data structure:
+{
+    conn_id: 0x6 (6),
+    handle: 0x3 (3),
+    offset: 0x0 (0),
+    length: 183,
+    Authentication request: 0x0 (0),
+    data: [fe 06 00 b7 01 06 01 f4 06 68 16 38 d5 31 12 7f 8a 6a 78 64 a3 88 e7 6c 4f 36 31 7d b3 35 a1 bf b0 c0 c1 85 d2 3a c5 b5 3d 9b c4 f7 9b 69 7c 91 97 d3 61 32 31 ae 71 45 fd 0f 64 fc 7a 22 9f 58 45 f9 15 94 18 15 0c 44 08 49 7b bd 5b 4e 2f da 17 8a db e2 2c 0a fe 5c a6 d1 6f 3a 2b bf c5 cc 7e d2 ad db 68 ca 2f 3d df 56 ed 22 ee 30 46 02 21 00 d8 54 e5 2b 0c 19 d3 ec 53 41 59 42 ad ea 55 dd b8 97 d3 80 ce 4c 2d ff f3 c5 b0 4f bc c6 e4 f1 02 21 00 f2 e8 9f 1f 03 89 8b 8a 33 3d dc e4 25 70 f1 5a bc 72 da 01 22 04 48 43 cd 35 c6 5c 6d 6b 25 d0 a9 29]
+}
+[security check] Call parameter address: 0x7055120138
+[security check] return value: fail
+[GATTC_Write] return value: 0x0
+
+[Bluetooth GATT notify]
+aisle ID: 0x4, opcode: 0x1b, total length: 184 bytes
+data block #1
+handle: 0x0006
+Data length: 182 bytes
+Data content: FE 06 00 B6 01 08 02 F4 06 68 16 38 D4 91 E5 60 68 00 96 1D C7 AE A8 2D 79 3C 00 28 1A DD 57 9D 5B 67 24 ED F7 A5 BA AE 28 5F BC 7A EB FD 9C 93 04 F9 62 B1 45 57 3B 14 19 1F AE 24 FE 3A 91 29 20 59 3F BB 7C C1 41 86 B3 37 48 49 B7 EE 52 3A 04 24 31 35 86 FF A6 D9 72 3F EF DA 54 BC 52 C8 B7 C4 B2 CD B3 E1 F9 3B D2 EB A1 08 9C 30 45 02 21 00 91 E5 60 68 00 96 1D C7 AE A8 2D 79 3C 00 28 1A DD 57 9D 5B 67 24 ED F7 A5 BA AE 28 5F BC 7A EB 02 20 17 34 3B 3A 97 0A 0E 5D B2 75 A8 46 00 7F 47 51 EC AA 8E 76 C5 DC 89 5D 2A 2E AE 82 05 47 B0 9D 16 49
+
+[GATTC_Write Hooked]
+connect ID: 0x6 (6)
+type: GATT_WRITE_NO_RSP (1)
+data structure:
+{
+    conn_id: 0x6 (6),
+    handle: 0x3 (3),
+    offset: 0x0 (0),
+    length: 159,
+    Authentication request: 0x0 (0),
+    data: [fe 06 00 9f 01 09 01 68 a1 63 70 25 c2 1f a4 76 ac b3 6d ab b0 1f 63 cd 1d 14 c2 1c c2 31 27 0a d7 8d d1 52 0e 79 f9 0b 7c 31 37 f8 bb 02 e6 32 2f d8 4b e2 37 7b 11 7c 87 90 01 99 f7 ef a9 2c 11 18 a4 fe d4 99 22 c9 0b 1f d1 ac ad 33 e0 25 6a 8c 30 b5 6d e4 81 55 8b 6d 68 f1 88 57 b2 5e 2e a4 2f 0b 16 61 d0 ec db bc 67 a5 14 28 3d 24 38 ea f4 a4 c9 f7 5c 7e ff cc cd bb 00 39 35 82 f2 00 98 0d 09 74 55 bc aa 47 13 06 82 29 39 c7 57 97 60 b3 34 96 c0 d4 ca 20 d0 d4 a4 0e 29]
+}
+[security check] Call parameter address: 0x7055120138
+[security check] return value: fail
+[GATTC_Write] return value: 0x0
+
+[Bluetooth GATT notify]
+aisle ID: 0x4, opcode: 0x1b, total length: 35 bytes
+data block #1
+handle: 0x0006
+Data length: 33 bytes
+Data content: FE 06 00 21 01 0A 02 68 A1 63 70 25 C1 C6 A4 67 BD 4A 37 95 D2 8F 81 59 1F 82 A9 47 E7 2C E9 5E 54
+
+[Bluetooth GATT notify]
+aisle ID: 0x4, opcode: 0x1b, total length: 48 bytes
+data block #1
+handle: 0x0006
+Data length: 46 bytes
+Data content: FE 06 00 2E 01 21 02 68 A1 63 70 25 C1 7C 0E CE AD 0E 66 AE B5 B9 AD D9 BF 15 D2 3F ED D2 7B 36 F4 01 87 19 C1 54 E3 B5 0C AA 8A 12 BC 16
+
+[Bluetooth GATT notify]
+aisle ID: 0x4, opcode: 0x1b, total length: 48 bytes
+data block #1
+handle: 0x0006
+Data length: 46 bytes
+Data content: FE 06 00 2E 01 21 02 68 A1 63 70 25 C1 7C 0E CE AD 0E 66 AE B5 B9 AD D9 BF 15 D2 3F ED D2 7B 36 F4 01 87 19 C1 54 E3 B5 0C AA 8A 12 BC 16
+
+[GATTC_Write Hooked]
+connect ID: 0x6 (6)
+type: GATT_WRITE_NO_RSP (1)
+data structure:
+{
+    conn_id: 0x6 (6),
+    handle: 0x3 (3),
+    offset: 0x0 (0),
+    length: 56,
+    Authentication request: 0x0 (0),
+    data: [fe 06 00 38 01 37 03 68 ae 63 70 25 c2 d6 a4 cf ac 0f 67 ae b5 b9 ad d9 17 14 c2 3f ea 0d 80 3d ee cb 36 da ca 00 af b6 95 59 bf c1 5f 6d ef 88 5b d7 61 a2 a9 ff 86 d0]
+}
+[security check] Call parameter address: 0x7055120138
+[security check] return value: fail
+[GATTC_Write] return value: 0x0
+
+[Bluetooth GATT notify]
+aisle ID: 0x4, opcode: 0x1b, total length: 21 bytes
+data block #1
+handle: 0x0006
+Data length: 19 bytes
+Data content: FE 06 00 13 FF FE 04 F4 08 68 16 38 D5 01 37 10 00 38 BD
+
+[GATTC_Write Hooked]
+connect ID: 0x6 (6)
+type: GATT_WRITE_NO_RSP (1)
+data structure:
+{
+    conn_id: 0x6 (6),
+    handle: 0x3 (3),
+    offset: 0x0 (0),
+    length: 17,
+    Authentication request: 0x0 (0),
+    data: [fe 06 00 11 ff fe 04 f4 07 68 16 38 d5 01 21 d7 c5]
+}
+[security check] Call parameter address: 0x7055120138
+[security check] return value: fail
+[GATTC_Write] return value: 0x0
